@@ -7,12 +7,12 @@ Application is a database that contains information about winning scratch cards 
 The application is built using the React library and Firebase database.
 
 ## Table of content
--[Preview](#overview)
-    -[Information](#the-scratch-application)
-    -[Used Technology](Technology)
-    -[Tools](#tools)
-    -[Links](#Links)
--[Author](#author)
+- [Preview](#overview)
+    - [Information](#the-scratch-application)
+    - [Used Technology](Technology)
+    - [Tools](#tools)
+    - [Links](#Links)
+- [Author](#author)
 
 
 
