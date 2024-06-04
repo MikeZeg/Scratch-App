@@ -1,10 +1,12 @@
+import React from 'react';
+import { useEffect, useState } from "react"
 import './styles/App.css';
+import LandingPage from "./components/landingPage.js";
 
 const App = () => {
   return (
       <div>
-        <h1>Hello</h1>
-        <h2>Please check our Scratch App</h2>
+        <LandingPage/>
       </div>
     );
 }
