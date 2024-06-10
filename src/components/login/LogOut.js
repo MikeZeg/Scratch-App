@@ -22,6 +22,7 @@ export const LogOut = () => {
         return(
             <div>
                 <button onClick={signOut}>Log Out</button>
+                
             </div>
         )
     }

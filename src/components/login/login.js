@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import ReactDom from "react-dom";
-// import { Auth } from "../config/auth.js"
+import "../../styles/loginStyle.css";
+
+import { BrowserRouter as Router, Route, Routes, Link, Outlet, BrowserRouter } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 import { auth, googleProvider } from "../../config/firebase.js";
 import { createUserWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth'
-import "../../styles/loginStyle.css";
+
 import { SignInByGoogle } from "./SignInByGoogle.js";
 import { SignIn } from  "./SignIn.js";
 import { ResetLogIn } from "./ResetLogIn.js";
@@ -16,14 +20,31 @@ export const LogIn = () => {
 // if not use SignIn
 // if not CreateAccount or remainder/ reset password
 
+    
 
-    return (        
+    return (
+        
+
         <div className="login">
-           {/* <SignIn/> */}
-           {/* <CreateAccount/> */}
-           <button>Reset the Password</button>
-           {/* <SignInByGoogle/> */}
-           {/* <LogOut/> */}
+            <Router>
+                <Link to="/">Home</Link>
+                <Link to="logIn">Sign In</Link>
+                <Link to="/createAccount">Create Account</Link>
+                <Link to="/signInByGoogle">Sign In By Google</Link>
+                <Link to="/logOut">Log Out</Link>
+            </Router>
+
+            <Outlet/>
+
+            <Router>
+                <Routes>
+                    <Route path="logIn" element={<SignIn/>} />
+                    <Route path="createAccount" element={<CreateAccount/>} />
+                    <Route path="signInByGoogle" element={<SignInByGoogle/>} />
+                    <Route path="logOut" element={<LogOut/>} />
+                </Routes>
+            </Router>
+
         </div>
     )
 }

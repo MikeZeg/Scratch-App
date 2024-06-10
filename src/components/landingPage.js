@@ -3,8 +3,21 @@ import ReactDom from "react-dom/client";
 import "../styles/landingPageStyle.css"
 import {} from "../config/firebase.js";
 
+import { useNavigate } from "react-router-dom";
+
+import { SignIn } from "./login/SignIn.js";
+
 
 const LandingPage = () => {
+    
+    const signIn = useNavigate();
+// Go to Page 
+    const goToSignIn = () => {
+        signIn('/CreateAccount')
+    }
+    const goToLogIn = () => {
+        signIn('/SignIn')
+    }
 
     return (
         <div>
@@ -15,8 +28,8 @@ const LandingPage = () => {
                 </div>
             {/* navigation */}
                 <div className="nav">
-                    <button className="btn nav__btn">Log In</button>
-                    <button className="btn nav__btn">Sign Up</button>
+                    <button className="btn nav__btn" onClick={()=>{goToLogIn()}}>Log In</button>
+                    <button className="btn nav__btn" onClick={()=>{goToSignIn()}}>Sign Up</button>
                 </div>
             </header>
 

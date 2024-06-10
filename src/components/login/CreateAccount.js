@@ -1,6 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { useState } from "react";
+import { Link, Route, Router, Routes} from "react-router-dom"
+
+import { SignInByGoogle } from "./SignInByGoogle"
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../config/firebase";
 
@@ -49,6 +52,10 @@ export const CreateAccount = () => {
                 </div>
                 <button className="btn" onClick={register}>Register</button>
             </div>
+            <SignInByGoogle />
+            <button className="btn btn__link">
+                    <Link to="/" className="btn btn__link">Press To go Main</Link>
+                </button>
         </div>
     );
 }
