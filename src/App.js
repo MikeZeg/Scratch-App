@@ -18,14 +18,16 @@ const App = () => {
   return (
 <div>
     <h1>App level</h1>
-      <nav>
-        {/* <Link to="/">Home</Link>
+      
+      {/* <nav>
+        <Link to="/">Home</Link>
         <Link to="/signIn">Sign In</Link>
         <Link to="/createAccount">Create Account</Link>
         <Link to="/signInByGoogle">Sign In By Google</Link>
         <Link to="/logOut">Log Out</Link>
-        <Link to="/reset">Reset</Link> */}
-      </nav>
+        <Link to="/reset">Reset</Link>
+        <Outlet/>
+      </nav> */}
 
       <Routes>
           <Route path='/' element={<LandingPage/>} />
@@ -34,6 +36,7 @@ const App = () => {
           <Route path="signInByGoogle" element={<SignInByGoogle/>} />
           <Route path="logOut" element={<LogOut/>} />
           <Route path='reset' element={<ResetLogIn/>} />
+          <Route path='*' element={<LandingPage/>} />
       </Routes>
 
 </div>
