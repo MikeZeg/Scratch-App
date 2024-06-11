@@ -21,12 +21,40 @@
   --fts-smed:1.2rem;
   --fts-small:1rem;
   
-  @media (max-width:900px) {
-      --fts-larg:2rem;
-      --fts-lmed:1.5rem;
-      --fts-med:1.2rem;
-      --fts-smed:1rem;
-      --fts-small:0.8rem;
+  @media (width >= 1440px) {
+    --fts-larg: 3rem;
+    --fts-lmed: 2.8rem;
+    --fts-med: 2.5rem;
+    --fts-smed: 1.2rem;
+    --fts-small: 1rem;
+    /* color: red; */
+    }
+    
+  @media (width < 1440px) {
+    --fts-larg: 2rem;
+    --fts-lmed: 1.5rem;
+    --fts-med: 2rem;
+    --fts-smed: 1.2rem;
+    --fts-small: 1rem;
+    /* color: pink; */
+  }
+
+  @media (width <= 1200px) {
+    --fts-larg: 1.9rem;
+    --fts-lmed: 1.8rem;
+    --fts-med: 1.6rem;
+    --fts-smed: 1.2rem;
+    --fts-small: 1rem;
+    /* color: green; */
+  }
+
+  @media (width < 800px) {
+    --fts-larg: 2rem;
+    --fts-lmed: 1.5rem;
+    --fts-med: 1.2rem;
+    --fts-smed: 1rem;
+    --fts-small: 0.8rem;
+    /* color: blue; */
   }
 
 /* font weight */
@@ -46,13 +74,19 @@ body {
 }
 /* Buttons */
 .btn {
-  width: 70px;
-  height: 30px;
+  width: auto;
+  height: auto;
 
   &:hover {
     
     background-color: var(--primary);
   }
+}
+.middle__btn {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 /* Text sizes */
 h1 {
@@ -66,4 +100,8 @@ h1 {
 /* Text Color */
 h1,h2,h3,h4,h5 {
   color: var(--black);
+}
+
+.txt-center {
+  text-align: center;
 }

@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { useState } from "react";
+import { Routes, Router, useNavigate, Route, Link } from "react-router-dom";
+import "../../styles/loginStyle.css"
 
 import { SignInByGoogle } from "./SignInByGoogle";
 import { ResetLogIn } from "./ResetLogIn";
-import { Routes, Router, useNavigate, Route, Link } from "react-router-dom";
 import LandingPage from "../LandingPage";
 
 
@@ -23,7 +24,8 @@ export const SignIn = () => {
     return (
         <div className="container">
             <div>
-                <button>
+                <h1>Log In</h1>
+                <button className="btn btn__main">
                     <Link to="/" className="btn btn__link">Press To go back</Link>
                 </button>
                     {/* <Routes>
@@ -47,10 +49,10 @@ export const SignIn = () => {
                 <button className="signin__btn" onClick={signIn}>Log In</button>
             </div>
             
-            <div className="signin_extra">
+            <div className="middle__btn">
                 <SignInByGoogle/>
                 
-                <button className="btn btn__link"><Link to="/reset">Reset</Link></button>
+                <button className="btn btn__link"><Link to="/reset">Reset Password</Link></button>
                 <Routes>
                     <Route path='reset' element={<ResetLogIn/>} />
                 </Routes>

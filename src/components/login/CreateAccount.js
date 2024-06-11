@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { useState } from "react";
-import { Link, Route, Router, Routes} from "react-router-dom"
+import { Link, Route, Router, Routes} from "react-router-dom";
+import "../../styles/createAccountStyle.css"
 
 import { SignInByGoogle } from "./SignInByGoogle"
 import { createUserWithEmailAndPassword } from "firebase/auth";
@@ -25,10 +26,10 @@ export const CreateAccount = () => {
     }
 
     return (
-        <div>
-            <h1>Create Account</h1>
-            <div>
-                <div className="email">
+        <div className="account__container">
+            <h1 className="txt-center">Create Account</h1>
+            <div className="account__create">
+                <div className="account__create__email">
                     <label>Email</label>
                     <input 
                         placeholder="Email..."
@@ -38,8 +39,9 @@ export const CreateAccount = () => {
                         placeholder="Email..."
                     />
                 </div>
-                <div className="password">
-                <label>Password</label>
+
+                <div className="account__create__password">
+                    <label>Password</label>
                     <input 
                         placeholder="Password"
                         type="password"
@@ -50,12 +52,15 @@ export const CreateAccount = () => {
                         type="password"
                     />
                 </div>
-                <button className="btn" onClick={register}>Register</button>
+                <button className="btn btn__register" onClick={register}>Register</button>
             </div>
-            <SignInByGoogle />
-            <button className="btn btn__link">
-                    <Link to="/" className="btn btn__link">Press To go Main</Link>
+
+            <div className="middle__btn">
+                <SignInByGoogle />
+                <button className="btn btn__link">
+                        <Link to="/" className="btn btn__link">Press To go Main</Link>
                 </button>
+            </div>
         </div>
     );
 }

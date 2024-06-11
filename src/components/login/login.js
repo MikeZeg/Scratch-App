@@ -26,24 +26,24 @@ export const LogIn = () => {
         
 
         <div className="login">
-            <Router>
-                <Link to="/">Home</Link>
-                <Link to="logIn">Sign In</Link>
-                <Link to="/createAccount">Create Account</Link>
-                <Link to="/signInByGoogle">Sign In By Google</Link>
-                <Link to="/logOut">Log Out</Link>
-            </Router>
+        {/* //     <Router>
+        //         <Link to="/">Home</Link>
+        //         <Link to="logIn">Sign In</Link>
+        //         <Link to="/createAccount">Create Account</Link>
+        //         <Link to="/signInByGoogle">Sign In By Google</Link>
+        //         <Link to="/logOut">Log Out</Link>
+        //     </Router>
 
-            <Outlet/>
+        //     <Outlet/>
 
-            <Router>
-                <Routes>
-                    <Route path="logIn" element={<SignIn/>} />
-                    <Route path="createAccount" element={<CreateAccount/>} />
-                    <Route path="signInByGoogle" element={<SignInByGoogle/>} />
-                    <Route path="logOut" element={<LogOut/>} />
-                </Routes>
-            </Router>
+        //     <Router>
+        //         <Routes>
+        //             <Route path="logIn" element={<SignIn/>} />
+        //             <Route path="createAccount" element={<CreateAccount/>} />
+        //             <Route path="signInByGoogle" element={<SignInByGoogle/>} />
+        //             <Route path="logOut" element={<LogOut/>} />
+        //         </Routes>
+        //     </Router> */}
 
         </div>
     )

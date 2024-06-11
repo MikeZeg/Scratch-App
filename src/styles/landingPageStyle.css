@@ -48,6 +48,7 @@
         p {
             text-align: center;
             color: var(--white);
+            font-size: var(--fts-smed);
             padding: 5px 2px 5px 2px;
 
             letter-spacing: 1px;
@@ -83,6 +84,8 @@
         &:hover {
             color: var(--mycolor);
         }
+
+
     }
 }
 /* ^-------^------^-------^-------^-------^-------^-------^ */

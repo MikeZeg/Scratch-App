@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link, Outlet, BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Link, Outlet, BrowserRouter, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react"
 import './styles/App.css';
 
@@ -12,13 +12,11 @@ import { CreateAccount } from './components/login/CreateAccount.js';
 import { SignInByGoogle } from './components/login/SignInByGoogle.js';
 import { ResetLogIn } from './components/login/ResetLogIn.js';
 
-
+// useNavigation -> to move user after log In or if already login
 
 const App = () => {
   return (
-<div>
-    <h1>App level</h1>
-      
+<div> 
       {/* <nav>
         <Link to="/">Home</Link>
         <Link to="/signIn">Sign In</Link>

@@ -1,4 +1,4 @@
-.login {
+/* .login {
     margin: auto;
     display: flex;
     align-items: center;
@@ -7,6 +7,19 @@
     height: 100%;
     position: fixed;
     justify-content: center;
+} */
+.container {
+    width: 50%;
+    /* margin: auto; */
+
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-30%);
+
+    /* width: 80%; */
+    /* margin-left: auto;
+    margin-right: auto; */
 }
 .signin {
     display: grid;
@@ -23,4 +36,13 @@ input {
 }
 label {
     margin: 10px 0 10px 0;
+}
+.btn__main {
+    position: absolute;
+    top: 0;
+
+    a {
+        position: relative;
+
+    }
 }

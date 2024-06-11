@@ -1,0 +1,37 @@
+.account__container {
+    border: 1px solid red;
+}
+.account__create {
+    display: flow;
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 42%;
+
+    @media (width > 1360px) {
+        width: 25%;
+    }
+
+    @media (width < 850px) {
+        width: 50%;
+    }
+
+    label {
+        width: 100%;
+    }
+    input {
+        width: 98%;
+    }
+}
+.account__create__email {
+    display: grid;
+    justify-items: center;
+
+}
+.account__create__password {
+    display: grid;
+    justify-items: center;
+}
+.btn__register {
+    margin-top: 10px;
+}
