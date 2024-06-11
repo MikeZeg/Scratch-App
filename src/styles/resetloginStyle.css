@@ -16,8 +16,7 @@
     }
     input {
         width: 56%;
-
-
+        
         @media (width < 1000px) {
             width: 95%;
         }

@@ -1,5 +1,11 @@
 .account__container {
-    border: 1px solid red;
+    /* border: 1px solid red; */
+    width: 100%;
+
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    transform: translate(-40%,-40%);
 }
 .account__create {
     display: flow;

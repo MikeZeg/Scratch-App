@@ -30,7 +30,7 @@
     /* color: red; */
     }
     
-  @media (width < 1440px) {
+  @media (width <= 1500px) {
     --fts-larg: 2rem;
     --fts-lmed: 1.5rem;
     --fts-med: 2rem;
@@ -41,7 +41,7 @@
 
   @media (width <= 1200px) {
     --fts-larg: 1.9rem;
-    --fts-lmed: 1.8rem;
+    --fts-lmed: 1.6rem;
     --fts-med: 1.6rem;
     --fts-smed: 1.2rem;
     --fts-small: 1rem;

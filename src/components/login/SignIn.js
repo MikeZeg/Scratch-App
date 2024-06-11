@@ -22,9 +22,9 @@ export const SignIn = () => {
     }
 
     return (
-        <div className="container">
+        <div className="signin__container">
             <div>
-                <h1>Log In</h1>
+                <h1 className="txt-center">Log In</h1>
                 <button className="btn btn__main">
                     <Link to="/" className="btn btn__link">Press To go back</Link>
                 </button>
@@ -35,7 +35,7 @@ export const SignIn = () => {
             <div className="signin">
                 <label>Email...</label>
                 <input 
-                    placeholder="Email..." 
+                    placeholder="Email..."
                     onChange={(e)=> setEmail(e.target.value)} 
                 />
 

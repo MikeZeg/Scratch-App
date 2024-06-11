@@ -58,7 +58,7 @@ export const CreateAccount = () => {
             <div className="middle__btn">
                 <SignInByGoogle />
                 <button className="btn btn__link">
-                        <Link to="/" className="btn btn__link">Press To go Main</Link>
+                        <Link to="/" className="btn btn__link">Back To Main</Link>
                 </button>
             </div>
         </div>
