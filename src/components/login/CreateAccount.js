@@ -1,27 +1,58 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { useState } from "react";
-import { Link, Route, Router, Routes} from "react-router-dom";
-import "../../styles/createAccountStyle.css"
+import { Link, Route, Router, Routes, useNavigate} from "react-router-dom";
+import "../../styles/createAccountStyle.css";
 
-import { SignInByGoogle } from "./SignInByGoogle"
-import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../config/firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+
+import { SignInByGoogle } from "./SignInByGoogle";
 
 
 export const CreateAccount = () => {
 
     const [email, setEmail] = useState("");
+    const [checkEmail, setCheckEmail] = useState("")
+
+    const [checkPassword, setCheckPassword] = useState("");
     const [password, setPassword] = useState("");
 
 // check user 
-    // console.log(auth?.currentUser?.email)
+    console.log(auth?.currentUser?.email)
 
     const register = async () => {
-        try {
-            await createUserWithEmailAndPassword(auth, email, password)
-        }catch (err){
-            console.error(err)
+
+        const inputEmail = document.querySelectorAll(".input-email");
+        const inputPassword = document.querySelectorAll(".input-password"); 
+
+        let email1 = email;
+        let email2 = checkEmail;
+
+        let pass1 = password;
+        let pass2 = checkPassword;
+        
+        email1 === email2 ?  
+                        inputEmail.forEach((email)=> {email.classList.remove('error'); console.log("Correct")}) : 
+                        inputEmail.forEach((email)=> {email.classList.add('error'); console.log(email)})
+
+        pass1 === pass2 ?
+                        inputPassword.forEach((pass)=> {pass.classList.remove('error'); console.log("Correct")}) : 
+                        inputPassword.forEach((pass)=> {pass.classList.add('error'); console.log(email)})
+
+
+        if(email1 === email2 && pass1 === pass2 ){
+            try {
+                // console.log("Email and Password same")
+// Check if email not used, password check if is not to weak?
+// move to Main Page
+//
+                await createUserWithEmailAndPassword(auth, email, password);
+
+                // useNavigate()
+            }catch (err){
+                console.error(err)
+            }
         }
     }
 
@@ -31,25 +62,33 @@ export const CreateAccount = () => {
             <div className="account__create">
                 <div className="account__create__email">
                     <label>Email</label>
-                    <input 
+                    <input
+                        className="input-email"
                         placeholder="Email..."
+                        onChange={(e) => {setEmail(e.target.value)}}
                     />
                     <label>Repete Email</label>
-                    <input 
+                    <input
+                        className="input-email"
                         placeholder="Email..."
+                        onChange={(e) => {setCheckEmail(e.target.value)}}
                     />
                 </div>
 
                 <div className="account__create__password">
                     <label>Password</label>
-                    <input 
+                    <input
+                        className="input-password"
                         placeholder="Password"
                         type="password"
+                        onChange={(e) => {setCheckPassword(e.target.value)}}
                     />
                     <label>Repete Password</label>
-                    <input 
+                    <input
+                        className="input-password"
                         placeholder="Password"
                         type="password"
+                        onChange={(e) => {setPassword(e.target.value)}}
                     />
                 </div>
                 <button className="btn btn__register" onClick={register}>Register</button>
