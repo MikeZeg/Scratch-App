@@ -2,7 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { useState } from "react";
 import { Routes, Router, useNavigate, Route, Link } from "react-router-dom";
-import "../../styles/loginStyle.css"
+import "../../styles/loginStyle.css";
+import { auth } from "../../config/firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 import { SignInByGoogle } from "./SignInByGoogle";
 import { ResetLogIn } from "./ResetLogIn";
@@ -14,11 +16,19 @@ export const SignIn = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const mainPage = useNavigate();
+
 // check user 
-    // console.log(auth?.currentUser?.email)
+    console.log(auth?.currentUser?.email)
 
     const signIn = async () => {
-
+        signInWithEmailAndPassword(auth, email, password)
+            .then((data)=> {
+                console.log(data, "authdata")
+                mainPage("/Main")
+            }).catch((err)=> {
+                console.error(err)
+            })
     }
 
     return (

@@ -20,28 +20,29 @@ export const CreateAccount = () => {
 
 // check user 
     console.log(auth?.currentUser?.email)
+    console.log(auth)
 
     const register = async () => {
 
         const inputEmail = document.querySelectorAll(".input-email");
         const inputPassword = document.querySelectorAll(".input-password"); 
 
-        let email1 = email;
-        let email2 = checkEmail;
+        // let email1 = email;
+        // let email2 = checkEmail;
 
-        let pass1 = password;
-        let pass2 = checkPassword;
+        // let pass1 = password;
+        // let pass2 = checkPassword;
         
-        email1 === email2 ?  
+        email === checkEmail ?  
                         inputEmail.forEach((email)=> {email.classList.remove('error'); console.log("Correct")}) : 
                         inputEmail.forEach((email)=> {email.classList.add('error'); console.log(email)})
 
-        pass1 === pass2 ?
+        password === checkPassword ?
                         inputPassword.forEach((pass)=> {pass.classList.remove('error'); console.log("Correct")}) : 
                         inputPassword.forEach((pass)=> {pass.classList.add('error'); console.log(email)})
 
 
-        if(email1 === email2 && pass1 === pass2 ){
+        if(email === checkEmail && password === checkPassword ){
             try {
                 // console.log("Email and Password same")
 // Check if email not used, password check if is not to weak?
@@ -51,7 +52,10 @@ export const CreateAccount = () => {
 
                 // useNavigate()
             }catch (err){
+                // if(err == "")
+
                 console.error(err)
+                alert(err)
             }
         }
     }

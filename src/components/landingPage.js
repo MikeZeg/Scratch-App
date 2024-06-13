@@ -1,13 +1,16 @@
 import React from "react";
 import ReactDom from "react-dom/client";
 import "../styles/landingPageStyle.css"
-import {} from "../config/firebase.js";
+import { auth } from "../config/firebase.js";
 
 import { useNavigate } from "react-router-dom";
 
 import { SignIn } from "./login/SignIn.js";
 
 
+
+
+//  ------- MAIN APP --------
 const LandingPage = () => {
     
     const signIn = useNavigate();
@@ -18,6 +21,9 @@ const LandingPage = () => {
     const goToLogIn = () => {
         signIn('/SignIn')
     }
+    
+// use if to swap login with logout
+    console.log(auth)
 
     return (
         <div>
@@ -29,6 +35,7 @@ const LandingPage = () => {
             {/* navigation */}
                 <div className="nav">
                     <button className="btn nav__btn" onClick={()=>{goToLogIn()}}>Log In</button>
+{/* IF log in swap with logOut */}
                     <button className="btn nav__btn" onClick={()=>{goToSignIn()}}>Sign Up</button>
                 </div>
             </header>

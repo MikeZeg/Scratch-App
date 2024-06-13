@@ -11,6 +11,7 @@ import { SignIn } from './components/login/SignIn.js';
 import { CreateAccount } from './components/login/CreateAccount.js';
 import { SignInByGoogle } from './components/login/SignInByGoogle.js';
 import { ResetLogIn } from './components/login/ResetLogIn.js';
+import { Main } from "./components/Main";
 
 // useNavigation -> to move user after log In or if already login
 
@@ -24,6 +25,7 @@ const App = () => {
         <Link to="/signInByGoogle">Sign In By Google</Link>
         <Link to="/logOut">Log Out</Link>
         <Link to="/reset">Reset</Link>
+        <Link to="/Main">Main</Link>
         <Outlet/>
       </nav> */}
 
@@ -35,6 +37,7 @@ const App = () => {
           <Route path="logOut" element={<LogOut/>} />
           <Route path='reset' element={<ResetLogIn/>} />
           <Route path='*' element={<LandingPage/>} />
+          <Route path='Main' element={<Main/>} />
       </Routes>
 
 </div>
