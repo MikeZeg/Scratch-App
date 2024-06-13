@@ -1,17 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ReactDom from "react-dom/client";
 import "../styles/landingPageStyle.css"
 import { auth } from "../config/firebase.js";
+import { onAuthStateChanged } from "firebase/auth";
 
 import { useNavigate } from "react-router-dom";
 
 import { SignIn } from "./login/SignIn.js";
+import { LogOut } from "./login/LogOut.js";
 
 
 
 
 //  ------- MAIN APP --------
 const LandingPage = () => {
+
+    
+    
+    console.log(auth?.currentUser?.email)
+    // if(auth?.currentUser != false){
+        
+    let logFlag = false
+    
+    onAuthStateChanged(auth, (user)=> {
+        if(user){
+            console.log('logged')
+            logFlag = true;
+        }else{
+            console.log('Not login')
+            logFlag = false
+        }
+    })
+
     
     const signIn = useNavigate();
 // Go to Page 
@@ -22,8 +42,13 @@ const LandingPage = () => {
         signIn('/SignIn')
     }
     
-// use if to swap login with logout
-    console.log(auth)
+// Login Button
+    const btnLogin = () => {
+        
+        return (
+            <button className="btn nav__btn" onClick={()=>{goToLogIn()}}>Log In</button>
+        )
+    }
 
     return (
         <div>
@@ -34,8 +59,8 @@ const LandingPage = () => {
                 </div>
             {/* navigation */}
                 <div className="nav">
-                    <button className="btn nav__btn" onClick={()=>{goToLogIn()}}>Log In</button>
 {/* IF log in swap with logOut */}
+                    {logFlag == false ? btnLogin() : <LogOut/>}
                     <button className="btn nav__btn" onClick={()=>{goToSignIn()}}>Sign Up</button>
                 </div>
             </header>

@@ -3,7 +3,7 @@ import { ReactDom } from "react-dom";
 import { useState } from "react";
 import { Link, Route, Router, Routes, useNavigate} from "react-router-dom";
 import "../styles/mainStyle.css";
-import { auth } from "../config/firebase";
+import { auth, getDocs, getDoc } from "../config/firebase";
 
 
 
