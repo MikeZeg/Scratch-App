@@ -9,19 +9,14 @@ import { useNavigate } from "react-router-dom";
 import { SignIn } from "./login/SignIn.js";
 import { LogOut } from "./login/LogOut.js";
 
-
-
-
-//  ------- MAIN APP --------
+//  ------ MAIN APP ------
 const LandingPage = () => {
 
-    
-    
     console.log(auth?.currentUser?.email)
     // if(auth?.currentUser != false){
-        
-    let logFlag = false
-    
+
+    let logFlag = false;
+
     onAuthStateChanged(auth, (user)=> {
         if(user){
             console.log('logged')
@@ -31,7 +26,6 @@ const LandingPage = () => {
             logFlag = false
         }
     })
-
     
     const signIn = useNavigate();
 // Go to Page 

@@ -6,7 +6,7 @@ import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword } from 'firebas
 
 const firebaseConfig = {
   apiKey: "AIzaSyD58Z-yazoD6td3Otno1zADsHi_ykibELE",
-//   apiKey: {API_KEY_FB},
+//apiKey: {API_KEY_FB},
   authDomain: "scratch-app-1eb1b.firebaseapp.com",
   projectId: "scratch-app-1eb1b",
   storageBucket: "scratch-app-1eb1b.appspot.com",
