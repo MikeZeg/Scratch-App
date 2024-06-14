@@ -38,9 +38,6 @@ export const SignIn = () => {
                 <button className="btn btn__main">
                     <Link to="/" className="btn btn__link">Press To go back</Link>
                 </button>
-                    {/* <Routes>
-                        <Route path='/' element={<LandingPage/>} />
-                    </Routes> */}
             </div>
             <div className="signin">
                 <label>Email...</label>
