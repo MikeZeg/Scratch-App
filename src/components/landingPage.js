@@ -12,20 +12,18 @@ import { LogOut } from "./login/LogOut.js";
 //  ------ MAIN APP ------
 const LandingPage = () => {
 
-    console.log(auth?.currentUser?.email)
-    // if(auth?.currentUser != false){
-
-    let logFlag = false;
-
-    onAuthStateChanged(auth, (user)=> {
+    const [checklogged, setCheckLogged] = useState(null);
+    
+    onAuthStateChanged(auth,(user) => {
         if(user){
-            console.log('logged')
-            logFlag = true;
-        }else{
-            console.log('Not login')
-            logFlag = false
+            console.log('User logged')
+            setCheckLogged(user)
+        }else {
+                console.log("not login")
         }
     })
+
+                
     
     const signIn = useNavigate();
 // Go to Page 
@@ -37,7 +35,7 @@ const LandingPage = () => {
     }
     
 // Login Button
-    const btnLogin = () => {
+    const BtnLogin = () => {
         
         return (
             <button className="btn nav__btn" onClick={()=>{goToLogIn()}}>Log In</button>
@@ -53,8 +51,7 @@ const LandingPage = () => {
                 </div>
             {/* navigation */}
                 <div className="nav">
-{/* IF log in swap with logOut */}
-                    {logFlag == false ? btnLogin() : <LogOut/>}
+                    { checklogged !== null ? <LogOut myData = {data => setCheckLogged(data)}/> : <BtnLogin/> }
                     <button className="btn nav__btn" onClick={()=>{goToSignIn()}}>Sign Up</button>
                 </div>
             </header>

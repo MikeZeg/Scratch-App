@@ -16,6 +16,9 @@ export const Main = () => {
     return (
         <div>
             <h1>Welcome Please check you info</h1>
+            <button className="btn btn__main">
+                    <Link to="/" className="btn btn__link">Press To go back</Link>
+                </button>
         </div>
     )
 }
