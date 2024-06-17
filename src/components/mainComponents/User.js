@@ -39,7 +39,7 @@ export const User = () => {
 
     return (
         <div className="user">
-            <section>Welcome {userData.userName}</section>
+            <section>Welcome {userData.userName} In User section.</section>
             <section></section>
         </div>
     )

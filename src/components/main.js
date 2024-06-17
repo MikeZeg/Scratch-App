@@ -16,10 +16,10 @@ export const Main = () => {
     return (
         <div className="main">
             <div className="main__top">
-                <p>Welcome Please check you info</p>
+                <p>Welcome in Main.</p>
                 <LogOut myData = {data => console.log("Log oFF from main level")}/>
+                <User/>
             </div>
-            <User/>
 
             <Content/>
             
