@@ -18,6 +18,8 @@ export const CreateAccount = () => {
     const [checkPassword, setCheckPassword] = useState("");
     const [password, setPassword] = useState("");
 
+    const mainNav = useNavigate();
+
 // check user 
     console.log(auth?.currentUser?.email)
     console.log(auth)
@@ -26,12 +28,6 @@ export const CreateAccount = () => {
 
         const inputEmail = document.querySelectorAll(".input-email");
         const inputPassword = document.querySelectorAll(".input-password"); 
-
-        // let email1 = email;
-        // let email2 = checkEmail;
-
-        // let pass1 = password;
-        // let pass2 = checkPassword;
         
         email === checkEmail ?  
                         inputEmail.forEach((email)=> {email.classList.remove('error'); console.log("Correct")}) : 
@@ -44,15 +40,10 @@ export const CreateAccount = () => {
 
         if(email === checkEmail && password === checkPassword ){
             try {
-                // console.log("Email and Password same")
-// Check if email not used, password check if is not to weak?
-// move to Main Page
-//
                 await createUserWithEmailAndPassword(auth, email, password);
-
-                // useNavigate()
+                mainNav("/nav")
+                
             }catch (err){
-                // if(err == "")
 
                 console.error(err)
                 alert(err)

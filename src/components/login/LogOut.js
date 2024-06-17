@@ -12,18 +12,20 @@ export const LogOut = (props) => {
     console.log(props.myData)
     let callBack = props.myData
 
+    console.log("-call back--->",callBack)
+    
+
 //Move to LandingPage
         const moveHome = useNavigate()
 
-        const logOff = async (props) => {
+        const logOff = async () => {
 
             try {
                 await signOut(auth)
                             .then(moveHome("/LandingPage"))
                             callBack(null)
-                
-                console.log("Button LogOff pressed" + props)
-
+                            
+                console.log("Button LogOff pressed: " + props.myData)
             }catch(err) {
                 console.error(err)
             }
@@ -31,7 +33,9 @@ export const LogOut = (props) => {
         
         return(
             <div>
-                <button onClick={logOff}>Log Out</button>
+                <button onClick={()=>{
+                    logOff()
+                    }}>Log Out</button>
             </div>
         )
     }

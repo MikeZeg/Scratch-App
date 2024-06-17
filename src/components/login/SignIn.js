@@ -17,7 +17,6 @@ export const SignIn = () => {
     const [password, setPassword] = useState("");
 
     const mainPage = useNavigate();
-
 // check user 
     console.log(auth?.currentUser?.email)
 

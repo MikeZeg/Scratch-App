@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 import { SignIn } from "./login/SignIn.js";
 import { LogOut } from "./login/LogOut.js";
+import { Main } from "./Main.js";
 
 //  ------ MAIN APP ------
 const LandingPage = () => {
@@ -16,10 +17,10 @@ const LandingPage = () => {
     
     onAuthStateChanged(auth,(user) => {
         if(user){
-            console.log('User logged')
+            // console.log('User logged')
             setCheckLogged(user)
         }else {
-                console.log("not login")
+                // console.log("not login")
         }
     })
 
@@ -32,6 +33,9 @@ const LandingPage = () => {
     }
     const goToLogIn = () => {
         signIn('/SignIn')
+    }
+    const goToMain = () => {
+        signIn('/Main')
     }
     
 // Login Button
@@ -66,6 +70,10 @@ const LandingPage = () => {
                         <p className="p">Instantly see your chances of winning big prizes in UK scratch games</p>
                         <p className="p">Comprehensive database of scratch card details and odds</p>
                         <p className="p">Personalized recommendations to maximize your winnings</p>
+                    </div>
+
+                    <div>
+                        {checklogged !== null ? (<button onClick={()=>{goToMain()}}>Get In </button>) : (<button className="btn nav__btn" onClick={()=>{goToSignIn()}}>Sign Up</button>)}
                     </div>
 
                     <p className="p content">The Scratch App is your key to unlocking the excitement of instant win scratch cards in the UK. 
