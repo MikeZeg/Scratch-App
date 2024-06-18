@@ -47,7 +47,7 @@ export const ChangeEmail = () => {
 
     const Modal = ({ emailModal }) => {
         return (
-            <div>
+            <div className="">
                 <section>
                     <p>Change Email</p>
                     <label htmlFor="email">Please add new email: </label>
@@ -86,7 +86,7 @@ export const ChangePassword = () => {
 
     const Modal = ({ passwordModal }) => {
         return (
-            <div>
+            <div className="">
                 <section>
                 <p>Change Password</p>
                 <label htmlFor="password">Please add new password: </label>
@@ -119,11 +119,10 @@ export const ChangePassword = () => {
 }
 
 
-
 // Component Modal
 export const ModalSetting = ( {closeModal} ) => {
     return (
-        <div>
+        <div className="settingModal">
             <div className="btnClose">
                 <button className="btn" onClick={()=> closeModal(false)}>X</button>
             </div>
@@ -144,7 +143,7 @@ export const Setting = () => {
 
 
     return (
-        <div>
+        <div className="setting">
     {/* open A Modal */}
             <button className="btn btnModalOpen" onClick={()=> {setOpenModal(true)}}>Setting</button>
             { openModal && <ModalSetting closeModal={setOpenModal}/>}
