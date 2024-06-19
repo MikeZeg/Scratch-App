@@ -9,10 +9,10 @@ import "../../styles/loginStyle.css";
 export const LogOut = (props) => {
 
 //CallBack functon
-    console.log(props.myData)
+    
     let callBack = props.myData
 
-    console.log("-call back--->",callBack)
+    // console.log("-call back--->",callBack)
     
 
 //Move to LandingPage

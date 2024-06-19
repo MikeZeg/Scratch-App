@@ -14,12 +14,12 @@ export const Content = () => {
     const [scratch, setScratch] = useState([]);
 // User scratch Data fetch
     const [userScratch, setUserScratch] = useState([]);
-
-    console.log("user id", auth?.currentUser?.uid)
-
-
+// Download userScrachcard Data
+    const userScratchCollection = collection(db,"scratchcardUsed")
 // Download data
     const scratchCollection = collection(db, "scratchCard");
+
+
 // Collect Data from Firebase - used useEffect to monitoring changes.
     const getScratchList = async() => {
         try{
@@ -33,36 +33,57 @@ export const Content = () => {
         } catch(err){console.error(err)}
     }
 
-// Download userScrachcard Data
-    const uesrScratchCollection = collection(db,"scratchcardUsed")
-// Filtred data to using in app
+
     const getUserScrachcard = async () => {
         try {
-            const data = await getDocs(uesrScratchCollection);
-            const userScratchcard = data.docs.map(()=>{
-
-                //filted data by userd UID and add filter Information like how many cards added, ration cash (spend, win), favorite scratch, chance to win to selected scratchcard
-
-            })
+            const data = await getDocs(userScratchCollection);
+            const userScratchcard = data.docs.map((card)=>({
+                ...card.data(),
+                id: card.id,
+            }))
             setUserScratch(userScratchcard)
-            console.log("filtred Data: -->: ",userScratchcard)
+            // console.log("filtred Data: -->: ",userScratchcard)
         } catch(err){console.error(err)}
     }
 
 
-    const UserAddScratchcard = () => {
+    const UserAddScratchcard = ({ data }) => {
+        const userId = auth?.currentUser?.uid;
+        
         return (
             <div className="contentUserAddScratchcard">
-                
-            
-            
-            
+                <p>User scratchcard filtred by currentUser UID:</p>
+                <div>
+                <div>
+                    {data.filter((card) => card.userNo == userId)
+                        .map((card)=>
+                            
+                        (
+                        <section key={card.id}>
+                            <br/>
+                            <p>{card.name}</p>
+                            <p>{card.topPrize == false ? ("!!! Win Top prize !!!")
+                            :("All Top Prize Gone.")
+                            }</p>
+                            
+                            {/* <img></img> add image to card */}
+{/* Add value win price if user win cash */}
+                            <p>{card.win != false ? (<strong>Last Time You Win : £</strong>)
+                            :("Next Time Win chance is: ")
+                            }</p>
+                            
+                        </section>
+                    ))}        
+                </div> 
+                </div>    
             </div>
         )
     }
 
     useEffect(()=>{
         getScratchList();
+        getUserScrachcard();
+        
     },[])
 
     return (
@@ -83,6 +104,13 @@ export const Content = () => {
                             :"All top prizes already gone :/"}</p>
                 </section>
             ))}
+        </div>
+
+        <div>
+            <p>Your info</p>
+            <div>
+                <UserAddScratchcard data = {userScratch}/>
+            </div>
         </div>
 
         </div>

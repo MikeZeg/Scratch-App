@@ -11,6 +11,7 @@ The application is built using the React library and Firebase database.
     - [Information](#the-scratch-application)
     - [Used Technology](Technology)
     - [Tools](#tools)
+    - [ToDo](#todo)
     - [Links](#Links)
 - [Author](#author)
 
@@ -28,6 +29,14 @@ I used the React library and Firebase to develop the application. This allowed m
 ## Tools
 ![VS Code](https://img.shields.io/badge/VS%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white) ![Google](https://img.shields.io/badge/google-DA4437?style=for-the-badge&logo=google&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![FireBase](https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black)
 
+
+## ToDo
+    Create database with more scratchcards - scratchCard DB
+    
+    Main Content: User/s can add scratchCards - scrachcardsUsed DB (name (string), topPrize(bolden), userNo(string)automatic), win(bolden) if(true) add win price(number)
+
+    Login: add reset password
+    
 
 ## Links
 

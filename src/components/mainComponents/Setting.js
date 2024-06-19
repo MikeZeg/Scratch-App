@@ -7,7 +7,7 @@ import "../../styles/mainSettingStyle.css";
 
 import { userData } from "./User.js"
 
-console.log(userData.userEmail)
+// console.log(userData.userEmail)
 
 
 // Components
