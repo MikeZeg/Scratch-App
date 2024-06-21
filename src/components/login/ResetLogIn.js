@@ -1,15 +1,39 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { useState } from "react";
-import { Link, Route, Router, Routes} from "react-router-dom"
+import { Link, Route, Router, Routes, useNavigate} from "react-router-dom";
+
+import { auth } from "../../config/firebase";
+import { Database } from "firebase/database";
+import { sendPasswordResetEmail } from "firebase/auth";
+
 import "../../styles/resetloginStyle.css"
 
 export const ResetLogIn = () => {
 
-    const [reset, setReset] = useState("")
-
+    const [reset, setReset] = useState("none")
+    const inputEmail = document.querySelector("#resetEmailInput")
+    const navigateTo = useNavigate();
     // check user 
         // console.log(auth?.currentUser?.email)
+
+
+    const resetPassword = async() => {
+        // e.preventDefault();
+        // if statment
+            // inputEmail.style.backgroundColor = "red";
+
+            sendPasswordResetEmail(auth, reset).then((data)=>{
+                alert("Check your email")
+                navigateTo("/signIn")
+            }).catch(err => {
+                console.error(err)
+                inputEmail.style.backgroundColor = "red";
+            })
+
+        
+        console.log(reset);
+    }
     
         return (
             <div className="reset__container">
@@ -21,10 +45,11 @@ export const ResetLogIn = () => {
                 <div className="middle">
                     <label>Enter Your email</label>
                     <input
+                        id="resetEmailInput"
                         placeholder="email..."
                         onChange={(e)=> setReset(e.target.value)} 
                     />
-                        <button className="btn btn__conf">Send</button>
+                        <button className="btn btn__conf" onClick={()=>{resetPassword()}}>Send</button>
 
                     <div className="middle__btn">
                         <button className="btn btn__link">

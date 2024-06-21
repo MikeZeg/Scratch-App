@@ -19,6 +19,8 @@ export const SignIn = () => {
     const mainPage = useNavigate();
 // check user 
     console.log(auth?.currentUser?.email)
+// do user collection
+    // console.log(auth?.)
 
     const signIn = async () => {
         signInWithEmailAndPassword(auth, email, password)
