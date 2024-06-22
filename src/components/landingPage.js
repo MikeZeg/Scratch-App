@@ -14,20 +14,18 @@ import { Main } from "./Main.js";
 const LandingPage = () => {
 
     const [checklogged, setCheckLogged] = useState(null);
+    const signIn = useNavigate();
     
     onAuthStateChanged(auth,(user) => {
         if(user){
             // console.log('User logged')
             setCheckLogged(user)
         }else {
-                // console.log("not login")
+            // console.log("not login")
         }
     })
 
-                
-    
-    const signIn = useNavigate();
-// Go to Page 
+// Location 
     const goToSignIn = () => {
         signIn('/CreateAccount')
     }
@@ -39,8 +37,7 @@ const LandingPage = () => {
     }
     
 // Login Button
-    const BtnLogin = () => {
-        
+    const BtnLogin = () => {        
         return (
             <button className="btn nav__btn" onClick={()=>{goToLogIn()}}>Log In</button>
         )

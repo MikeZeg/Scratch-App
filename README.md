@@ -35,7 +35,23 @@ I used the React library and Firebase to develop the application. This allowed m
     
     Main Content: User/s can add scratchCards - scrachcardsUsed DB (name (string), topPrize(bolden), userNo(string)automatic), win(bolden) if(true) add win price(number)
 
-    Login: add reset password
+    landing Page:
+        add style - buttons, colors, fonts,
+        fix bug : button log out - issue after logout from Main Page - not change info
+
+    Login: 
+        add reset password
+        add style
+    
+    Content:
+        add style
+        add content
+
+    Setting:
+        add style
+        set up change email
+        set up change password
+        set up change image
     
 
 ## Links

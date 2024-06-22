@@ -3,35 +3,54 @@ import ReactDOM from "react-dom";
 import { useState } from "react";
 import { Link, Route, Router, Routes, useNavigate} from "react-router-dom";
 
-import { auth } from "../../config/firebase";
+import { auth, db } from "../../config/firebase";
 import { Database } from "firebase/database";
 import { sendPasswordResetEmail } from "firebase/auth";
+import { getDocs, collection } from "firebase/firestore";
 
 import "../../styles/resetloginStyle.css"
 
 export const ResetLogIn = () => {
 
-    const [reset, setReset] = useState("none")
-    const inputEmail = document.querySelector("#resetEmailInput")
+    const [reset, setReset] = useState(" ")
     const navigateTo = useNavigate();
-    // check user 
-        // console.log(auth?.currentUser?.email)
+
+// Input background color back to white
+    const inputReset = () => {
+        document.querySelector("#resetEmailInput").style.backgroundColor = "white";
+        document.querySelector("#resetEmailInput").style.color = "black";
+    }
 
 
-    const resetPassword = async() => {
+// Email Check - format, comunication with user
+    const checkEmail = () => {
+        const inputEmail = document.querySelector("#resetEmailInput")
+
+        const checkRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        const mailFormat = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+        const easyMailFormat = /^\S+@\S+\.\S+$/;
+
+        if(reset.match(easyMailFormat)){
+            console.log('work')
+            resetPassword();
+        }else{
+            inputEmail.style.backgroundColor = 'red'
+            inputEmail.style.color = 'white'
+            console.log('Not working')
+            alert('Please add correct email')
+        }
+    }
+
+// Send request to Firebase
+    const resetPassword = async () => {
         // e.preventDefault();
-        // if statment
-            // inputEmail.style.backgroundColor = "red";
 
             sendPasswordResetEmail(auth, reset).then((data)=>{
                 alert("Check your email")
                 navigateTo("/signIn")
             }).catch(err => {
                 console.error(err)
-                inputEmail.style.backgroundColor = "red";
             })
-
-        
         console.log(reset);
     }
     
@@ -47,9 +66,15 @@ export const ResetLogIn = () => {
                     <input
                         id="resetEmailInput"
                         placeholder="email..."
-                        onChange={(e)=> setReset(e.target.value)} 
+                        onChange={(e)=> {
+                            inputReset()
+                            setReset(e.target.value)
+                        }}
                     />
-                        <button className="btn btn__conf" onClick={()=>{resetPassword()}}>Send</button>
+                        <button className="btn btn__conf" onClick={()=>{
+                            // resetPassword()
+                            checkEmail();
+                        }}>Send</button>
 
                     <div className="middle__btn">
                         <button className="btn btn__link">
