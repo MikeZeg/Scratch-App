@@ -18,7 +18,7 @@ export const Main = () => {
             <div className="main__top">
                 <div id="welcomeUser">
                     <p>ScratchCard App</p>
-                    <LogOut myData = {data => console.log("Log oFF from main level")}/>
+                    <LogOut  myData = {data => console.log("Log oFF from main level")}/>
                 </div>
                 
                 <User/>
