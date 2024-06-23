@@ -43,7 +43,6 @@ const App = () => {
           <Route path='/User' element={<User/>}/>
           <Route path='/Setting' element={<Setting/>}/>
       </Routes>
-
 </div>
     );
 }

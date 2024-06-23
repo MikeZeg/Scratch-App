@@ -16,12 +16,7 @@ import { LogOut } from "./LogOut.js";
 
 export const LogIn = () => {
 
-// if ready sign in go to Main page
-// if not use SignIn
-// if not CreateAccount or remainder/ reset password
-
     return (
-
 
         <div className="login">
         {/* //     <Router>

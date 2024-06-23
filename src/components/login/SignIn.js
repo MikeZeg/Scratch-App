@@ -11,15 +11,31 @@ import { ResetLogIn } from "./ResetLogIn";
 import LandingPage from "../LandingPage";
 
 
+const issueFun = (info) => {
+    const email = document.querySelector("#inputSignin");
+    const pass = document.querySelector("#inputPass");
+
+    email.style.backgroundColor = "red";
+    email.style.color = "white";
+
+    pass.style.backgroundColor = "red";
+    pass.style.backgroundColor = "white";
+
+    alert("Wrong Email or passowrd")
+    // alert(info)
+}
+
+
 export const SignIn = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
+    
     const mainPage = useNavigate();
 // check user 
     // console.log(auth?.currentUser?.email)
-
+    
+    
 
     const signIn = async () => {
         signInWithEmailAndPassword(auth, email, password)
@@ -28,6 +44,7 @@ export const SignIn = () => {
                 mainPage("/Main")
             }).catch((err)=> {
                 console.error(err)
+                issueFun(err)
             })
     }
 
@@ -41,13 +58,15 @@ export const SignIn = () => {
             </div>
             <div className="signin">
                 <label>Email...</label>
-                <input 
+                <input
+                    id="inputSignin"
                     placeholder="Email..."
                     onChange={(e)=> setEmail(e.target.value)} 
                 />
 
                 <label type="string">Password...</label>
-                <input 
+                <input
+                    id="inputPass"
                     type="password" 
                     placeholder="Password..." 
                     onChange={(e)=> setPassword(e.target.value)}     

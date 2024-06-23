@@ -63,6 +63,18 @@
         letter-spacing: 1px;
     }
 
+    #btn-mid {
+        display: flex;
+        justify-content: center;
+
+        padding: 5px;
+
+        button {
+            width: 150px;
+            height: 30px;
+        }
+    }
+
 }
 
 /* ^-------^------^-------^-------^-------^-------^-------^ */
