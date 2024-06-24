@@ -1,27 +1,9 @@
-.main{
-    background-color: hsl(0, 4%, 53%);
-
-    width: 90%;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    
-    
+.setting {
+    color: blue;
 }
-.main__top {
-    display: grid;
-    justify-items: center;
-    margin-bottom: 1rem;
-
-    #welcomeUser {
-        width: 90%;
-        margin: 1rem 0 2rem 0;
-        display: flex;
-        align-items: center;
-        justify-content:space-around;
-        gap: 60%
-        
-        
-    }
-    
+.btnModalOpen {
+    border-radius: 10px;
+    width: 60px;
+    height: 25px;
+    margin-top: 10px;
 }

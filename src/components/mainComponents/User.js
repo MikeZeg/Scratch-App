@@ -22,7 +22,7 @@ export const User = () => {
 
     return (
         <div className="user">
-            <section>Welcome {user?.currentUser?.email} In User section.</section>
+            <section>Welcome {user?.currentUser?.email}.</section>
             <section></section>
         </div>
     )

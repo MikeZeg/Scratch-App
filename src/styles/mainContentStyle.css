@@ -1,0 +1,48 @@
+.main__content {
+    border: 1px solid red;
+
+}
+.content__subtitle {
+    color: blue;
+    
+    margin-left: 5%;
+}
+#contentScratchcard {
+    border: 1px solid blue;
+    /* background-color: blue; */
+    
+    display: flex;
+    width: 90%;
+    height: 300px;
+    
+    margin-left: auto;
+    margin-right: auto;
+}
+.cards__info {
+    border: 1px solid red;
+    
+    min-width: 300px;
+    margin: 1rem;
+    padding: 0.6rem;
+}
+.contentUser {
+    color: red;
+}
+#contentUserCards {
+    color: pink;
+    border: 1px solid pink;
+
+    width: 30%;
+    margin-left: 5%;
+
+    display: flex;
+}
+
+
+
+
+
+
+.auto__scroll {
+    overflow: auto;
+}

@@ -7,8 +7,6 @@ import { db, auth } from "../../config/firebase.js";
 import { getDocs, collection } from "firebase/firestore";
 
 
-
-
 export const Content = () => {
 // Scratch Data fetch
     const [scratch, setScratch] = useState([]);
@@ -20,7 +18,7 @@ export const Content = () => {
     const scratchCollection = collection(db, "scratchCard");
 
 
-// Collect Data from Firebase - used useEffect to monitoring changes.
+// All scratchcards Collect Data from Firebase - used useEffect? to monitoring changes.
     const getScratchList = async() => {
         try{
             const data = await getDocs(scratchCollection);
@@ -46,15 +44,13 @@ export const Content = () => {
         } catch(err){console.error(err)}
     }
 
-
     const UserAddScratchcard = ({ data }) => {
         const userId = auth?.currentUser?.uid;
         
         return (
             <div className="contentUserAddScratchcard">
                 <p>User scratchcard filtred by currentUser UID:</p>
-                <div>
-                <div>
+                <div id="lastCards">
                     {data.filter((card) => card.userNo == userId)
                         .map((card)=>
                             
@@ -74,8 +70,15 @@ export const Content = () => {
                             
                         </section>
                     ))}        
-                </div> 
-                </div>    
+                </div>
+                <div id="addCards">
+                    {/* choose card -> from database
+                    win ? yes : no
+                    if yes -> topPrize ?
+                    if yes -> Congatulation :)
+                    if not -> add other price */}
+
+                </div>
             </div>
         )
     }
@@ -87,32 +90,34 @@ export const Content = () => {
     },[])
 
     return (
-        <div>
-            <h1>Please check Your Scratches below: </h1>
-            <h2>List of available scratchcards: </h2>
-
-        <div className="contentScratchcard">
-            {scratch.map((card)=> (
-                <section key={card.id}>
-                    <br/>
-                    <img className="cardImage"></img>
-                    <p className="cardName" ><strong>ScratchCard:</strong> {card.name}</p>
-                    <p className="cardPrice" ><strong>Price:</strong> {card.price}</p>
-                    <p className="cardTopWin" ><strong>Top Prize to win:</strong> {card.topPrize}</p>
-                    <p className="cardWinLeft" >{card.topPrizeLeft > 0 ?
-                            "You have chance to win top PRIZE !!!"
-                            :"All top prizes already gone :/"}</p>
-                </section>
-            ))}
-        </div>
-
-        <div>
-            <p>Your info</p>
-            <div>
-                <UserAddScratchcard data = {userScratch}/>
+        <div className="main__content">
+            <div className="content__subtitle">
+                <p>Please check ScratchCard in our database</p>
             </div>
-        </div>
 
+            <div id="contentScratchcard" className="auto__scroll">
+                    {scratch.map((card)=> (
+                        <section key={card.id} className="cards__info">
+                            <br/>
+                            <img className="cardImage"></img>
+                            <div>
+                                <p className="cardName" ><strong>ScratchCard:</strong> {card.name}</p>
+                                <p className="cardPrice" ><strong>Price:</strong> {card.price}</p>
+                                <p className="cardTopWin" ><strong>Top Prize to win:</strong> {card.topPrize}</p>
+                                <p className="cardWinLeft" >{card.topPrizeLeft > 0 ?
+                                    "You have chance to win top PRIZE !!!"
+                                    :"All top prizes already gone :/"}</p>
+                            </div>
+                        </section>
+                    ))}
+            </div>
+            <div className="contentUser">
+                <p className="content__subtitle">Your info</p>
+                
+                <div id="contentUserCards" className="auto__scroll">
+                    <UserAddScratchcard data = {userScratch}/>
+                </div>
+            </div>
         </div>
     )
 }

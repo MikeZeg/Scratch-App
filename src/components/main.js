@@ -18,16 +18,18 @@ export const Main = () => {
             <div className="main__top">
                 <div id="welcomeUser">
                     <p>ScratchCard App</p>
-                    <LogOut  myData = {data => console.log("Log oFF from main level")}/>
+                    <div id="settingUser">
+                        <LogOut  myData = {data => console.log("Log oFF from main level")}/>
+                        <Setting /> 
+                    </div>
+
                 </div>
-                
-                <User/>
+                    <User/>
             </div>
             <div className="main__middle">
                 <Content/>
             </div>
             <div className="main__bottom">
-                <Setting/>
             </div>
         </div>
     )

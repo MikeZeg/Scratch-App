@@ -141,7 +141,6 @@ export const Setting = () => {
 
     const [openModal, setOpenModal] = useState(false)
 
-
     return (
         <div className="setting">
     {/* open A Modal */}
