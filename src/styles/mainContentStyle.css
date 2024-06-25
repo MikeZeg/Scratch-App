@@ -76,5 +76,11 @@
     right: 15px;
     top: 15px;
     border-radius: 40%;
-    
+}
+#hidden-addCards-inputs {
+    background-color: aqua;
+    border: 1px solid red;
+
+    display: grid;
+
 }
