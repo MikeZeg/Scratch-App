@@ -31,3 +31,10 @@
 .main__bottom {
 
 }
+/*  Global */
+.auto__scroll {
+    overflow: auto;
+}
+.stopScroll  {
+    overflow-y: hidden;
+}

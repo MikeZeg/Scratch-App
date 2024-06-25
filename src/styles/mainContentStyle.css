@@ -1,14 +1,12 @@
 .main__content {
-    border: 1px solid red;
+    /* border: 1px solid red; */
 
 }
 .content__subtitle {
-    color: blue;
-    
     margin-left: 5%;
 }
 #contentScratchcard {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     /* background-color: blue; */
     
     display: flex;
@@ -32,17 +30,44 @@
     color: pink;
     border: 1px solid pink;
 
-    width: 30%;
+    width: 50%;
     margin-left: 5%;
+}
+/* ----------- Components inside ----------------- */
 
-    display: flex;
+/* Content User Add Scratchcard Compmponent */
+.contentUserAddScratchcard {
+    margin: 1rem;
+    
+}
+/* I section */
+#lastCards {
+        color: black;
+        display: flex;
+        width: 100%;
+        border: 1px solid red;
 }
 
 
+/* II section */
+#addCards {
+    background-color: lightcoral;
+    width: 1200px;
+    height: 700px;
+    margin: 2rem;
+    padding: 0;
 
+    position: absolute;
+    top: 60px;
+    right: 2rem;
+    left: 2rem;
 
+    z-index: 99999;
 
-
-.auto__scroll {
-    overflow: auto;
+    input {
+        width: 200px;
+    }
+}
+.hidden-addCards {
+    display: none;
 }

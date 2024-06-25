@@ -17,8 +17,7 @@ export const Content = () => {
 // Download data
     const scratchCollection = collection(db, "scratchCard");
 
-
-// All scratchcards Collect Data from Firebase - used useEffect? to monitoring changes.
+// Functions
     const getScratchList = async() => {
         try{
             const data = await getDocs(scratchCollection);
@@ -30,8 +29,6 @@ export const Content = () => {
             setScratch(filterData)
         } catch(err){console.error(err)}
     }
-
-
     const getUserScrachcard = async () => {
         try {
             const data = await getDocs(userScratchCollection);
@@ -43,19 +40,41 @@ export const Content = () => {
             // console.log("filtred Data: -->: ",userScratchcard)
         } catch(err){console.error(err)}
     }
+    // const showAddCardOption = () => {
+    //     const grab = document.querySelector("#addCards")
 
+    //     grab.classList.remove("hidden-addCards")
+    //     console.log("working")
+    // }
+
+// Component - add cards plus currentUser show user cards
     const UserAddScratchcard = ({ data }) => {
         const userId = auth?.currentUser?.uid;
+        const [hidden, setHidden ] = useState(false) 
+
+
+        const showAddCardOption = () => {
+            const grab = document.querySelector("#addCards")
+
+            setHidden(!hidden)
+            
+            hidden == false ? grab.classList.remove("hidden-addCards")
+            : grab.classList.add("hidden-addCards")
+            
+            console.log("working")
+        }
+        
         
         return (
             <div className="contentUserAddScratchcard">
+        {/* I section */}
                 <p>User scratchcard filtred by currentUser UID:</p>
-                <div id="lastCards">
+                <div id="lastCards" className="auto__scroll">
                     {data.filter((card) => card.userNo == userId)
                         .map((card)=>
                             
                         (
-                        <section key={card.id}>
+                        <section key={card.id} className="cards__info">
                             <br/>
                             <p>{card.name}</p>
                             <p>{card.topPrize == false ? ("!!! Win Top prize !!!")
@@ -71,14 +90,37 @@ export const Content = () => {
                         </section>
                     ))}        
                 </div>
-                <div id="addCards">
-                    {/* choose card -> from database
-                    win ? yes : no
-                    if yes -> topPrize ?
-                    if yes -> Congatulation :)
-                    if not -> add other price */}
+{/*  ----------- II section ---------------- */}
+                <div id="addCards" className="hidden hidden-addCards">
+                    <button onClick={()=> showAddCardOption()}>X</button>
+                    
+                    <section>
+                        <label htmlFor="cardsChoose">Choose a scratchcard</label>
+                        <select id="cardsChoose" name="cards">
+                            <option value="Jewel Bingo">Jewel Bingo</option>
+                            <option value="Tropial Lines">Tropial Lines</option>
+                            <option value="250,000 ORANGE">250,000</option>
+                            <option value="Triple Cashword">Triple Cashword</option>
+                        </select>
+                        <label htmlFor="isWinner">winning ticket</label>
 
+                        <input type="radio" id="winQuestion" name="if_win" value="no"></input>
+                        <label>Yes</label>
+                        
+                        <input type="radio" id="winQuestion" name="if_win" value="no"></input>
+                        <label>No</label>
+                        
+                        <input
+                            className="hidden"
+                            type="number"
+                            id="winning"
+                            name="winning"
+                            placeholder="Wining value"
+                            min={2}/>
+                        <input type="submit"/>
+                    </section>
                 </div>
+                <button onClick={()=> showAddCardOption()}>Press to add cards</button>
             </div>
         )
     }
@@ -114,7 +156,7 @@ export const Content = () => {
             <div className="contentUser">
                 <p className="content__subtitle">Your info</p>
                 
-                <div id="contentUserCards" className="auto__scroll">
+                <div id="contentUserCards" className="">
                     <UserAddScratchcard data = {userScratch}/>
                 </div>
             </div>
