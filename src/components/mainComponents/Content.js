@@ -40,12 +40,6 @@ export const Content = () => {
             // console.log("filtred Data: -->: ",userScratchcard)
         } catch(err){console.error(err)}
     }
-    // const showAddCardOption = () => {
-    //     const grab = document.querySelector("#addCards")
-
-    //     grab.classList.remove("hidden-addCards")
-    //     console.log("working")
-    // }
 
 // Component - add cards plus currentUser show user cards
     const UserAddScratchcard = ({ data }) => {
@@ -55,13 +49,20 @@ export const Content = () => {
 
         const showAddCardOption = () => {
             const grab = document.querySelector("#addCards")
-
+            const grabMain = document.querySelector('body')
+            
             setHidden(!hidden)
-            
-            hidden == false ? grab.classList.remove("hidden-addCards")
-            : grab.classList.add("hidden-addCards")
-            
-            console.log("working")
+
+            if(hidden == false){
+                console.log(hidden)
+                grab.classList.remove("hidden-addCards")
+                grabMain.classList.add("stopScroll")
+
+            }if(hidden == true){
+                console.log(hidden)
+                grab.classList.add("hidden-addCards")
+                grabMain.classList.remove("stopScroll")
+            }
         }
         
         
@@ -92,9 +93,9 @@ export const Content = () => {
                 </div>
 {/*  ----------- II section ---------------- */}
                 <div id="addCards" className="hidden hidden-addCards">
-                    <button onClick={()=> showAddCardOption()}>X</button>
+                    <button id="hidden-addCard-btn" onClick={()=> showAddCardOption()}>X</button>
                     
-                    <section>
+                    <section id="hidden-addCards-inputs">
                         <label htmlFor="cardsChoose">Choose a scratchcard</label>
                         <select id="cardsChoose" name="cards">
                             <option value="Jewel Bingo">Jewel Bingo</option>
@@ -119,6 +120,16 @@ export const Content = () => {
                             min={2}/>
                         <input type="submit"/>
                     </section>
+
+                    <section id="hidden-addCards-img">
+                        <figure>
+                            <img></img>
+                            <figcaption>
+                                <p>Here scratchcard</p>    
+                            </figcaption>
+                        </figure>
+                    </section>
+
                 </div>
                 <button onClick={()=> showAddCardOption()}>Press to add cards</button>
             </div>
