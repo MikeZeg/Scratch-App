@@ -94,41 +94,44 @@ export const Content = () => {
 {/*  ----------- II section ---------------- */}
                 <div id="addCards" className="hidden hidden-addCards">
                     <button id="hidden-addCard-btn" onClick={()=> showAddCardOption()}>X</button>
-                    
-                    <section id="hidden-addCards-inputs">
-                        <label htmlFor="cardsChoose">Choose a scratchcard</label>
-                        <select id="cardsChoose" name="cards">
-                            <option value="Jewel Bingo">Jewel Bingo</option>
-                            <option value="Tropial Lines">Tropial Lines</option>
-                            <option value="250,000 ORANGE">250,000</option>
-                            <option value="Triple Cashword">Triple Cashword</option>
-                        </select>
-                        <label htmlFor="isWinner">winning ticket</label>
+                    <div id="addCardsContent">
+                        <section id="hidden-addCards-inputs">
+                            <label htmlFor="cardsChoose" className="addCards-text">Choose a scratchcard</label>
+                            <select id="cardsChoose" name="cards">
+                                <option value="Jewel Bingo">Jewel Bingo</option>
+                                <option value="Tropial Lines">Tropial Lines</option>
+                                <option value="250,000 ORANGE">250,000</option>
+                                <option value="Triple Cashword">Triple Cashword</option>
+                            </select>
 
-                        <input type="radio" id="winQuestion" name="if_win" value="no"></input>
-                        <label>Yes</label>
-                        
-                        <input type="radio" id="winQuestion" name="if_win" value="no"></input>
-                        <label>No</label>
-                        
-                        <input
-                            className="hidden"
-                            type="number"
-                            id="winning"
-                            name="winning"
-                            placeholder="Wining value"
-                            min={2}/>
-                        <input type="submit"/>
-                    </section>
+                                <label htmlFor="isWinner" className="addCards-text">Winning ticket</label>
+                            <div >
+                                <input type="radio" id="winQuestion" name="if_win" value="no"></input>
+                                <label>Yes</label>
+                                
+                                <input type="radio" id="winQuestion" name="if_win" value="no"></input>
+                                <label>No</label>
+                            </div>
+                            
+                            <input
+                                className="hidden"
+                                type="number"
+                                id="winning"
+                                name="winning"
+                                placeholder="Wining value"
+                                min={2}/>
+                            <input type="submit" id="addCardBtn"/>
+                        </section>
 
-                    <section id="hidden-addCards-img">
-                        <figure>
-                            <img></img>
-                            <figcaption>
-                                <p>Here scratchcard</p>    
-                            </figcaption>
-                        </figure>
-                    </section>
+                        <section id="hidden-addCards-img">
+                            <figure>
+                                <img id="" className="img"></img>
+                                <figcaption>
+                                    <p>Here scratchcard</p>    
+                                </figcaption>
+                            </figure>
+                        </section>
+                    </div>
 
                 </div>
                 <button onClick={()=> showAddCardOption()}>Press to add cards</button>
@@ -164,6 +167,7 @@ export const Content = () => {
                         </section>
                     ))}
             </div>
+
             <div className="contentUser">
                 <p className="content__subtitle">Your info</p>
                 
