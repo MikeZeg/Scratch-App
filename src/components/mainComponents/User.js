@@ -18,8 +18,6 @@ export const topScratch = () => {
 
 export const User = () => {
 
-
-
     return (
         <div className="user">
             <section>Welcome {user?.currentUser?.email}.</section>

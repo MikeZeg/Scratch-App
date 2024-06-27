@@ -1,9 +1,99 @@
 .setting {
-    color: blue;
+    color: --main-bcolor;
 }
 .btnModalOpen {
     border-radius: 10px;
     width: 60px;
     height: 25px;
     margin-top: 10px;
+}
+.settingModal {
+    position: absolute;
+    width: auto + 5%;
+    min-width: 40%;
+    height: auto;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+    background-color: darkgray;
+    border: 2px solid white;
+}
+.btnModal {
+    width: 150px;
+}
+.changeModal {
+    /* border: 1px solid red; */
+    /* background-color: white; */
+    
+}
+.changeModalInput {
+    width: 350px;
+    
+    input {
+        margin: 0.5rem 0;
+        height: 30px;
+    }
+    button {
+        width: 130px;
+        margin-top: 20px;
+    }
+}
+.change {
+    margin: 2rem 0 2rem 2rem;
+}
+.btnConfChange {
+
+    &:hover {
+        background-color: hsl(120, 80%, 43%);
+    }
+}
+.btnCancel {
+    
+    &:hover {
+        background-color: hsl(0, 100%, 65%);
+    }
+}
+.sectionGrid {
+    display: grid;
+    
+    /* margin: 10px 0 10px 0  for label*/
+    /* width: 350px;
+    height: 30px; for input */
+    /* width: 130px; for button */
+    /* margin-top: 20px; for button*/
+}
+#setting-btnClose {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+}
+#change-password {
+    width: 350px;
+    
+    
+    input {
+        margin: 0.5rem 0;
+        height: 30px;
+    }
+    button {
+        width: 130px;
+        margin-top: 20px;
+    }    
+}
+#change-email {
+    
+
+    input[type=file] {
+    
+        width: 200px;
+
+        &::file-selector-button:hover {
+            background-color:hsl(69, 70%, 49%)  
+        } 
+    }
+    .btn {
+        margin-right: 10px;
+    }
 }

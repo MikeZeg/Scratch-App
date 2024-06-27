@@ -6,9 +6,6 @@
     margin-left: 5%;
 }
 #contentScratchcard {
-    /* border: 1px solid blue; */
-    /* background-color: blue; */
-    
     display: flex;
     width: 90%;
     height: 300px;
@@ -37,8 +34,7 @@
 
 /* Content User Add Scratchcard Compmponent */
 .contentUserAddScratchcard {
-    margin: 1rem;
-    
+    margin: 1rem;   
 }
 /* I section */
 #lastCards {
@@ -47,7 +43,6 @@
         width: 100%;
         border: 1px solid red;
 }
-
 
 /* II section */
 #addCards {
@@ -101,8 +96,30 @@
     margin-left: 6%;
 }
 #winning {
+    display: none;
     margin-left: auto;
     margin-right: auto;
+}
+#winQuestion {
+    margin: 2rem 0 1rem 3%;
+    /* margin-top: 2rem; */
+    /* margin-left: 3%; */
+    height: auto;
+}
+#win-input-radio {
+
+    .input-radio {
+        margin: 0;
+        padding: 0;
+        width: 70px;
+    }
+    
+    /* #winQuestionYes {
+       
+    } */
+    /* #winQuestionNo {
+        
+    } */
 }
 #addCardBtn {
     margin-left: auto;
@@ -136,4 +153,9 @@
     font-weight: 700;
     margin-left: 3%;
     font-weight: 700;
+}
+
+.input-radioText {
+    margin: 0;
+    padding: 0;
 }

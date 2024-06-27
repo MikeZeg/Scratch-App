@@ -104,13 +104,13 @@ export const Content = () => {
                                 <option value="Triple Cashword">Triple Cashword</option>
                             </select>
 
-                                <label htmlFor="isWinner" className="addCards-text">Winning ticket</label>
-                            <div >
-                                <input type="radio" id="winQuestion" name="if_win" value="no"></input>
-                                <label>Yes</label>
-                                
-                                <input type="radio" id="winQuestion" name="if_win" value="no"></input>
-                                <label>No</label>
+                            <div id="win-input-radio">
+                                <p id="winQuestion" className="addCards-text">Winning ticket</p>
+                                <input className="input-radio" type="radio" id="winQuestionYes" name="if_win" value="yes"></input>
+                                <label className="input-radioText">Yes</label>
+
+                                <input className="input-radio" type="radio" id="winQuestionNo" name="if_win" value="no"></input>
+                                <label className="input-radioText">No</label>
                             </div>
                             
                             <input
