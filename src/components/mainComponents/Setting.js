@@ -58,7 +58,7 @@ export const ChangeEmail = () => {
                         pattern=""
                         required
                     />
-                    <label htmlFor="rep-email">Please add new email: </label>
+                    <label htmlFor="rep-email">Please repete new email: </label>
                     <input 
                         type="email"
                         id="rep-email"

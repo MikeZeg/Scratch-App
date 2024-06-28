@@ -1,5 +1,5 @@
 .setting {
-    color: --main-bcolor;
+    color: var(--black);
 }
 .btnModalOpen {
     border-radius: 10px;
@@ -46,13 +46,13 @@
 .btnConfChange {
 
     &:hover {
-        background-color: hsl(120, 80%, 43%);
+        background-color: var(--success);
     }
 }
 .btnCancel {
     
     &:hover {
-        background-color: hsl(0, 100%, 65%);
+        background-color: var(--error)
     }
 }
 .sectionGrid {
@@ -72,7 +72,6 @@
 #change-password {
     width: 350px;
     
-    
     input {
         margin: 0.5rem 0;
         height: 30px;
@@ -83,14 +82,12 @@
     }    
 }
 #change-email {
-    
 
     input[type=file] {
-    
         width: 200px;
 
         &::file-selector-button:hover {
-            background-color:hsl(69, 70%, 49%)  
+            background-color:var(--mycolor);
         } 
     }
     .btn {

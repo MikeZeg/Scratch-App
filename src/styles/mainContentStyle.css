@@ -91,19 +91,20 @@
     display: grid;
 
 }
+#cardsChooseLabel {
+    margin-top: 2rem;
+}
 #cardsChoose {
-    width: 50%;
+    width: 70%;
+    height: 40px;
     margin-left: 6%;
 }
 #winning {
     display: none;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 6%;
 }
 #winQuestion {
-    margin: 2rem 0 1rem 3%;
-    /* margin-top: 2rem; */
-    /* margin-left: 3%; */
+    margin: 0rem 0 1rem 6%;
     height: auto;
 }
 #win-input-radio {
@@ -122,8 +123,11 @@
     } */
 }
 #addCardBtn {
+    margin: 0;
     margin-left: auto;
     margin-right: auto;
+    width: 10%;
+    height: 45%;
 }
 
  /* ------- Image card --------- */
@@ -151,7 +155,7 @@
 .addCards-text {
     color: black;
     font-weight: 700;
-    margin-left: 3%;
+    margin-left: 6%;
     font-weight: 700;
 }
 

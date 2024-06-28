@@ -33,7 +33,7 @@ export const LogOut = (props) => {
         
         return(
             <div>
-                <button onClick={()=>{
+                <button id="logOut" className="btn" onClick={()=>{
                     logOff()
                     }}>Log Out</button>
             </div>

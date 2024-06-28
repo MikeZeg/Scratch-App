@@ -68,7 +68,7 @@ export const Content = () => {
         
         return (
             <div className="contentUserAddScratchcard">
-        {/* I section */}
+{/* ---------- I section ----------- */}
                 <p>User scratchcard filtred by currentUser UID:</p>
                 <div id="lastCards" className="auto__scroll">
                     {data.filter((card) => card.userNo == userId)
@@ -93,10 +93,12 @@ export const Content = () => {
                 </div>
 {/*  ----------- II section ---------------- */}
                 <div id="addCards" className="hidden hidden-addCards">
-                    <button id="hidden-addCard-btn" onClick={()=> showAddCardOption()}>X</button>
+                    
+                    <button id="hidden-addCard-btn" className="btn" onClick={()=> showAddCardOption()}>X</button>
+
                     <div id="addCardsContent">
                         <section id="hidden-addCards-inputs">
-                            <label htmlFor="cardsChoose" className="addCards-text">Choose a scratchcard</label>
+                            <label id="cardsChooseLabel" htmlFor="cardsChoose" className="addCards-text">Choose a scratchcard</label>
                             <select id="cardsChoose" name="cards">
                                 <option value="Jewel Bingo">Jewel Bingo</option>
                                 <option value="Tropial Lines">Tropial Lines</option>
@@ -120,7 +122,7 @@ export const Content = () => {
                                 name="winning"
                                 placeholder="Wining value"
                                 min={2}/>
-                            <input type="submit" id="addCardBtn"/>
+                            <input type="submit" id="addCardBtn" className="btn"/>
                         </section>
 
                         <section id="hidden-addCards-img">
@@ -134,7 +136,7 @@ export const Content = () => {
                     </div>
 
                 </div>
-                <button onClick={()=> showAddCardOption()}>Press to add cards</button>
+                <button onClick={()=> showAddCardOption()} className="btn">Press to add cards</button>
             </div>
         )
     }
