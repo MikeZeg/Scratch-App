@@ -6,9 +6,9 @@ import { Link, Route, Router, Routes, useNavigate} from "react-router-dom";
 import "../../styles/mainSettingStyle.css";
 
 import { userData } from "./User.js"
-
-// console.log(userData.userEmail)
-
+import  {auth } from "../../config/firebase.js";
+import { EmailAuthProvider } from "firebase/auth/web-extension";
+import { updateEmail, reauthenticateWithCredential, sendEmailVerification, updatePassword } from "firebase/auth";
 
 // Components
 // ------------  Change Image -------------
@@ -45,7 +45,51 @@ export const ChangeImage = () => {
 export const ChangeEmail = () => {
     const [open, setOpen] = useState(false)
 
+
     const Modal = ({ emailModal }) => {
+        const [newEmail1, setNewEmail1] = useState(" ")
+        const [newEmail2, setNewEmail2] = useState("")
+        const [credantialPassword,setCredantialPassword] = useState("")
+        const mainNav = useNavigate();
+        
+        const emailInput = document.querySelectorAll('.newEmail');
+        const easyMailFormat = /^\S+@\S+\.\S+$/;
+
+
+        // ---- Change email Function -------
+        const upDateEmail = async () =>{
+
+            if(auth.currentUser === null ){
+                return;
+            }
+            if(!newEmail1.match(easyMailFormat)) {
+                return alert('Please check email format')
+            }if(newEmail1 != newEmail2){
+                emailInput.forEach((input)=> {
+                    input.style.backgroundColor  = "red"
+                })
+            }
+            if(newEmail1 === newEmail2){
+                // console.log("send new email")
+                try {
+                    const userEmail = auth.currentUser.email;
+                    const userPassword = credantialPassword;
+                // Reauthenticate user before updating the email
+                    const credential = EmailAuthProvider.credential(userEmail, userPassword);
+                    await reauthenticateWithCredential(auth.currentUser, credential)
+                // Update the emial after succressful
+                    await updateEmail(auth.currentUser, newEmail1)
+                // Optional - send email to verification the new email
+                    // await sendEmailVerification(auth.currentUser)
+                // Information for User
+                    alert('New Email update');
+                    mainNav("/LandingPage")
+                } catch (error) {
+                    console.log(error)
+                }
+            }
+        }
+
         return (
             <div className="changeModal changeModalInput" id="change-email">
                 <section>
@@ -53,26 +97,41 @@ export const ChangeEmail = () => {
                     <label htmlFor="email">Please add new email: </label>
                     <input 
                         type="email"
+                        className="newEmail"
                         id="email"
-                        size="30"
-                        pattern=""
-                        required
+                        placeholder="New Email"
+                        onChange={(e)=> {
+                            setNewEmail1(e.target.value)
+                            e.target.style.backgroundColor = "white";
+                        }}
                     />
                     <label htmlFor="rep-email">Please repete new email: </label>
                     <input 
                         type="email"
+                        className="newEmail"
                         id="rep-email"
-                        size="30"
-                        pattern=""
-                        required
+                        placeholder="Repete New Email"
+                        onChange={(e)=> {
+                            setNewEmail2(e.target.value)
+                            e.target.style.backgroundColor = "white";
+                        }}
                     />
-                    <button className="btnConfChange">Press to change</button>
+                    <label htmlFor="emailUpdatePassword">Password</label>
+                    <input
+                        type="password"
+                        id="emailUpdatePassword"
+                        placeholder="Password"
+                        onChange={(e)=>{
+                            setCredantialPassword(e.target.value)
+                        }}
+                        
+                    />
+                    <button className="btnConfChange" onClick={upDateEmail}>Press to change</button>
                     <button className="btn btnCancel change" onClick={()=> emailModal(false)}>Cancel</button>
                 </section>
             </div>
         )
     }
-
 
     return (
         <div className="changeEmail change">
@@ -80,19 +139,65 @@ export const ChangeEmail = () => {
         </div>
     )
 }
-//Change Password
+// ------------ Change Password -----------------
 export const ChangePassword = () => {
     const [open, setOpen] = useState(false)
 
     const Modal = ({ passwordModal }) => {
+        const [pass, setPass] = useState('')
+        const [newPass1, setNewPass1] = useState('');
+        const [newPass2, setNewPass2] = useState('');
+
+    // Function change password
+        const upDatePassword = async () => {
+            // const passFormat = ;
+            
+            console.log('Press Button upDatePassword')
+
+            if(auth.currentUser === null ){return;}
+            if(newPass1 !== newPass2){return alert('!!! Password Not Match !!!')}
+            if(newPass1.length > 6){return alert('!!! Password need to be longer than 6 signs!!')}
+            // if(newPass1.match(passFormat)){return alert("!! Please check password format. Including ... !!")}
+            if(newPass1 === newPass2){
+                console.log("Password Change")
+
+                const userEmail = auth.currentUser.email;
+                const userPassword = pass;
+
+                try{
+                // Reauthenticate user before updating the email
+                    const credential = EmailAuthProvider.credential(userEmail, userPassword);
+                    await reauthenticateWithCredential(userEmail, credential)
+                // Update the password after succressful
+                    await updatePassword(auth.currentUser, newPass1);
+
+                }catch(err){
+                    console.log(err)
+                }
+
+            }else{
+                alert('Please reset website. Error')
+            }
+        }
+
         return (
             <div className="changeModal changeModalInput" id="change-password">
                 <section>
                     <p>Change Password</p>
-                    <label htmlFor="password">Please add new password: </label>
-                    <input 
+                    
+                    <label htmlFor="password">Password: </label>
+                    <input
                         type="password"
                         id="password"
+                        name="password"
+                        minLength={5}
+                        required
+                    />
+
+                    <label htmlFor="password">Please add new password: </label>
+                    <input
+                        type="password"
+                        id="newPassword"
                         name="password"
                         minLength={5}
                         required
@@ -100,11 +205,11 @@ export const ChangePassword = () => {
                     <label htmlFor="rep-password">Please repete password: </label>
                     <input 
                         type="password"
-                        id="rep-password"
+                        id="rep-newPassword"
                         name="rep-password"
                         minLength={5}
                         required/>
-                    <button className="btnConfChange">Press to change</button>
+                    <button className="btnConfChange" onClick={ upDatePassword}>Press to change</button>
                     <button className="btn btnCancel change" onClick={()=> passwordModal(false)}>Cancel</button>
                 </section>
             </div>
@@ -119,7 +224,7 @@ export const ChangePassword = () => {
 }
 
 
-// ---- Component Modal --------------
+// --------------- Component Modal --------------
 export const ModalSetting = ( {closeModal} ) => {
     return (
         <div className="settingModal">

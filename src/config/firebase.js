@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
 
-import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword, getUserByEmail } from 'firebase/auth';
+import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword } from 'firebase/auth';
 
 
 const firebaseConfig = {
@@ -20,7 +20,10 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+//log in / create / chnage
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
 
+//DataBase
 export const db = getFirestore(app);
+

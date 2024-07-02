@@ -8,12 +8,8 @@ import "../../styles/loginStyle.css";
 
 export const LogOut = (props) => {
 
-//CallBack functon
-    
+//CallBack functon    
     let callBack = props.myData
-
-    // console.log("-call back--->",callBack)
-    
 
 //Move to LandingPage
         const moveHome = useNavigate()
@@ -23,8 +19,7 @@ export const LogOut = (props) => {
             try {
                 await signOut(auth)
                             .then(moveHome("/LandingPage"))
-                            callBack(null)
-                            
+                            callBack(null)          
                 console.log("Button LogOff pressed: " + props.myData)
             }catch(err) {
                 console.error(err)
