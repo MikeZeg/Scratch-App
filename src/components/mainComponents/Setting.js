@@ -85,7 +85,7 @@ export const ChangeEmail = () => {
                     alert('New Email update');
                     mainNav("/LandingPage")
                 } catch (error) {
-                    console.log(error)
+                    console.log("Something get wrong. "+error)
                 }
             }
         }
@@ -147,36 +147,65 @@ export const ChangePassword = () => {
         const [pass, setPass] = useState('')
         const [newPass1, setNewPass1] = useState('');
         const [newPass2, setNewPass2] = useState('');
+        const mainNav = useNavigate();
 
-    // Function change password
+        console.log(pass)
+        
+        // Function change password
         const upDatePassword = async () => {
             // const passFormat = ;
             
             console.log('Press Button upDatePassword')
 
-            if(auth.currentUser === null ){return;}
-            if(newPass1 !== newPass2){return alert('!!! Password Not Match !!!')}
-            if(newPass1.length > 6){return alert('!!! Password need to be longer than 6 signs!!')}
+            if(auth.currentUser === null ){
+                return;
+
+            }if(newPass1 !== newPass2) {
+                return alert('!!! Password Not Match !!!')
+            }if(newPass1.length > 6) {
+                return alert('!!! Password need to be longer than 6 signs!!')
+            }
             // if(newPass1.match(passFormat)){return alert("!! Please check password format. Including ... !!")}
             if(newPass1 === newPass2){
-                console.log("Password Change")
 
-                const userEmail = auth.currentUser.email;
-                const userPassword = pass;
 
-                try{
+                try {
+                    const userEmail = auth.currentUser.email;
+                    const userPassword = pass;
                 // Reauthenticate user before updating the email
                     const credential = EmailAuthProvider.credential(userEmail, userPassword);
-                    await reauthenticateWithCredential(userEmail, credential)
-                // Update the password after succressful
-                    await updatePassword(auth.currentUser, newPass1);
-
-                }catch(err){
-                    console.log(err)
+                    await reauthenticateWithCredential(auth.currentUser, credential)
+                // Update the emial after succressful
+                    await updatePassword(auth.currentUser, newPass1)
+                // Optional - send email to verification the new email
+                    // await sendEmailVerification(auth.currentUser)
+                // Information for User
+                    alert('New Password update');
+                    mainNav("/LandingPage")
+                } catch (error) {
+                    console.log("Something get wrong. "+error)
                 }
+                
+                // try {
+                //     const userEmail = auth.currentUser.email;
+                //     const userPassword = pass;
+                //     const user = auth.currentUser;
 
-            }else{
-                alert('Please reset website. Error')
+                //     console.log("Emial: ",userEmail, ".Password :",userPassword)
+
+                // // Reauthenticate user before updating the email
+                //     const credential = EmailAuthProvider.credential(userEmail, userPassword);
+                //     await reauthenticateWithCredential(auth.currentUser, credential)
+                // // Update the password after succressful
+                //     updatePassword(user, newPass2).then(()=>{
+                //         console.log('All Good updated')
+                //         mainNav("/LandingPage")
+                //     }).catch((err)=>{console.log(err)})
+                //     alert('!! New Password update: ');
+                // }catch(err){
+                //     console.log(err)
+                //     alert(' ? ? New Password update'+ err);
+                // }
             }
         }
 
@@ -190,8 +219,11 @@ export const ChangePassword = () => {
                         type="password"
                         id="password"
                         name="password"
-                        minLength={5}
+                        minLength={6}
                         required
+                        onChange={(e)=>{
+                            setPass(e.target.value)
+                        }}
                     />
 
                     <label htmlFor="password">Please add new password: </label>
@@ -199,7 +231,7 @@ export const ChangePassword = () => {
                         type="password"
                         id="newPassword"
                         name="password"
-                        minLength={5}
+                        minLength={6}
                         required
                     />
                     <label htmlFor="rep-password">Please repete password: </label>
@@ -207,7 +239,7 @@ export const ChangePassword = () => {
                         type="password"
                         id="rep-newPassword"
                         name="rep-password"
-                        minLength={5}
+                        minLength={6}
                         required/>
                     <button className="btnConfChange" onClick={ upDatePassword}>Press to change</button>
                     <button className="btn btnCancel change" onClick={()=> passwordModal(false)}>Cancel</button>
