@@ -50,7 +50,7 @@ export const Content = () => {
         const showAddCardOption = () => {
             const grab = document.querySelector("#addCards")
             const grabMain = document.querySelector('body')
-            
+                        
             setHidden(!hidden)
 
             if(hidden == false){
@@ -65,6 +65,13 @@ export const Content = () => {
             }
         }
         
+        const submit = () =>{
+    //Fetch values
+            const cardsChoose = document.getElementById("cardsChoose")
+
+            console.log("Submit pressed", cardsChoose.options[cardsChoose.selectedIndex].text)
+        }
+
         
         return (
             <div className="contentUserAddScratchcard">
@@ -98,6 +105,7 @@ export const Content = () => {
 
                     <div id="addCardsContent">
                         <section id="hidden-addCards-inputs">
+            {/* select scratch */}
                             <label id="cardsChooseLabel" htmlFor="cardsChoose" className="addCards-text">Choose a scratchcard</label>
                             <select id="cardsChoose" name="cards">
                                 <option value="Jewel Bingo">Jewel Bingo</option>
@@ -122,7 +130,7 @@ export const Content = () => {
                                 name="winning"
                                 placeholder="Wining value"
                                 min={2}/>
-                            <input type="submit" id="addCardBtn" className="btn"/>
+                            <input type="submit" id="addCardBtn" className="btn" onClick={submit}/>
                         </section>
 
                         <section id="hidden-addCards-img">
