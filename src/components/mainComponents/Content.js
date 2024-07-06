@@ -40,6 +40,13 @@ export const Content = () => {
             // console.log("filtred Data: -->: ",userScratchcard)
         } catch(err){console.error(err)}
     }
+// submit ScratchCard 
+    const submit = () =>{
+        //Fetch values
+                const cardsChoose = document.getElementById("cardsChoose")
+    
+                console.log("Submit pressed", cardsChoose.options[cardsChoose.selectedIndex].text)
+            }
 
 // Component - add cards plus currentUser show user cards
     const UserAddScratchcard = ({ data }) => {
@@ -64,14 +71,14 @@ export const Content = () => {
                 grabMain.classList.remove("stopScroll")
             }
         }
-        
-        const submit = () =>{
-    //Fetch values
-            const cardsChoose = document.getElementById("cardsChoose")
-
-            console.log("Submit pressed", cardsChoose.options[cardsChoose.selectedIndex].text)
+        const winingInput = () => {
+            // fetch radio input 
+            // fetch input wining input
+            // add addEventListener
+                // classList.style.display.remove? or add
+                // value send to ??
+            
         }
-
         
         return (
             <div className="contentUserAddScratchcard">
