@@ -44,14 +44,36 @@ export const Content = () => {
     const submit = () =>{
         //Fetch values
                 const cardsChoose = document.getElementById("cardsChoose")
-    
-                console.log("Submit pressed", cardsChoose.options[cardsChoose.selectedIndex].text)
+                const selectedcardsChoose = cardsChoose.options[cardsChoose.selectedIndex].text
+                const winingPrize = document.getElementById("winning")
+                
+                console.log("Submit pressed", selectedcardsChoose, winingPrize.value);
             }
 
 // Component - add cards plus currentUser show user cards
     const UserAddScratchcard = ({ data }) => {
         const userId = auth?.currentUser?.uid;
-        const [hidden, setHidden ] = useState(false) 
+        const [hidden, setHidden ] = useState(false)
+
+
+        
+        const showWiningPrizeInput = async () => {
+// change
+            const winQuestionYes = document.getElementById('winQuestionYes')
+            const winQuestionNo = document.getElementById('winQuestionNo')
+            const winingPrize = document.getElementById("winning")
+            console.log(winQuestionNo, winQuestionYes)
+                
+            winQuestionYes.addEventListener('onClick',(e)=>{
+                    console.log('click yes radion: ')
+                    winingPrize.classList.style.display = 'grid'
+                })
+            winQuestionNo.addEventListener('onClick',(e)=>{
+                    console.log('click yes radion: ')
+                    winingPrize.classList.style.display = 'none'
+                })
+        }
+        showWiningPrizeInput()
 
 
         const showAddCardOption = () => {
