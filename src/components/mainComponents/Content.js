@@ -62,16 +62,16 @@ export const Content = () => {
             const winQuestionYes = document.getElementById('winQuestionYes')
             const winQuestionNo = document.getElementById('winQuestionNo')
             const winingPrize = document.getElementById("winning")
-            console.log(winQuestionNo, winQuestionYes)
+            // console.log(winQuestionNo, winQuestionYes);
                 
-            winQuestionYes.addEventListener('onClick',(e)=>{
-                    console.log('click yes radion: ')
-                    winingPrize.classList.style.display = 'grid'
-                })
-            winQuestionNo.addEventListener('onClick',(e)=>{
-                    console.log('click yes radion: ')
-                    winingPrize.classList.style.display = 'none'
-                })
+            // winQuestionYes.addEventListener('onClick',(e)=>{
+            //         console.log('click yes radion: ')
+                    // winingPrize.classList.style.display = 'grid'
+            //     })
+            // winQuestionNo.addEventListener('onClick',(e)=>{
+            //         console.log('click yes radion: ')
+            //         winingPrize.classList.style.display = 'none'
+            //     })
         }
         showWiningPrizeInput()
 
@@ -93,12 +93,13 @@ export const Content = () => {
                 grabMain.classList.remove("stopScroll")
             }
         }
-        const winingInput = () => {
+        const winingInput = (event) => {
             // fetch radio input 
             // fetch input wining input
             // add addEventListener
                 // classList.style.display.remove? or add
                 // value send to ??
+            // console.log(event)
             
         }
         
@@ -145,11 +146,13 @@ export const Content = () => {
 
                             <div id="win-input-radio">
                                 <p id="winQuestion" className="addCards-text">Winning ticket</p>
+
                                 <input className="input-radio" type="radio" id="winQuestionYes" name="if_win" value="yes"></input>
                                 <label className="input-radioText">Yes</label>
 
                                 <input className="input-radio" type="radio" id="winQuestionNo" name="if_win" value="no"></input>
                                 <label className="input-radioText">No</label>
+                            
                             </div>
                             
                             <input
