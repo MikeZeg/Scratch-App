@@ -5,6 +5,7 @@ import { Link, Route, Router, Routes, useNavigate} from "react-router-dom";
 import "../../styles/mainContentStyle.css";
 import { db, auth } from "../../config/firebase.js";
 import { getDocs, collection } from "firebase/firestore";
+import { submit } from "../../config/submit.js"
 
 
 export const Content = () => {
@@ -52,16 +53,6 @@ export const Content = () => {
             showPrize.style.display = 'none';
         }
 
-// Submit ScratchCard 
-    const submit = () =>{
-        //Fetch values
-                const cardsChoose = document.getElementById("cardsChoose");
-                const selectedcardsChoose = cardsChoose.options[cardsChoose.selectedIndex].text
-                const winingPrize = document.getElementById("winning");
-                
-                console.log("Submit pressed", selectedcardsChoose, winingPrize.value);
-            }
-
 // Component - add cards plus currentUser show user cards
     const UserAddScratchcard = ({ data }) => {
         const userId = auth?.currentUser?.uid;
@@ -85,7 +76,7 @@ export const Content = () => {
             }
         }
         
-        
+
         return (
             <div className="contentUserAddScratchcard">
 {/* ---------- I section ----------- */}
