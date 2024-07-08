@@ -40,12 +40,24 @@ export const Content = () => {
             // console.log("filtred Data: -->: ",userScratchcard)
         } catch(err){console.error(err)}
     }
-// submit ScratchCard 
+// Show - Hiding wining value
+        const showWininigPrize = () => {
+            const showPrize = document.querySelector("#winning");
+            console.log("Show!!");
+            showPrize.style.display = 'grid';
+        }
+        const hidingWiningPrize = () => {
+            const showPrize = document.querySelector("#winning");
+            console.log("Hiding!!")
+            showPrize.style.display = 'none';
+        }
+
+// Submit ScratchCard 
     const submit = () =>{
         //Fetch values
-                const cardsChoose = document.getElementById("cardsChoose")
+                const cardsChoose = document.getElementById("cardsChoose");
                 const selectedcardsChoose = cardsChoose.options[cardsChoose.selectedIndex].text
-                const winingPrize = document.getElementById("winning")
+                const winingPrize = document.getElementById("winning");
                 
                 console.log("Submit pressed", selectedcardsChoose, winingPrize.value);
             }
@@ -54,27 +66,6 @@ export const Content = () => {
     const UserAddScratchcard = ({ data }) => {
         const userId = auth?.currentUser?.uid;
         const [hidden, setHidden ] = useState(false)
-
-
-        
-        const showWiningPrizeInput = async () => {
-// change
-            const winQuestionYes = document.getElementById('winQuestionYes')
-            const winQuestionNo = document.getElementById('winQuestionNo')
-            const winingPrize = document.getElementById("winning")
-            // console.log(winQuestionNo, winQuestionYes);
-                
-            // winQuestionYes.addEventListener('onClick',(e)=>{
-            //         console.log('click yes radion: ')
-                    // winingPrize.classList.style.display = 'grid'
-            //     })
-            // winQuestionNo.addEventListener('onClick',(e)=>{
-            //         console.log('click yes radion: ')
-            //         winingPrize.classList.style.display = 'none'
-            //     })
-        }
-        showWiningPrizeInput()
-
 
         const showAddCardOption = () => {
             const grab = document.querySelector("#addCards")
@@ -93,15 +84,7 @@ export const Content = () => {
                 grabMain.classList.remove("stopScroll")
             }
         }
-        const winingInput = (event) => {
-            // fetch radio input 
-            // fetch input wining input
-            // add addEventListener
-                // classList.style.display.remove? or add
-                // value send to ??
-            // console.log(event)
-            
-        }
+        
         
         return (
             <div className="contentUserAddScratchcard">
@@ -110,7 +93,6 @@ export const Content = () => {
                 <div id="lastCards" className="auto__scroll">
                     {data.filter((card) => card.userNo == userId)
                         .map((card)=>
-                            
                         (
                         <section key={card.id} className="cards__info">
                             <br/>
@@ -143,17 +125,29 @@ export const Content = () => {
                                 <option value="250,000 ORANGE">250,000</option>
                                 <option value="Triple Cashword">Triple Cashword</option>
                             </select>
-
-                            <div id="win-input-radio">
+{/* working here */}
+                            <form id="win-input-radio">
                                 <p id="winQuestion" className="addCards-text">Winning ticket</p>
 
-                                <input className="input-radio" type="radio" id="winQuestionYes" name="if_win" value="yes"></input>
+                                <input 
+                                    className="input-radio"
+                                    type="radio" 
+                                    id="winQuestionYes" 
+                                    name="if_win" 
+                                    value="yes"
+                                    onChange={(e)=>{showWininigPrize(e.target)}}
+                                    />
                                 <label className="input-radioText">Yes</label>
 
-                                <input className="input-radio" type="radio" id="winQuestionNo" name="if_win" value="no"></input>
+                                <input 
+                                    className="input-radio" 
+                                    type="radio" 
+                                    id="winQuestionNo" 
+                                    name="if_win"
+                                    onChange={(e)=>{hidingWiningPrize(e.target)}}
+                                    value="no"/>
                                 <label className="input-radioText">No</label>
-                            
-                            </div>
+                            </form>
                             
                             <input
                                 className="hidden"
@@ -162,6 +156,7 @@ export const Content = () => {
                                 name="winning"
                                 placeholder="Wining value"
                                 min={2}/>
+
                             <input type="submit" id="addCardBtn" className="btn" onClick={submit}/>
                         </section>
 
