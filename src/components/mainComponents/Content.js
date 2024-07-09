@@ -113,7 +113,7 @@ export const Content = () => {
                             <select id="cardsChoose" name="cards">
                                 <option value="Jewel Bingo">Jewel Bingo</option>
                                 <option value="Tropial Lines">Tropial Lines</option>
-                                <option value="250,000 ORANGE">250,000</option>
+                                <option value="250,000 ORANGE">250,000 ORANGE</option>
                                 <option value="Triple Cashword">Triple Cashword</option>
                             </select>
 {/* working here */}

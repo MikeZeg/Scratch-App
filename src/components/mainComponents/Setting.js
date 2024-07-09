@@ -45,7 +45,7 @@ export const ChangeImage = () => {
 export const ChangeEmail = () => {
     const [open, setOpen] = useState(false)
 
-
+    // ----- Modal Component -----
     const Modal = ({ emailModal }) => {
         const [newEmail1, setNewEmail1] = useState(" ")
         const [newEmail2, setNewEmail2] = useState("")
@@ -74,14 +74,14 @@ export const ChangeEmail = () => {
                 try {
                     const userEmail = auth.currentUser.email;
                     const userPassword = credantialPassword;
-                // Reauthenticate user before updating the email
+        // Reauthenticate user before updating the email
                     const credential = EmailAuthProvider.credential(userEmail, userPassword);
                     await reauthenticateWithCredential(auth.currentUser, credential)
-                // Update the emial after succressful
+        // Update the emial after succressful
                     await updateEmail(auth.currentUser, newEmail1)
-                // Optional - send email to verification the new email
+        // Optional - send email to verification the new email
                     // await sendEmailVerification(auth.currentUser)
-                // Information for User
+        // Information for User
                     alert('New Email update');
                     mainNav("/LandingPage")
                 } catch (error) {
@@ -143,6 +143,7 @@ export const ChangeEmail = () => {
 export const ChangePassword = () => {
     const [open, setOpen] = useState(false)
 
+//------- Component Modal ------
     const Modal = ({ passwordModal }) => {
         const [pass, setPass] = useState('')
         const [newPass1, setNewPass1] = useState('');
@@ -161,7 +162,7 @@ export const ChangePassword = () => {
             }if(newPass1.length < 6) {
                 return alert('!!! Password need to be longer than 6 signs!!')
             }
-            // if(newPass1.match(passFormat)){return alert("!! Please check password format. Including ... !!")}
+        // if(newPass1.match(passFormat)){return alert("!! Please check password format. Including ... !!")}
             if(newPass1 === newPass2){
 
                 try {
@@ -238,7 +239,7 @@ export const ChangePassword = () => {
 }
 
 
-// --------------- Component Modal --------------
+// --------------- Component Modals --------------
 export const ModalSetting = ( {closeModal} ) => {
     return (
         <div className="settingModal">
