@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { db, auth } from "./firebase"
 import { getDocs, collection, addDoc, getDoc } from "firebase/firestore";
-
+import { showAddCardOption } from "../components/mainComponents/Content"
 
 
 export const submit = async () => {
@@ -14,8 +14,8 @@ export const submit = async () => {
     const winingPrize = document.getElementById("winning");
     const hidenAddCards = document.getElementById('addCards');
     
-    console.log("Submit its working!!");
-    console.log(auth.currentUser.uid)
+    // console.log("Submit its working!!");
+    // console.log(auth.currentUser.uid)
     
 // Statment - Change status 
     let topPrize = false
@@ -25,6 +25,7 @@ export const submit = async () => {
 
         try {
             const dataScratchcard = await getDocs(scratchCard);
+
             const filterScratchcard = dataScratchcard.docs.map((doc)=>({
                 ...doc.data(),
                 id: doc.id,
@@ -37,33 +38,15 @@ export const submit = async () => {
                     card.topPrize <= winingPrize.value ? topPrize = true : topPrize = false;
                 }
             }
+        // Send data
+            await addDoc(scratchcardUsed,{
+                name: selectedcardsChoose,
+                topPrize: topPrize,
+                userNo: userNo,
+                win: win,
+                winPrize: winingPrize.value,
+            })
         }catch(err){
             console.log(err)
         }
-        console.log("Change topPrize status: ", topPrize)
-    
-    
-// Send Data
-    // console.log("Submit pressed", selectedcardsChoose, winingPrize.value)
-    console.log(
-        "ScratchCard name: ", selectedcardsChoose,
-        ". Top Prize? ", topPrize, 
-        ". User: ", userNo, 
-        ". Win: ", win,
-        ". Prize: ", winingPrize.value,
-    )
-
-    try {
-        // await addDoc(scratchcardUsed,{
-        //      name: selectedcardsChoose,
-        //      topPrize: topWin,
-        //      userNo: userNo,
-        //      win: true,
-        //      winPrize: winingPrize.value,
-        // })
-        
-        hidenAddCards.classList.add("hidden-addCards")
-    }catch(err){
-        console.log(err)
     }
-}

@@ -53,10 +53,11 @@ export const Content = () => {
             showPrize.style.display = 'none';
         }
 
-// Component - add cards plus currentUser show user cards
+//---------  Component - add cards plus currentUser show user cards
     const UserAddScratchcard = ({ data }) => {
         const userId = auth?.currentUser?.uid;
         const [hidden, setHidden ] = useState(false)
+        const [userscratchcards, setUserscratchcards] = useState(data.length)
 
         const showAddCardOption = () => {
             const grab = document.querySelector("#addCards")
@@ -75,16 +76,16 @@ export const Content = () => {
                 grabMain.classList.remove("stopScroll")
             }
         }
-        
 
         return (
             <div className="contentUserAddScratchcard">
 {/* ---------- I section ----------- */}
-                <p>User scratchcard filtred by currentUser UID:</p>
+                <p>Check your scratchcards below. Total added {userscratchcards}</p>
                 <div id="lastCards" className="auto__scroll">
                     {data.filter((card) => card.userNo == userId)
                         .map((card)=>
                         (
+    // scratchcard info for user - add remove options for card, set up maximum display cards, put on top value.
                         <section key={card.id} className="cards__info">
                             <br/>
                             <p>{card.name}</p>
@@ -94,7 +95,7 @@ export const Content = () => {
                             
                             {/* <img></img> add image to card */}
 {/* Add value win price if user win cash */}
-                            <p>{card.win != false ? (<strong>Last Time You Win : £</strong>)
+                            <p>{card.win != false ? (<strong>Last Time You Win: {card.winPrize} £</strong>)
                             :("Next Time Win chance is: ")
                             }</p>
                             
@@ -116,7 +117,7 @@ export const Content = () => {
                                 <option value="250,000 ORANGE">250,000 ORANGE</option>
                                 <option value="Triple Cashword">Triple Cashword</option>
                             </select>
-{/* working here */}
+
                             <form id="win-input-radio">
                                 <p id="winQuestion" className="addCards-text">Winning ticket</p>
 
@@ -147,8 +148,14 @@ export const Content = () => {
                                 name="winning"
                                 placeholder="Wining value"
                                 min={2}/>
-
-                            <input type="submit" id="addCardBtn" className="btn" onClick={submit}/>
+    {/* submit with all necessary functions */}
+                            <input type="submit" id="addCardBtn" className="btn" onClick={()=>{
+                                submit();
+                                showAddCardOption();
+                                getUserScrachcard();
+                                console.log('Information about added scratchcard, or added other component')
+                                alert("Scratch Added")
+                            }}/>
                         </section>
 
                         <section id="hidden-addCards-img">
