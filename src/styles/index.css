@@ -12,8 +12,6 @@
   --black:hsl(0,0,0);
   --mycolor:  rgb(204, 171, 5);
 
-
-
 /* font-size */
   --fts-larg:3rem;
   --fts-lmed:2rem;
@@ -69,16 +67,25 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-color: var(--main-bcolor);
+  background: linear-gradient(43deg, hsla(300, 42%, 46%, 0.716),hsl(240, 78%, 58%),hsl(120, 89%, 40%),hsla(350, 73%, 55%, 0.749),hsl(60, 100%, 50%));
+	background-size: 400% 400%;
+	animation: gradient 15s ease-out infinite;
+	height: 100vh;
+
 }
 /* Buttons */
 .btn {
   width: auto;
   height: auto;
+  min-height: 30px;
+  min-width: 80px;
+
+  color: var(--white);
+  background-color: var(--primary);
 
   &:hover {
-    
-    background-color: var(--primary);
+    background-color: var(--secondary);
+    color: var(--black);
   }
 }
 .middle__btn {
@@ -106,4 +113,16 @@ h1,h2,h3,h4,h5 {
 }
 .error {
   background-color: red;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
