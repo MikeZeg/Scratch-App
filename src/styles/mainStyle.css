@@ -1,7 +1,5 @@
 .main{
-    background-color: hsl(0, 4%, 53%);
-    border: 1px solid pink;
-
+    /* background-color: hsl(0, 4%, 53%); */
     width: 90%;
     position: absolute;
     left: 50%;

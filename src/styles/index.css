@@ -11,6 +11,16 @@
   --white: hsl(0,100%,100%);
   --black:hsl(0,0,0);
   --mycolor:  rgb(204, 171, 5);
+  --extraFont: hsl(261, 78%, 62%);
+  
+  /* linear-gradient */
+  --lg-first: hsl(223, 77%, 63%);
+  --lg--second: hsl(261, 54%, 60%);
+  --lg--third: hsl(197, 72%, 72%);
+  --lg-fourth: hsl(200, 77%, 64%);
+  --lg--fifth: hsl(228, 39%, 83%);
+
+
 
 /* font-size */
   --fts-larg:3rem;
@@ -67,7 +77,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background: linear-gradient(43deg, hsla(300, 42%, 46%, 0.716),hsl(240, 78%, 58%),hsl(120, 89%, 40%),hsla(350, 73%, 55%, 0.749),hsl(60, 100%, 50%));
+  background: linear-gradient(45deg, var(--lg-first),var(--lg--third),var(--lg--second));
 	background-size: 400% 400%;
 	animation: gradient 15s ease-out infinite;
 	height: 100vh;
