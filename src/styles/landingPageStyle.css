@@ -61,6 +61,8 @@
 
         p {
             text-align: center;
+            width: 60%;
+
             color: var(--extraFont);
             font-size: var(--fts-smed);
             font-weight: var(--ft-bold);
@@ -72,10 +74,10 @@
             margin-right: 10px;
         }
         p:first-child{
-            margin-left: 25px;
+            margin-left: 15px;
         }
         p:nth-child(2){
-            margin-left: 20px;
+            /* margin-left: 20px; */
         }
     }
     .content {
