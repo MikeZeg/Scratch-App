@@ -29,7 +29,7 @@
 
 
     .btn__conf {
-        color: var(--secondary);
+        color: var(--white);
         margin-top: 10px;
 
         &:hover {

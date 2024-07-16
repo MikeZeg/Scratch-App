@@ -92,11 +92,16 @@ body {
 
   color: var(--white);
   background-color: var(--primary);
+  text-decoration: none;
 
   &:hover {
     background-color: var(--secondary);
     color: var(--black);
   }
+}
+.btn__link {
+  text-decoration: none;
+  
 }
 .middle__btn {
   margin-top: 30px;

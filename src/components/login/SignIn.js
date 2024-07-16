@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { useState } from "react";
 import { Routes, Router, useNavigate, Route, Link } from "react-router-dom";
 import "../../styles/loginStyle.css";
+import "../../styles/index.css";
 import { auth } from "../../config/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
@@ -78,7 +79,7 @@ export const SignIn = () => {
             <div className="middle__btn">
                 <SignInByGoogle/>
                 
-                <button className="btn btn__link"><Link to="/reset">Reset Password</Link></button>
+                <button className="btn btn__link"><Link className="btn btn__link" to="/reset">Reset Password</Link></button>
                 <Routes>
                     <Route path='reset' element={<ResetLogIn/>} />
                 </Routes>
