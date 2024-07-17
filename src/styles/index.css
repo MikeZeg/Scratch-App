@@ -12,6 +12,7 @@
   --black:hsl(0,0,0);
   --mycolor:  rgb(204, 171, 5);
   --extraFont: hsl(261, 78%, 62%);
+  --win98: hsl(0deg 0% 76.47%);
   
   /* linear-gradient */
   --lg-first: hsl(223, 77%, 63%);
@@ -108,6 +109,9 @@ body {
   display: flex;
   justify-content: center;
   gap: 20px;
+}
+.btn-mg-bottom {
+  margin-bottom: 10px;
 }
 /* Text sizes */
 h1 {

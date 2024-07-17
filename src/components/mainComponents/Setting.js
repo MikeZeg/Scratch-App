@@ -126,7 +126,7 @@ export const ChangeEmail = () => {
                         }}
                         
                     />
-                    <button className="btnConfChange" onClick={upDateEmail}>Press to change</button>
+                    <button className="btnConfChange btn" onClick={upDateEmail}>Press to change</button>
                     <button className="btn btnCancel change" onClick={()=> emailModal(false)}>Cancel</button>
                 </section>
             </div>
@@ -224,7 +224,7 @@ export const ChangePassword = () => {
                             setNewPass2(e.target.value)
                         }}
                         />
-                    <button className="btnConfChange" onClick={ upDatePassword}>Press to change</button>
+                    <button className="btnConfChange btn" onClick={ upDatePassword}>Press to change</button>
                     <button className="btn btnCancel change" onClick={()=> passwordModal(false)}>Cancel</button>
                 </section>
             </div>

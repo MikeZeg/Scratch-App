@@ -17,7 +17,7 @@
     left: 50%;
     transform: translate(-50%,-50%);
     
-    background-color: darkgray;
+    background-color: var(--win98);
     border: 2px solid white;
 
 /* change min-width when screen drop 950px */

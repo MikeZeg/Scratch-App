@@ -162,14 +162,13 @@ export const Content = () => {
                             <figure>
                                 <img id="" className="img"></img>
                                 <figcaption>
-                                    <p>Here scratchcard</p>    
                                 </figcaption>
                             </figure>
                         </section>
                     </div>
 
                 </div>
-                <button onClick={()=> showAddCardOption()} className="btn">Press to add cards</button>
+                <button onClick={()=> showAddCardOption()} className="btn btn-mg-bottom">Press to add cards</button>
             </div>
         )
     }
