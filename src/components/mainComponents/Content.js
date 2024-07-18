@@ -189,7 +189,7 @@ export const Content = () => {
                     {scratch.map((card)=> (
                         <section key={card.id} className="cards__info">
                             <br/>
-                            <img className="cardImage"></img>
+                            <img className="cardImage" src={card.img}></img>
                             <div>
                                 <p className="cardName" ><strong>ScratchCard:</strong> {card.name}</p>
                                 <p className="cardPrice" ><strong>Price:</strong> {card.price}</p>
