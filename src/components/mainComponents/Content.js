@@ -111,11 +111,11 @@ export const Content = () => {
                         <section id="hidden-addCards-inputs">
             {/* select scratch */}
                             <label id="cardsChooseLabel" htmlFor="cardsChoose" className="addCards-text">Choose a scratchcard</label>
-                            <select id="cardsChoose" name="cards">
-                                <option value="Jewel Bingo">Jewel Bingo</option>
-                                <option value="Tropial Lines">Tropial Lines</option>
-                                <option value="250,000 ORANGE">250,000 ORANGE</option>
-                                <option value="Triple Cashword">Triple Cashword</option>
+                            <select id="cardsChoose" name="cards" >
+
+                                {scratch.map((card)=> (
+                                    <option key={card.id} value={card.name}>{card.name}</option>
+                                ))}
                             </select>
 
                             <form id="win-input-radio">
@@ -158,13 +158,13 @@ export const Content = () => {
                             }}/>
                         </section>
 
-                        <section id="hidden-addCards-img">
+                        {/* <section id="hidden-addCards-img">
                             <figure>
                                 <img id="" className="img"></img>
                                 <figcaption>
                                 </figcaption>
                             </figure>
-                        </section>
+                        </section> */}
                     </div>
 
                 </div>
