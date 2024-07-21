@@ -75,9 +75,17 @@ export const Content = () => {
                 grabMain.classList.remove("stopScroll")
             }
         }
+        //update value in firestor
         const hideCard = async (card) => {
             console.log("pressed",card)
             await updateDoc(doc(db, "scratchcardUsed", card),{display: "false"})
+
+    // Refresh without reload page ??
+            // window.location.reload()
+            // alert("Reload page")
+            // setInterval(()=>{
+            //     window.location.reload()
+            // }, 5000)
         }
 
         return (
@@ -180,8 +188,12 @@ export const Content = () => {
     useEffect(()=>{
         getScratchList();
         getUserScrachcard();
-        
     },[])
+
+    const data = async () => {
+        console.log("back to parent")
+        getUserScrachcard()
+    }
 
     return (
         <div className="main__content">
