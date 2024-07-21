@@ -1,12 +1,11 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { ReactDom } from "react-dom";
-import { useState } from "react";
 import { Link, Route, Router, Routes, useNavigate} from "react-router-dom";
 import "../../styles/mainContentStyle.css";
-import { db, auth } from "../../config/firebase.js";
-import { getDocs, collection } from "firebase/firestore";
+import { db, auth, app } from "../../config/firebase.js";
+import { getDocs, collection, updateDoc, doc, writeBatch } from "firebase/firestore";
 import { submit } from "../../config/submit.js"
-
+import { update } from "firebase/database";
 
 export const Content = () => {
 // Scratch Data fetch
@@ -76,6 +75,10 @@ export const Content = () => {
                 grabMain.classList.remove("stopScroll")
             }
         }
+        const hideCard = async (card) => {
+            console.log("pressed",card)
+            await updateDoc(doc(db, "scratchcardUsed", card),{display: "false"})
+        }
 
         return (
             <div className="contentUserAddScratchcard">
@@ -83,9 +86,9 @@ export const Content = () => {
                 <p>Check your scratchcards below. Total added {userscratchcards}</p>
                 <div id="lastCards" className="auto__scroll">
                     {data.filter((card) => card.userNo == userId)
+                        .filter((card) => card.display === "true")
                         .map((card)=>
                         (
-    // scratchcard info for user - add remove options for card, set up maximum display cards, put on top value.
                         <section key={card.id} className="cards__info">
                             <br/>
                             <p>{card.name}</p>
@@ -98,7 +101,10 @@ export const Content = () => {
                             <p>{card.win != false ? (<strong>Last Time You Win: {card.winPrize} £</strong>)
                             :("Next Time Win chance is: ")
                             }</p>
-                            
+                            <button 
+                                className="btn hidden__scratchcard" 
+                                onClick={()=> hideCard(card.id)}
+                            >Press to hidden</button>
                         </section>
                     ))}        
                 </div>
@@ -112,7 +118,6 @@ export const Content = () => {
             {/* select scratch */}
                             <label id="cardsChooseLabel" htmlFor="cardsChoose" className="addCards-text">Choose a scratchcard</label>
                             <select id="cardsChoose" name="cards" >
-
                                 {scratch.map((card)=> (
                                     <option key={card.id} value={card.name}>{card.name}</option>
                                 ))}
@@ -148,7 +153,6 @@ export const Content = () => {
                                 name="winning"
                                 placeholder="Wining value"
                                 min={2}/>
-    {/* submit with all necessary functions */}
                             <input type="submit" id="addCardBtn" className="btn" onClick={()=>{
                                 submit();
                                 showAddCardOption();

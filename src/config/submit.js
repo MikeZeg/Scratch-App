@@ -14,9 +14,6 @@ export const submit = async () => {
     const winingPrize = document.getElementById("winning");
     const hidenAddCards = document.getElementById('addCards');
     
-    // console.log("Submit its working!!");
-    // console.log(auth.currentUser.uid)
-    
 // Statment - Change status 
     let topPrize = false
     let win = false
