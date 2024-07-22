@@ -20,8 +20,9 @@
     box-shadow: 0px 0px 77px 20px rgba(195,202,229,1);
 }
 .cards__info {
+    height: 75%;
     min-width: 350px;
-    margin: 1rem;
+    margin: 1rem 1rem 0 1rem;
     padding: 0.6rem;
 
     background-color: #D8D8D8;
@@ -39,6 +40,19 @@
 .contentUser {
     color: var(--black);
 }
+.details-btn {
+    margin-left: 1rem;
+    min-height: 23px;
+    margin-top: 5px;
+
+    &:hover {
+        background-color: yellow;
+    }
+}
+
+.cardWinLeft {
+    margin-right: 2rem;
+}
 #contentUserCards {
     color: var(--black);
     
@@ -47,6 +61,12 @@
     margin-left: 5%;
 }
 /* ----------- Components inside ----------------- */
+/* ------ Details Component------*/
+.details-hidden {
+    display: none;
+}
+
+
 
 /* Content User Add Scratchcard Compmponent */
 .contentUserAddScratchcard {
