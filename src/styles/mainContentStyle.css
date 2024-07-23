@@ -62,8 +62,22 @@
 }
 /* ----------- Components inside ----------------- */
 /* ------ Details Component------*/
-.details-hidden {
+.details__hidden {
     display: none;
+}
+.details__show {
+    position: absolute;
+    background-color: lightblue;
+    width: 80%;
+    height: 80%;
+
+    margin: 0;
+    padding: 0;
+
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
 }
 
 

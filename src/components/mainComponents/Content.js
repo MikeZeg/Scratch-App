@@ -54,10 +54,28 @@ export const Content = () => {
 
 //---------  Component -----------
     const Details = ({cards, usedCards}) => {
+
+        const [hidden, setHidden] = useState('false')
         
+// check coming card derails use other opition to find that correct card to change options        
         const showDetails = () => {
-            console.log('details clicked')
+            const grabDetails = document.querySelector('#card-details');
+            const grabMain = document.querySelector("body");
+            console.log('details clicked', grabDetails)
             console.log(cards)
+            
+            setHidden(!hidden)
+
+            if(hidden == false){
+                console.log("hidden");
+                grabDetails.classList.remove('details__hidden')
+                grabMain.classList.add("stopScroll")
+            }if(hidden == true){
+                console.log("hidden");
+                grabDetails.classList.add('details__hidden')
+                grabMain.classList.remove("stopScroll")
+            }
+
         }
         // check how many that cards was used and compare with total printed.
         // check how many times that card give the win and compare to average.
@@ -65,7 +83,8 @@ export const Content = () => {
         
         return (
             <div>
-                <div className="details-hidden">
+                <div className="details__hidden details__show" id="card-details">
+                    <div><button onClick={()=>{showDetails()}}> X </button></div>
                     <p>Cards name: {cards.name}.</p>
                     <p>Card prize: {cards.price}.</p>
                     <p>Cards Top Prize: {cards.topPrize}.</p>
@@ -80,23 +99,23 @@ export const Content = () => {
     const UserAddScratchcard = ({ data }) => {
         const userId = auth?.currentUser?.uid;
         const [hidden, setHidden ] = useState(false)
-        const [userscratchcards, setUserscratchcards] = useState(data.length)
+        const [userscratchcards, setUserscratchcards] = useState(data.length);
 
         const showAddCardOption = () => {
-            const grab = document.querySelector("#addCards")
-            const grabMain = document.querySelector('body')
+            const grab = document.querySelector("#addCards");
+            const grabMain = document.querySelector('body');
                         
             setHidden(!hidden)
 
             if(hidden == false){
-                console.log(hidden)
-                grab.classList.remove("hidden-addCards")
-                grabMain.classList.add("stopScroll")
+                console.log(hidden);
+                grab.classList.remove("hidden-addCards");
+                grabMain.classList.add("stopScroll");
 
             }if(hidden == true){
-                console.log(hidden)
-                grab.classList.add("hidden-addCards")
-                grabMain.classList.remove("stopScroll")
+                console.log(hidden);
+                grab.classList.add("hidden-addCards");
+                grabMain.classList.remove("stopScroll");
             }
         }
 //update value in firestor
