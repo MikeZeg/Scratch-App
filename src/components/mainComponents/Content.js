@@ -53,16 +53,17 @@ export const Content = () => {
         }
 
 //---------  Component -----------
-    const Details = ({cards, usedCards}) => {
-
+    const Details = ({cards, usedCards, cardNo}) => {
         const [hidden, setHidden] = useState('false')
-        
 // check coming card derails use other opition to find that correct card to change options        
         const showDetails = () => {
-            const grabDetails = document.querySelector('#card-details');
+            // const grabDetails = document.getElementById('card-details');
+            const grabDetails = document.querySelector('.scratchard');
             const grabMain = document.querySelector("body");
-            console.log('details clicked', grabDetails)
-            console.log(cards)
+
+            console.log('Show Details grab pressed section: ', grabDetails);
+            // console.log('card id in firebase: ', cardNo);
+            // console.log("Card details from Firebase: ", cards);
             
             setHidden(!hidden)
 
@@ -75,8 +76,9 @@ export const Content = () => {
                 grabDetails.classList.add('details__hidden')
                 grabMain.classList.remove("stopScroll")
             }
-
         }
+
+        
         // check how many that cards was used and compare with total printed.
         // check how many times that card give the win and compare to average.
         // give chance to win top prize and any win.
@@ -238,8 +240,8 @@ export const Content = () => {
 
             <div id="contentScratchcard" className="auto__scroll">
                     {scratch.map((card)=> (
-                    <div>
-                        <section key={card.id} className="cards__info">
+                    <div key={card.id.toString()}>
+                        <section  className="cards__info">
                             <br/>
                             <img className="cardImage" src={card.img}></img>
                             <div>
@@ -254,8 +256,8 @@ export const Content = () => {
                         <Details 
                             cards = {card}
                             usedCards = {userScratch}
+                            cardNo = {card.id}
                         />
-                        {/* <button className=" details-btn">Details</button> */}
                     </div>
                     ))}
             </div>
