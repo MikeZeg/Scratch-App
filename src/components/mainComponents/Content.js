@@ -18,7 +18,7 @@ export const Content = () => {
     const scratchCollection = collection(db, "scratchCard");
 
 // Functions
-            const getScratchList = async() => {
+        const getScratchList = async() => {
             try{
                 const data = await getDocs(scratchCollection);
                 const filterData = data.docs.map((doc)=>({
@@ -53,26 +53,32 @@ export const Content = () => {
         }
 
 //---------  Component -----------
-    const Details = ({cards, usedCards, cardNo}) => {
-        const [hidden, setHidden] = useState('false')
-// check coming card derails use other opition to find that correct card to change options        
-        const showDetails = () => {
-            // const grabDetails = document.getElementById('card-details');
-            const grabDetails = document.querySelector('.scratchard');
+    const Details = ({cards, usedCards, cardNo,index}) => {
+        const [hidden, setHidden] = useState(false)
+
+// class name added to div in return need be change to details pressed scratchcard
+// issues with send data to Details if checking props in start the compenent all fine but not where that need be used to render component
+        
+
+        console.log('my card: ', cards)
+
+
+        const handleSubmit = () => {
+            const grabDetails = document.querySelector('.card-details')
             const grabMain = document.querySelector("body");
 
-            console.log('Show Details grab pressed section: ', grabDetails);
-            // console.log('card id in firebase: ', cardNo);
-            // console.log("Card details from Firebase: ", cards);
-            
+            console.log('ShowDetails press:', hidden)
+
             setHidden(!hidden)
 
-            if(hidden == false){
+            if(hidden){
                 console.log("hidden");
                 grabDetails.classList.remove('details__hidden')
                 grabMain.classList.add("stopScroll")
-            }if(hidden == true){
+                grabMain.classList.add("details__show")
+            }if(!hidden){
                 console.log("hidden");
+                grabMain.classList.remove("details__show")
                 grabDetails.classList.add('details__hidden')
                 grabMain.classList.remove("stopScroll")
             }
@@ -85,14 +91,17 @@ export const Content = () => {
         
         return (
             <div>
-                <div className="details__hidden details__show" id="card-details">
-                    <div><button onClick={()=>{showDetails()}}> X </button></div>
+                <div className="details__hidden card-details details__show">
+                    <div><button onClick={()=>{handleSubmit()}}> X </button></div>
                     <p>Cards name: {cards.name}.</p>
                     <p>Card prize: {cards.price}.</p>
                     <p>Cards Top Prize: {cards.topPrize}.</p>
                     <p></p>
                 </div>
-                <button className=" details-btn" onClick={()=> showDetails()}>Details</button>
+                <button className="details-btn" onClick={()=> {
+                    handleSubmit()
+                }}
+                >Details</button>
             </div>
         )
     }
@@ -239,8 +248,8 @@ export const Content = () => {
             </div>
 
             <div id="contentScratchcard" className="auto__scroll">
-                    {scratch.map((card)=> (
-                    <div key={card.id.toString()}>
+                    {scratch.map((card, index)=> (
+                    <div key={card.id.toString()} id={index}>
                         <section  className="cards__info">
                             <br/>
                             <img className="cardImage" src={card.img}></img>
@@ -257,6 +266,7 @@ export const Content = () => {
                             cards = {card}
                             usedCards = {userScratch}
                             cardNo = {card.id}
+                            index={index}
                         />
                     </div>
                     ))}
