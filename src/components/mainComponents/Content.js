@@ -56,42 +56,38 @@ export const Content = () => {
     const Details = ({cards, usedCards, cardNo,index}) => {
         const [hidden, setHidden] = useState(false)
 
-// class name added to div in return need be change to details pressed scratchcard
-// issues with send data to Details if checking props in start the compenent all fine but not where that need be used to render component
+
         
-
-        console.log('my card: ', cards)
-
-
-        const handleSubmit = () => {
-            const grabDetails = document.querySelector('.card-details')
+        const handleSubmit = (card,index) => {
+            // const grabDetails = document.getElementById(`card${index}Details`);
+            const grabDetails = document.querySelector(`#card${index}Details`);
             const grabMain = document.querySelector("body");
 
-            console.log('ShowDetails press:', hidden)
+            grabDetails.classList.toggle('details__hidden')
+            grabMain.classList.toggle('stopScroll')
 
-            setHidden(!hidden)
+            console.log('fun working')
 
-            if(hidden){
-                console.log("hidden");
-                grabDetails.classList.remove('details__hidden')
-                grabMain.classList.add("stopScroll")
-                grabMain.classList.add("details__show")
-            }if(!hidden){
-                console.log("hidden");
-                grabMain.classList.remove("details__show")
-                grabDetails.classList.add('details__hidden')
-                grabMain.classList.remove("stopScroll")
-            }
+            // setHidden(!hidden)
+            // console.log("check the div: ",grabDetails)
+
+            // if(hidden == true){
+            //     console.log(hidden);
+            //     grabDetails.classList.toggle('details__hidden')
+                
+            //     grabMain.classList.add("stopScroll")
+            //     // grabDetails.classList.add("details__show")
+            // }if(hidden == false){
+            //     console.log(hidden);
+            //     // grabDetails.classList.remove(".details__show")
+            //     grabDetails.classList.toggle('details__hidden') 
+            //     grabMain.classList.remove(".stopScroll")
+            // }
         }
-
-        
-        // check how many that cards was used and compare with total printed.
-        // check how many times that card give the win and compare to average.
-        // give chance to win top prize and any win.
         
         return (
             <div>
-                <div className="details__hidden card-details details__show">
+                <div className="card-details details__hidden details__show" id={`card${index}Details`}>
                     <div><button onClick={()=>{handleSubmit()}}> X </button></div>
                     <p>Cards name: {cards.name}.</p>
                     <p>Card prize: {cards.price}.</p>
@@ -99,7 +95,7 @@ export const Content = () => {
                     <p></p>
                 </div>
                 <button className="details-btn" onClick={()=> {
-                    handleSubmit()
+                    handleSubmit(cards,index)
                 }}
                 >Details</button>
             </div>
@@ -133,8 +129,6 @@ export const Content = () => {
         const hideCard = async (card) => {
             console.log("pressed",card)
             await updateDoc(doc(db, "scratchcardUsed", card),{display: "false"})
-            // Refresh without reload page ??
-            // window.location.reload()
             getUserScrachcard();
         }
 
@@ -249,7 +243,7 @@ export const Content = () => {
 
             <div id="contentScratchcard" className="auto__scroll">
                     {scratch.map((card, index)=> (
-                    <div key={card.id.toString()} id={index}>
+                    <div key={card.id.toString()} id={`card${index.toString()}`}>
                         <section  className="cards__info">
                             <br/>
                             <img className="cardImage" src={card.img}></img>
