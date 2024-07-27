@@ -6,15 +6,12 @@ import "../../styles/mainUserStyle.css"
 import { auth, getDocs, getDoc } from "../../config/firebase";
 // import { LogOut } from "./login/LogOut";
 
-
 const user = auth
 
 export const topScratch = () => {
-
     const userUid = auth?.currentUser?.uid
     console.log(userUid)
 }
-
 
 export const User = () => {
 

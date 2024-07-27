@@ -58,29 +58,29 @@ export const Content = () => {
 
 
         
-        const handleSubmit = (card,index) => {
-            // const grabDetails = document.getElementById(`card${index}Details`);
-            const grabDetails = document.querySelector(`#card${index}Details`);
+        const handleSubmit = (card,index, event) => {
+            const grabDetails = document.getElementById(`card${index}Details`);
+            // const grabDetails = document.querySelector(`#card${index}Details`);
             const grabMain = document.querySelector("body");
+
+            // event.preventDefault();
 
             grabDetails.classList.toggle('details__hidden')
             grabMain.classList.toggle('stopScroll')
 
             console.log('fun working')
 
+            
             // setHidden(!hidden)
+            // console.log("check hidden: ",hidden)
             // console.log("check the div: ",grabDetails)
-
             // if(hidden == true){
-            //     console.log(hidden);
-            //     grabDetails.classList.toggle('details__hidden')
-                
+            //     console.log("if true ",hidden);
+            //     grabDetails.classList.remove('details__hidden')
             //     grabMain.classList.add("stopScroll")
-            //     // grabDetails.classList.add("details__show")
             // }if(hidden == false){
-            //     console.log(hidden);
-            //     // grabDetails.classList.remove(".details__show")
-            //     grabDetails.classList.toggle('details__hidden') 
+            //     console.log("if false: ",hidden);
+            //     grabDetails.classList.add('details__hidden') 
             //     grabMain.classList.remove(".stopScroll")
             // }
         }
@@ -95,7 +95,7 @@ export const Content = () => {
                     <p></p>
                 </div>
                 <button className="details-btn" onClick={()=> {
-                    handleSubmit(cards,index)
+                    handleSubmit(cards, index)
                 }}
                 >Details</button>
             </div>

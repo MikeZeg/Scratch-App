@@ -124,7 +124,6 @@ export const ChangeEmail = () => {
                         onChange={(e)=>{
                             setCredantialPassword(e.target.value)
                         }}
-                        
                     />
                     <button className="btnConfChange btn" onClick={upDateEmail}>Press to change</button>
                     <button className="btn btnCancel change" onClick={()=> emailModal(false)}>Cancel</button>
