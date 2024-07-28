@@ -79,9 +79,15 @@
     transform: translate(-50%, -50%);
     z-index: 9;
 }
-
-
-
+.flex {
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    align-items: start;
+    justify-content: center;
+    align-content: center;
+    height: 100%;
+}
 /* Content User Add Scratchcard Compmponent */
 .contentUserAddScratchcard {
     margin: 1rem;

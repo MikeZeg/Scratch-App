@@ -59,40 +59,34 @@ export const Content = () => {
 
         
         const handleSubmit = (card,index, event) => {
-            const grabDetails = document.getElementById(`card${index}Details`);
-            // const grabDetails = document.querySelector(`#card${index}Details`);
-            const grabMain = document.querySelector("body");
-
-            // event.preventDefault();
-
-            grabDetails.classList.toggle('details__hidden')
-            grabMain.classList.toggle('stopScroll')
-
-            console.log('fun working')
-
-            
-            // setHidden(!hidden)
-            // console.log("check hidden: ",hidden)
-            // console.log("check the div: ",grabDetails)
-            // if(hidden == true){
-            //     console.log("if true ",hidden);
-            //     grabDetails.classList.remove('details__hidden')
-            //     grabMain.classList.add("stopScroll")
-            // }if(hidden == false){
-            //     console.log("if false: ",hidden);
-            //     grabDetails.classList.add('details__hidden') 
-            //     grabMain.classList.remove(".stopScroll")
-            // }
+            // document.querySelector(`#card${index}Details`).classList.toggle('details__hidden');
+            document.getElementById(`card${index}Details`).classList.toggle('details__hidden');
+            document.querySelector("body").classList.toggle('stopScroll')
         }
-        
+
         return (
             <div>
                 <div className="card-details details__hidden details__show" id={`card${index}Details`}>
-                    <div><button onClick={()=>{handleSubmit()}}> X </button></div>
-                    <p>Cards name: {cards.name}.</p>
-                    <p>Card prize: {cards.price}.</p>
-                    <p>Cards Top Prize: {cards.topPrize}.</p>
-                    <p></p>
+                    <button onClick={()=>{
+                        handleSubmit(cards, index)}
+                    }> X </button>
+
+                    <div className="flex">
+                        <div>
+                            <p>Cards name: {cards.name}.</p>
+                            <p>Card prize: {cards.price}.</p>
+                            <p>Cards Top Prize: {cards.topPrize}.</p>
+                            <p></p>
+                        </div>
+
+                        <div className="wining__calculation">
+                            <p>Your chance to Win any ?? <span>10%</span></p>
+                            <p>Chance to win Top Prize: <span>1%</span></p>
+                            <p></p>
+                        </div>
+
+                    </div>
+
                 </div>
                 <button className="details-btn" onClick={()=> {
                     handleSubmit(cards, index)
@@ -137,6 +131,7 @@ export const Content = () => {
 {/* ---------- I section ----------- */}
                 <p>Total added scratchcard {userscratchcards}. </p>
                 <p>Your added scratchcard below. Total by you: </p>
+                <button className="btn">Reset all scratchcards to display ??</button>
                 <div id="lastCards" className="auto__scroll">
                     {data.filter((card) => card.userNo == userId)
                         .filter((card) => card.display === "true")
