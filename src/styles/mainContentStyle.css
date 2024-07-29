@@ -79,6 +79,14 @@
     transform: translate(-50%, -50%);
     z-index: 9;
 }
+.breakLine {
+    width: 300%;
+    height: 3px;
+    border-radius: 50%;
+    background-color: var(--extraFont);
+
+
+}
 .flex {
     width: 100%;
     display: grid;

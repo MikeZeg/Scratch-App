@@ -72,6 +72,7 @@ export const Content = () => {
                     }> X </button>
 
                     <div className="flex">
+                        <div className="breakLine"></div>
                         <div>
                             <p>Cards name: {cards.name}.</p>
                             <p>Card prize: {cards.price}.</p>
@@ -79,11 +80,15 @@ export const Content = () => {
                             <p></p>
                         </div>
 
+                        <div className="breakLine"></div>
+
                         <div className="wining__calculation">
                             <p>Your chance to Win any ?? <span>10%</span></p>
                             <p>Chance to win Top Prize: <span>1%</span></p>
                             <p></p>
                         </div>
+
+                        <div className="breakLine"></div>
 
                     </div>
 
