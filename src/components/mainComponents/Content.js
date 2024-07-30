@@ -56,7 +56,11 @@ export const Content = () => {
     const Details = ({cards, usedCards, cardNo,index}) => {
         const [hidden, setHidden] = useState(false)
 
-
+        let primaryWin = parseFloat(cards.FirstChanceToWin) * 100;
+        let winningtopPrize = parseFloat(cards.topPrizeLeft/(cards.printedAmount-16606430))*100;
+        let userScratchcard =  9;
+        let userWinRatio = 2;
+        let totalWinRatio = 5;
         
         const handleSubmit = (card,index, event) => {
             // document.querySelector(`#card${index}Details`).classList.toggle('details__hidden');
@@ -64,28 +68,51 @@ export const Content = () => {
             document.querySelector("body").classList.toggle('stopScroll')
         }
 
+        const chanceToWinAny = (cards) => {
+
+        }
+        const wintopPrize = () => {
+            
+        }
+        const userBuyScratch = () => {
+
+        }
+        const winingRatio = (userWinRatio) => {
+
+        }
+
         return (
             <div>
                 <div className="card-details details__hidden details__show" id={`card${index}Details`}>
-                    <button onClick={()=>{
+                    <button 
+                    className="btn"
+                    id="btn-cardDetalis"
+                    onClick={()=>{
                         handleSubmit(cards, index)}
                     }> X </button>
 
-                    <div className="flex">
+                    <div className="display">
+
+                        <div className="card__details__top">
+                            <p className="card__title "><span className="card__details__weight">{cards.name}</span></p>
+                        </div>
+
                         <div className="breakLine"></div>
-                        <div>
-                            <p>Cards name: {cards.name}.</p>
-                            <p>Card prize: {cards.price}.</p>
-                            <p>Cards Top Prize: {cards.topPrize}.</p>
-                            <p></p>
+
+                        <div className="card__details__info">
+                            <p className="font__Size">Card prize: {cards.price}£.</p>
+                            <p className="font__Size">Cards Top Prize: {cards.topPrize}.</p>
+                            <p className="font__Size">Top price left: {cards.topPrizeLeft}</p>
                         </div>
 
                         <div className="breakLine"></div>
 
                         <div className="wining__calculation">
-                            <p>Your chance to Win any ?? <span>10%</span></p>
-                            <p>Chance to win Top Prize: <span>1%</span></p>
-                            <p></p>
+                            <p className="font__Size">Your chance to Win any price:  <span>{primaryWin}%</span></p>
+                            <p className="font__Size">Chance to win Top Prize: <span>{winningtopPrize}%</span></p>
+                            <p className="font__Size">You buy scratch: {userScratchcard} times</p>
+                            <p className="font__Size">Your Win Ration: {userWinRatio} %</p>
+                            <p className="font__Size">Win Ration related all users: {totalWinRatio} %</p>
                         </div>
 
                         <div className="breakLine"></div>

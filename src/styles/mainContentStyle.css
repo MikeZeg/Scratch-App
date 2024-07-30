@@ -68,8 +68,8 @@
 .details__show {
     position: absolute;
     background-color: lightblue;
-    width: 80%;
-    height: 80%;
+    width: 55%;
+    height: 90%;
 
     margin: 0;
     padding: 0;
@@ -80,14 +80,12 @@
     z-index: 9;
 }
 .breakLine {
-    width: 300%;
+    width: 130%;
     height: 3px;
     border-radius: 50%;
     background-color: var(--extraFont);
-
-
 }
-.flex {
+.display {
     width: 100%;
     display: grid;
     justify-items: center;
@@ -95,6 +93,46 @@
     justify-content: center;
     align-content: center;
     height: 100%;
+}
+.card__details__top {
+    position: absolute;
+    margin-top: 10%;
+    padding: 0;
+    
+    
+    @media (min-width: 1500px ) {
+        /* color: yellow; */
+        margin-top: 6%;
+    }
+}
+
+
+.card__title {
+    font-size: var(--fts-lmed);
+}
+.card__details__weight {
+    font-weight: var(--ft-bold);
+}
+.card__details__info {
+    width: 100%;
+    margin: 0 0.5rem 0 0.5rem;
+}
+.wining__calculation {
+    width: 100%;
+    margin: 0 0.5rem 0 0.5rem;
+}
+.font__Size {    
+    font-size: 1.1rem;
+}
+
+#btn-cardDetalis {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+
+    max-width: 10px;
+    max-height: 10px;
+    border-radius: 15px;
 }
 /* Content User Add Scratchcard Compmponent */
 .contentUserAddScratchcard {
