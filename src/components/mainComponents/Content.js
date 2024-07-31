@@ -69,16 +69,37 @@ export const Content = () => {
         }
 
         const chanceToWinAny = (cards) => {
+            // chance to win is minimum cards.FirstChanceToWin
+                // add cards.FirstChanceToWin
+
+            // calculate avarage winning ratio and compare
+                // Check all that scratch and check ratio
+
+            // if less wining that firstChanceToWin that ratio go up
+                // compare ratio
+
 
         }
-        const wintopPrize = () => {
+        const winTopPrize = () => {
+
+            //WinToPrize is amount all scratchcard in game minus already used cards divide after top prize left if left
+                // topPrizes divided by "/" printedAmount - usedScratched
             
         }
         const userBuyScratch = () => {
+            // check how many scratch was added by that user. Array with length, scratch name plus user uid
+                // filter added scratch by user "uid" and filter by scratch 'scratch.name'.
+                // add value to var
 
+            // check how many scrach was added by all users. Length by scratch name
+                // total lenght that scratch by all users, filtred by scratch name
         }
-        const winingRatio = (userWinRatio) => {
+        const winingRatio = (cards) => {
 
+            console.log("working", cards.name)
+            // ratio compare with all users
+                // filtred by scratch name and check wining value
+                // add to array price wining if win and do average
         }
 
         return (
@@ -122,6 +143,7 @@ export const Content = () => {
                 </div>
                 <button className="details-btn" onClick={()=> {
                     handleSubmit(cards, index)
+                    winingRatio(cards)
                 }}
                 >Details</button>
             </div>
