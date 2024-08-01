@@ -16,6 +16,9 @@ export const Content = () => {
     const userScratchCollection = collection(db,"scratchcardUsed")
 // Download data
     const scratchCollection = collection(db, "scratchCard");
+// User ID
+    // const userUid = auth?.currentUser?.uid
+    // console.log("ID", userUid)
 
 // Functions
         const getScratchList = async() => {
@@ -55,12 +58,12 @@ export const Content = () => {
 //---------  Component -----------
     const Details = ({cards, usedCards, cardNo,index}) => {
         const [hidden, setHidden] = useState(false)
+        const [totalWinRatio, setTotalWinRatio] = useState("")
+        const [userWinRatio, setUserWinRatio] = useState("")
+        const [userBuyScratchTime , setUserBuyScratchTime] = useState("")
 
         let primaryWin = parseFloat(cards.FirstChanceToWin) * 100;
         let winningtopPrize = parseFloat(cards.topPrizeLeft/(cards.printedAmount-16606430))*100;
-        let userScratchcard =  9;
-        let userWinRatio = 2;
-        let totalWinRatio = 5;
         
         const handleSubmit = (card,index, event) => {
             // document.querySelector(`#card${index}Details`).classList.toggle('details__hidden');
@@ -80,26 +83,52 @@ export const Content = () => {
 
 
         }
-        const winTopPrize = () => {
-
-            //WinToPrize is amount all scratchcard in game minus already used cards divide after top prize left if left
+        const winTopPrize = (cards) => {
+        //WinToPrize is amount all scratchcard in game minus already used cards divide after top prize left if left
                 // topPrizes divided by "/" printedAmount - usedScratched
+            const myArr = scratch.filter((card) => card.name == cards.name)
+            console.log(myArr[0].topPrizeLeft)
+
+            // console.log("my looking card: ",myArr.printedAmount)
+        // added used scratches without top prize win
+            const usedScratch = 10000;
+            
+            let top = parseInt(myArr[0].topPrizeLeft)
+            let bottom = parseInt()
+
+            const result =  top / bottom;
+            console.log(parseInt(myArr[0].topPrizeLeft)/ usedScratch)
+
             
         }
-        const userBuyScratch = () => {
-            // check how many scratch was added by that user. Array with length, scratch name plus user uid
-                // filter added scratch by user "uid" and filter by scratch 'scratch.name'.
-                // add value to var
+        const userRatio = (cards) => {
+            const userUid = auth?.currentUser?.uid
+            
+            const myArr = userScratch.filter((card) => card.userNo == userUid)
+                        .filter((card) => card.name == cards.name)
 
-            // check how many scrach was added by all users. Length by scratch name
-                // total lenght that scratch by all users, filtred by scratch name
+            const winArr = myArr.filter((card) => card.win == true)
+
+            setUserBuyScratchTime(myArr.length)
+            setUserWinRatio( winArr.length / myArr.length)
         }
         const winingRatio = (cards) => {
+            let result = 0;
+            let numberOfWinScratch = 0;
+            let ratio = 0;
 
-            console.log("working", cards.name)
-            // ratio compare with all users
-                // filtred by scratch name and check wining value
-                // add to array price wining if win and do average
+            const myArr = userScratch.filter((card) => card.name === cards.name)
+            // console.log("Array: ",myArr)
+            myArr.forEach((cardPrise)=> {
+                if(parseInt(cardPrise.winPrize) > 0){
+                    numberOfWinScratch ++;
+                    result += parseInt(cardPrise.winPrize)
+                    // console.log("scratch card win: ", numberOfWinScratch)
+                    // console.log("total win prise: ", result)
+                }
+                return ratio = numberOfWinScratch / (myArr.length)
+            })
+            setTotalWinRatio(ratio)
         }
 
         return (
@@ -131,7 +160,7 @@ export const Content = () => {
                         <div className="wining__calculation">
                             <p className="font__Size">Your chance to Win any price:  <span>{primaryWin}%</span></p>
                             <p className="font__Size">Chance to win Top Prize: <span>{winningtopPrize}%</span></p>
-                            <p className="font__Size">You buy scratch: {userScratchcard} times</p>
+                            <p className="font__Size">You buy scratch: {userBuyScratchTime} times</p>
                             <p className="font__Size">Your Win Ration: {userWinRatio} %</p>
                             <p className="font__Size">Win Ration related all users: {totalWinRatio} %</p>
                         </div>
@@ -144,6 +173,8 @@ export const Content = () => {
                 <button className="details-btn" onClick={()=> {
                     handleSubmit(cards, index)
                     winingRatio(cards)
+                    userRatio(cards)
+                    winTopPrize(cards)
                 }}
                 >Details</button>
             </div>
