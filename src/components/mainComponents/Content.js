@@ -61,9 +61,9 @@ export const Content = () => {
         const [totalWinRatio, setTotalWinRatio] = useState("")
         const [userWinRatio, setUserWinRatio] = useState("")
         const [userBuyScratchTime , setUserBuyScratchTime] = useState("")
+        const [ winingTopPrize , setWiningTopPrize] = useState("")
 
         let primaryWin = parseFloat(cards.FirstChanceToWin) * 100;
-        let winningtopPrize = parseFloat(cards.topPrizeLeft/(cards.printedAmount-16606430))*100;
         
         const handleSubmit = (card,index, event) => {
             // document.querySelector(`#card${index}Details`).classList.toggle('details__hidden');
@@ -83,24 +83,29 @@ export const Content = () => {
 
 
         }
+// chance to win top prize 
         const winTopPrize = (cards) => {
-        //WinToPrize is amount all scratchcard in game minus already used cards divide after top prize left if left
-                // topPrizes divided by "/" printedAmount - usedScratched
-            const myArr = scratch.filter((card) => card.name == cards.name)
-            console.log(myArr[0].topPrizeLeft)
+            const scratchInfo = scratch.filter((card) => card.name == cards.name)
+        
+        // pressed scratchcard top prize left
+            const scratchTopPrizeLeft = scratchInfo[0].topPrizeLeft
+            console.log("Scratch top prize left: ",scratchTopPrizeLeft)
 
-            // console.log("my looking card: ",myArr.printedAmount)
-        // added used scratches without top prize win
-            const usedScratch = 10000;
-            
-            let top = parseInt(myArr[0].topPrizeLeft)
-            let bottom = parseInt()
+        // pressed scratchcard printed amount
+            const scratchPrinted = scratchInfo[0].printedAmount
+            console.log('Printed scrachcard: ', scratchPrinted)
 
-            const result =  top / bottom;
-            console.log(parseInt(myArr[0].topPrizeLeft)/ usedScratch)
+        // scratchcards added by users
+            const usersCards = userScratch.filter((addCards) => addCards.name == cards.name )
+                                        .filter((addCards)=> addCards.topPrize != true )
+            console.log('cards added by users: ', usersCards)
 
-            
+            const result = (parseInt(scratchTopPrizeLeft) / (parseInt(scratchPrinted) - usersCards.length)) * 100
+            console.log("result: ",result, '%')
+            // console.log("Chance to win top: ", parseInt(scratchTopPrizeLeft) / (parseInt(scratchPrinted) - usersCards.length) )
+            setWiningTopPrize(result)
         }
+// User ratio - compare winning cards added by user
         const userRatio = (cards) => {
             const userUid = auth?.currentUser?.uid
             
@@ -112,6 +117,7 @@ export const Content = () => {
             setUserBuyScratchTime(myArr.length)
             setUserWinRatio( winArr.length / myArr.length)
         }
+// wining ratio by scratch by all users
         const winingRatio = (cards) => {
             let result = 0;
             let numberOfWinScratch = 0;
@@ -159,7 +165,7 @@ export const Content = () => {
 
                         <div className="wining__calculation">
                             <p className="font__Size">Your chance to Win any price:  <span>{primaryWin}%</span></p>
-                            <p className="font__Size">Chance to win Top Prize: <span>{winningtopPrize}%</span></p>
+                            <p className="font__Size">Chance to win Top Prize: <span>{winingTopPrize}%</span></p>
                             <p className="font__Size">You buy scratch: {userBuyScratchTime} times</p>
                             <p className="font__Size">Your Win Ration: {userWinRatio} %</p>
                             <p className="font__Size">Win Ration related all users: {totalWinRatio} %</p>
