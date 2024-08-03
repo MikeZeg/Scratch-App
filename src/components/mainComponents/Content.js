@@ -72,16 +72,23 @@ export const Content = () => {
         }
 
         const chanceToWinAny = (cards) => {
-            // chance to win is minimum cards.FirstChanceToWin
-                // add cards.FirstChanceToWin
+            const scratchcardInfo = scratch.filter((card) => card.name == cards.name)
+        //basic win by scratchcard
+            const basicWinChance = scratchcardInfo[0].FirstChanceToWin;
+            console.log("Basic chance to win: ", basicWinChance)
+        // user added scratchcards ratio
+            const addScratch = userScratch.filter(( addCard ) => addCard.name == cards.name)
+        
+            const win = addScratch.filter(( addCard ) => addCard.win == true)
+            console.log(win)
+            const lose = addScratch.filter(( addCard ) => addCard.win == false)
+            console.log(lose)
+            const userRatio = parseInt(win.length / lose.length )*100 ;
 
-            // calculate avarage winning ratio and compare
-                // Check all that scratch and check ratio
+            console.log("win: ", win.length)
+            console.log("lose: ", lose.length)
 
-            // if less wining that firstChanceToWin that ratio go up
-                // compare ratio
-
-
+            console.log("Ratio check by users: ", userRatio)
         }
 // chance to win top prize 
         const winTopPrize = (cards) => {
@@ -115,7 +122,7 @@ export const Content = () => {
             const winArr = myArr.filter((card) => card.win == true)
 
             setUserBuyScratchTime(myArr.length)
-            setUserWinRatio( winArr.length / myArr.length)
+            setUserWinRatio( (winArr.length / myArr.length)*100)
         }
 // wining ratio by scratch by all users
         const winingRatio = (cards) => {
@@ -132,7 +139,7 @@ export const Content = () => {
                     // console.log("scratch card win: ", numberOfWinScratch)
                     // console.log("total win prise: ", result)
                 }
-                return ratio = numberOfWinScratch / (myArr.length)
+                return ratio = (numberOfWinScratch / (myArr.length))*100
             })
             setTotalWinRatio(ratio)
         }
@@ -181,6 +188,7 @@ export const Content = () => {
                     winingRatio(cards)
                     userRatio(cards)
                     winTopPrize(cards)
+                    chanceToWinAny(cards)
                 }}
                 >Details</button>
             </div>
