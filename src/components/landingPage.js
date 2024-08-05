@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactDom from "react-dom/client";
 import "../styles/landingPageStyle.css"
+
 import { auth } from "../config/firebase.js";
 import { onAuthStateChanged } from "firebase/auth";
 

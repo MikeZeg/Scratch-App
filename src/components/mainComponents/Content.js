@@ -70,7 +70,7 @@ export const Content = () => {
             document.getElementById(`card${index}Details`).classList.toggle('details__hidden');
             document.querySelector("body").classList.toggle('stopScroll')
         }
-
+// chance to win any Prize
         const chanceToWinAny = (cards) => {
             const scratchcardInfo = scratch.filter((card) => card.name == cards.name)
         //basic win by scratchcard
