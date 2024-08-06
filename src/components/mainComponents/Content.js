@@ -57,13 +57,16 @@ export const Content = () => {
 
 //---------  Component -----------
     const Details = ({cards, usedCards, cardNo,index}) => {
-        const [hidden, setHidden] = useState(false)
-        const [totalWinRatio, setTotalWinRatio] = useState("")
-        const [userWinRatio, setUserWinRatio] = useState("")
-        const [userBuyScratchTime , setUserBuyScratchTime] = useState("")
-        const [ winingTopPrize , setWiningTopPrize] = useState("")
+        const [hidden, setHidden] = useState(false);
+        const [totalWinRatio, setTotalWinRatio] = useState("");
+        const [userWinRatio, setUserWinRatio] = useState("");
+        const [userBuyScratchTime , setUserBuyScratchTime] = useState("");
+        const [ winingTopPrize , setWiningTopPrize] = useState("");
+        const [ primaryWin, setPrimaryWin] = useState("");
 
-        let primaryWin = parseFloat(cards.FirstChanceToWin) * 100;
+        // let primaryWin = parseFloat(cards.FirstChanceToWin) * 100;
+        console.log(userWinRatio);
+        
         
         const handleSubmit = (card,index, event) => {
             // document.querySelector(`#card${index}Details`).classList.toggle('details__hidden');
@@ -80,15 +83,18 @@ export const Content = () => {
             const addScratch = userScratch.filter(( addCard ) => addCard.name == cards.name)
         
             const win = addScratch.filter(( addCard ) => addCard.win == true)
-            console.log(win)
+            // console.log('win added scratchcards: ',win)
             const lose = addScratch.filter(( addCard ) => addCard.win == false)
-            console.log(lose)
-            const userRatio = parseInt(win.length / lose.length )*100 ;
+            // console.log('lose added scratchcards: ',lose)
+            const userRatio = parseInt(win.length / lose.length ) ;
 
             console.log("win: ", win.length)
             console.log("lose: ", lose.length)
 
             console.log("Ratio check by users: ", userRatio)
+// change over here
+            setPrimaryWin(userRatio)
+
         }
 // chance to win top prize 
         const winTopPrize = (cards) => {
@@ -171,10 +177,14 @@ export const Content = () => {
                         <div className="breakLine"></div>
 
                         <div className="wining__calculation">
-                            <p className="font__Size">Your chance to Win any price:  <span>{primaryWin}%</span></p>
+                            <p className="font__Size underlined">Your chance to Win any price:  <span>{primaryWin}%</span></p>
                             <p className="font__Size">Chance to win Top Prize: <span>{winingTopPrize}%</span></p>
                             <p className="font__Size">You buy scratch: {userBuyScratchTime} times</p>
-                            <p className="font__Size">Your Win Ration: {userWinRatio} %</p>
+                            <p className="font__Size underlined">
+                                {
+                                    {userWinRatio} == null ? `Your Win Ratio: ${userWinRatio}% `: `Not buy yet `
+                                }
+                            </p>
                             <p className="font__Size">Win Ration related all users: {totalWinRatio} %</p>
                         </div>
 

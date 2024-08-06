@@ -20,17 +20,6 @@ import { Main } from "./components/Main.js";
 const App = () => {
   return (
 <div> 
-      {/* <nav>
-        <Link to="/">Home</Link>
-        <Link to="/signIn">Sign In</Link>
-        <Link to="/createAccount">Create Account</Link>
-        <Link to="/signInByGoogle">Sign In By Google</Link>
-        <Link to="/logOut">Log Out</Link>
-        <Link to="/reset">Reset</Link>
-        <Link to="/Main">Main</Link>
-        <Outlet/>
-      </nav> */}
-
       <Routes>
           <Route path='/' element={<LandingPage/>} />
           <Route path="signIn" element={<SignIn/>} />

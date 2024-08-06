@@ -49,7 +49,7 @@ const LandingPage = () => {
             <header className="header">
             {/* logo */}
                 <div className="logo">
-                    <img src="" alt="company logo" className="header__logo__img"/>
+                    {/* <img src="" alt="company logo" className="header__logo__img"/> */}
                 </div>
             {/* navigation */}
                 <div className="nav">

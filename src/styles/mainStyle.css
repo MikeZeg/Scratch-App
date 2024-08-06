@@ -12,15 +12,21 @@
 
     #welcomeUser {
         width: 90%;
-        margin: 1rem 0 2rem 0;
+        margin: 0rem 0 0rem 0;
+        padding: 0;
+        font-size: var(--fts-lmed);
+        font-weight: var(--ft-bold);
+        color: var(--white);
+
         display: flex;
         align-items: center;
         justify-content:space-around;
-        gap: 60%        
+        gap: 60%;
     }
     #settingUser {
         display: grid;
         justify-content: center;
+
     }   
 }
 .main__middle {

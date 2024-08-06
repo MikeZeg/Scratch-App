@@ -3,6 +3,9 @@
 }
 .content__subtitle {
     margin-left: 5%;
+
+    color: var(--white);
+    font-weight: 600;
 }
 #contentScratchcard {
     display: flex;
@@ -99,14 +102,10 @@
     margin-top: 10%;
     padding: 0;
     
-    
     @media (min-width: 1500px ) {
-        /* color: yellow; */
         margin-top: 6%;
     }
 }
-
-
 .card__title {
     font-size: var(--fts-lmed);
 }
@@ -123,6 +122,9 @@
 }
 .font__Size {    
     font-size: 1.1rem;
+}
+.underlined {
+    background-color: yellow;
 }
 
 #btn-cardDetalis {
@@ -216,13 +218,6 @@
         padding: 0;
         width: 70px;
     }
-    
-    /* #winQuestionYes {
-       
-    } */
-    /* #winQuestionNo {
-        
-    } */
 }
 #addCardBtn {
     margin: 0;
