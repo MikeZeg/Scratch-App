@@ -64,16 +64,14 @@ export const Content = () => {
         const [ winingTopPrize , setWiningTopPrize] = useState("");
         const [ primaryWin, setPrimaryWin] = useState("");
 
-        // let primaryWin = parseFloat(cards.FirstChanceToWin) * 100;
-        console.log(userWinRatio);
-        
+       console.log('Check user ratio: ', userWinRatio)
         
         const handleSubmit = (card,index, event) => {
             // document.querySelector(`#card${index}Details`).classList.toggle('details__hidden');
             document.getElementById(`card${index}Details`).classList.toggle('details__hidden');
             document.querySelector("body").classList.toggle('stopScroll')
         }
-// chance to win any Prize
+    // chance to win any Prize
         const chanceToWinAny = (cards) => {
             const scratchcardInfo = scratch.filter((card) => card.name == cards.name)
         //basic win by scratchcard
@@ -81,19 +79,16 @@ export const Content = () => {
             console.log("Basic chance to win: ", basicWinChance)
         // user added scratchcards ratio
             const addScratch = userScratch.filter(( addCard ) => addCard.name == cards.name)
-        
             const win = addScratch.filter(( addCard ) => addCard.win == true)
-            // console.log('win added scratchcards: ',win)
+
+        // console.log('win added scratchcards: ',win)
             const lose = addScratch.filter(( addCard ) => addCard.win == false)
-            // console.log('lose added scratchcards: ',lose)
-            const userRatio = parseInt(win.length / lose.length ) ;
+        // console.log('lose added scratchcards: ',lose)
+            const userRatio = parseInt(win.length + lose.length / win.length ) ;
 
-            console.log("win: ", win.length)
-            console.log("lose: ", lose.length)
-
-            console.log("Ratio check by users: ", userRatio)
-// change over here
-            setPrimaryWin(userRatio)
+    // compare win chance
+            // console.log("check ratio total", ( ((win.length + lose.length) / win.length ) + basicWinChance)/2 )
+            setPrimaryWin( ((((win.length + lose.length) / win.length ) + basicWinChance)/2)*100)
 
         }
 // chance to win top prize 
@@ -177,12 +172,16 @@ export const Content = () => {
                         <div className="breakLine"></div>
 
                         <div className="wining__calculation">
-                            <p className="font__Size underlined">Your chance to Win any price:  <span>{primaryWin}%</span></p>
+                            <p className="font__Size underlined">
+                                { 
+                                    isNaN(primaryWin) ? `Not Enough Data` : `Your chance to Win any price: ${primaryWin}%`
+                                }
+                            </p>
                             <p className="font__Size">Chance to win Top Prize: <span>{winingTopPrize}%</span></p>
                             <p className="font__Size">You buy scratch: {userBuyScratchTime} times</p>
                             <p className="font__Size underlined">
                                 {
-                                    {userWinRatio} == null ? `Your Win Ratio: ${userWinRatio}% `: `Not buy yet `
+                                    isNaN(userWinRatio) ? `Not Bought YET` : `Your Win Ratio: ${userWinRatio}% `
                                 }
                             </p>
                             <p className="font__Size">Win Ration related all users: {totalWinRatio} %</p>
@@ -209,7 +208,17 @@ export const Content = () => {
     const UserAddScratchcard = ({ data }) => {
         const userId = auth?.currentUser?.uid;
         const [hidden, setHidden ] = useState(false)
-        const [userscratchcards, setUserscratchcards] = useState(data.length);
+        const [totalScratchcards ] = useState(data.length)
+        const [userscratchcards, setUserscratchcards] = useState("100");
+
+        const scratchCardAddedByUser = (data) => {
+            console.log("check added: ", data)
+
+            const lookingUser = data.filter((card)=> card.userNo == auth.currentUser.uid)
+            console.log("looking: ", lookingUser)
+
+            setUserscratchcards(lookingUser.length)
+        }
 
         const showAddCardOption = () => {
             const grab = document.querySelector("#addCards");
@@ -238,8 +247,11 @@ export const Content = () => {
         return (
             <div className="contentUserAddScratchcard">
 {/* ---------- I section ----------- */}
-                <p>Total added scratchcard {userscratchcards}. </p>
-                <p>Your added scratchcard below. Total by you: </p>
+                <div id="userAddedScratchcard__title">
+                    <p>Total added scratchcard {userscratchcards}. </p>
+                    <p>Total Scrachcard added: {totalScratchcards}. </p>
+                </div>
+                <p>Your added scratchcard below.</p>
                 <button className="btn">Reset all scratchcards to display ??</button>
                 <div id="lastCards" className="auto__scroll">
                     {data.filter((card) => card.userNo == userId)
