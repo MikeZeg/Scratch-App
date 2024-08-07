@@ -18,7 +18,7 @@ export const submit = async () => {
     let topPrize = false
     let win = false
 
-    winingPrize.value >= 0 ? win = true : win = false;
+    winingPrize.value > 0 ? win = true : win = false;
 
         try {
             const dataScratchcard = await getDocs(scratchCard);
@@ -42,6 +42,7 @@ export const submit = async () => {
                 userNo: userNo,
                 win: win,
                 winPrize: winingPrize.value,
+                display: "true",
             })
         }catch(err){
             console.log(err)

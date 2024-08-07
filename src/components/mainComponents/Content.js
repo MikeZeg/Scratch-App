@@ -253,8 +253,8 @@ export const Content = () => {
             <div className="contentUserAddScratchcard">
 {/* ---------- I section ----------- */}
                 <div id="userAddedScratchcard__title">
-                    <p>You added: {userScratchcards}. Check Below</p>
-                    <p>Scrachcard added in database: {totalScratchcards}. </p>
+                    <p>You added: {userScratchcards} cards. Check Below.</p>
+                    <p>Users added total: {totalScratchcards}</p>
                 </div>
                 <button className="btn" onClick={()=>{resetCard(data)}}>Reset all scratchcards to display ??</button>
                 <div id="lastCards" className="auto__scroll">
