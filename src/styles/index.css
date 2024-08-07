@@ -111,6 +111,10 @@ body {
 }
 .btn-mg-bottom {
   margin-bottom: 10px;
+
+}
+.hidden__scratchcard {
+  margin: 0.5rem;
 }
 /* Text sizes */
 h1 {

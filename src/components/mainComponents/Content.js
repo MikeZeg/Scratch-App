@@ -63,8 +63,6 @@ export const Content = () => {
         const [userBuyScratchTime , setUserBuyScratchTime] = useState("");
         const [ winingTopPrize , setWiningTopPrize] = useState("");
         const [ primaryWin, setPrimaryWin] = useState("");
-
-       console.log('Check user ratio: ', userWinRatio)
         
         const handleSubmit = (card,index, event) => {
             // document.querySelector(`#card${index}Details`).classList.toggle('details__hidden');
@@ -86,7 +84,7 @@ export const Content = () => {
         // console.log('lose added scratchcards: ',lose)
             const userRatio = parseInt(win.length + lose.length / win.length ) ;
 
-    // compare win chance
+        // compare win chance
             // console.log("check ratio total", ( ((win.length + lose.length) / win.length ) + basicWinChance)/2 )
             setPrimaryWin( ((((win.length + lose.length) / win.length ) + basicWinChance)/2)*100)
 
@@ -137,8 +135,6 @@ export const Content = () => {
                 if(parseInt(cardPrise.winPrize) > 0){
                     numberOfWinScratch ++;
                     result += parseInt(cardPrise.winPrize)
-                    // console.log("scratch card win: ", numberOfWinScratch)
-                    // console.log("total win prise: ", result)
                 }
                 return ratio = (numberOfWinScratch / (myArr.length))*100
             })
@@ -209,16 +205,14 @@ export const Content = () => {
         const userId = auth?.currentUser?.uid;
         const [hidden, setHidden ] = useState(false)
         const [totalScratchcards ] = useState(data.length)
-        const [userscratchcards, setUserscratchcards] = useState("100");
+        const [userScratchcards, setUserScratchcards] = useState("100");
 
-        const scratchCardAddedByUser = (data) => {
-            console.log("check added: ", data)
-
-            const lookingUser = data.filter((card)=> card.userNo == auth.currentUser.uid)
-            console.log("looking: ", lookingUser)
-
-            setUserscratchcards(lookingUser.length)
-        }
+        useEffect(() => {
+            const userUid = auth?.currentUser?.uid
+            const lookig = data.filter((card)=> card.userNo == userUid)
+            setUserScratchcards(lookig.length)
+        },[])
+        
 
         const showAddCardOption = () => {
             const grab = document.querySelector("#addCards");
@@ -237,10 +231,21 @@ export const Content = () => {
                 grabMain.classList.remove("stopScroll");
             }
         }
-//update value in firestor
+//Hide pressed scratchcard and update value in firestore - change {display:false}
         const hideCard = async (card) => {
-            console.log("pressed",card)
+            // console.log("pressed",card)
             await updateDoc(doc(db, "scratchcardUsed", card),{display: "false"})
+            getUserScrachcard();
+        }
+// Reset display value and change value in firestore - change all scratchcards {display: true}
+        const resetCard = async (data) => {
+            const cardReset = data.filter((card) => card.userNo == auth?.currentUser?.uid)
+                            .filter((card) => card.display == "false")
+            // console.log("check filter", cardReset)
+            for await (const res of cardReset ){
+                let card = res.id
+                updateDoc(doc(db, "scratchcardUsed", card), {display: "true"})
+            }
             getUserScrachcard();
         }
 
@@ -248,17 +253,16 @@ export const Content = () => {
             <div className="contentUserAddScratchcard">
 {/* ---------- I section ----------- */}
                 <div id="userAddedScratchcard__title">
-                    <p>Total added scratchcard {userscratchcards}. </p>
-                    <p>Total Scrachcard added: {totalScratchcards}. </p>
+                    <p>You added: {userScratchcards}. Check Below</p>
+                    <p>Scrachcard added in database: {totalScratchcards}. </p>
                 </div>
-                <p>Your added scratchcard below.</p>
-                <button className="btn">Reset all scratchcards to display ??</button>
+                <button className="btn" onClick={()=>{resetCard(data)}}>Reset all scratchcards to display ??</button>
                 <div id="lastCards" className="auto__scroll">
                     {data.filter((card) => card.userNo == userId)
                         .filter((card) => card.display === "true")
                         .map((card)=>
                         (
-                        <section key={card.id} className="cards__info">
+                        <section key={card.id} className="added__cards__info">
                             <br/>
                             <p>{card.name}</p>
                             <p>{card.topPrize == false ? ("!!! Win Top prize !!!")
@@ -268,10 +272,10 @@ export const Content = () => {
                             {/* <img></img> add image to card */}
 {/* Add value win price if user win cash */}
                             <p>{card.win != false ? (<strong>Last Time You Win: {card.winPrize} £</strong>)
-                            :("Next Time Win chance is: ")
+                            :("unLucky You didn't win")
                             }</p>
                             <button 
-                                className="btn hidden__scratchcard" 
+                                className="btn hidden__scratchcard"
                                 onClick={()=> hideCard(card.id)}
                             >Press to hidden</button>
                         </section>
