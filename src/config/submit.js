@@ -13,7 +13,6 @@ export const submit = async () => {
     const selectedcardsChoose = cardsChoose.options[cardsChoose.selectedIndex].text
     const winingPrize = document.getElementById("winning");
     const hidenAddCards = document.getElementById('addCards');
-    
 // Statment - Change status 
     let topPrize = false
     let win = false

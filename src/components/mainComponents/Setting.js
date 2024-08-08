@@ -19,8 +19,8 @@ export const ChangeImage = () => {
         return(
             <div className="changeModal" id="change-email">
             <section>
-                <p>Change Image</p>
-                <label htmlFor="avatar">Choose a profile image: </label>
+                <p className="change__title">Change Image</p>
+                <label htmlFor="avatar" className="change__subtitle">Choose a profile image: </label>
                 <input 
                     type="file"
                     id="avatr"
@@ -93,8 +93,8 @@ export const ChangeEmail = () => {
         return (
             <div className="changeModal changeModalInput" id="change-email">
                 <section>
-                    <p>Change Email</p>
-                    <label htmlFor="email">Please add new email: </label>
+                    <p className="change__title">Change Email</p>
+                    <label htmlFor="email" className="change__subtitle">Please add new email: </label>
                     <input 
                         type="email"
                         className="newEmail"
@@ -105,7 +105,7 @@ export const ChangeEmail = () => {
                             e.target.style.backgroundColor = "white";
                         }}
                     />
-                    <label htmlFor="rep-email">Please repete new email: </label>
+                    <label htmlFor="rep-email" className="change__subtitle">Please repete new email: </label>
                     <input 
                         type="email"
                         className="newEmail"
@@ -116,7 +116,7 @@ export const ChangeEmail = () => {
                             e.target.style.backgroundColor = "white";
                         }}
                     />
-                    <label htmlFor="emailUpdatePassword">Password</label>
+                    <label htmlFor="emailUpdatePassword" className="change__subtitle">Password</label>
                     <input
                         type="password"
                         id="emailUpdatePassword"
@@ -187,9 +187,9 @@ export const ChangePassword = () => {
         return (
             <div className="changeModal changeModalInput" id="change-password">
                 <section>
-                    <p>Change Password</p>
+                    <p className="change__title">Change Password</p>
                     
-                    <label htmlFor="password">Password: </label>
+                    <label htmlFor="password" className="change__subtitle">Password: </label>
                     <input
                         type="password"
                         id="password"
@@ -201,7 +201,7 @@ export const ChangePassword = () => {
                         }}
                     />
 
-                    <label htmlFor="password">Please add new password: </label>
+                    <label htmlFor="password" className="change__subtitle">Please add new password: </label>
                     <input
                         type="password"
                         id="newPassword"
@@ -212,7 +212,7 @@ export const ChangePassword = () => {
                             setNewPass1(e.target.value)
                         }}
                     />
-                    <label htmlFor="rep-password">Please repete password: </label>
+                    <label htmlFor="rep-password" className="change__subtitle">Please repete new password: </label>
                     <input 
                         type="password"
                         id="rep-newPassword"

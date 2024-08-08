@@ -58,6 +58,14 @@
 .change {
     margin: 2rem 0 2rem 2rem;
 }
+.change__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.change__subtitle {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
 .btnConfChange {
 
     &:hover {

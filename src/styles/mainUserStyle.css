@@ -1,4 +1,9 @@
 .user {
-    font-size: var(--fts-med);
+    font-size: var(--fts-larg);
     font-weight: var(--ft-normal);
+}
+@media (width < 500px) {
+    .user{
+        margin-top: 2rem 0 1rem 0;
+    }
 }

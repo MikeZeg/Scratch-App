@@ -33,7 +33,7 @@
     
 }
 .main__bottom {
-
+    
 }
 /*  Global */
 .auto__scroll {
@@ -41,4 +41,30 @@
 }
 .stopScroll  {
     overflow-y: hidden;
+}
+
+/* media queries  */
+@media (width < 500px) {
+    
+    .main__top {
+        justify-content: center;
+        width: 100%;
+
+        #welcomeUser {
+            width: 100%;
+            display: flow;
+            text-align: center;
+
+        }
+        #settingUser {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-around;
+
+            btn {
+                max-width: 50px;
+            }
+        }
+    }
+    
 }
