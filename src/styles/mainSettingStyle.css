@@ -19,12 +19,6 @@
     
     background-color: var(--win98);
     border: 2px solid white;
-
-/* change min-width when screen drop 950px */
-    @media (width < 950px) {
-        background-color: red;
-        
-    }
 }
 .btnModal {
     width: 150px;
@@ -44,7 +38,6 @@
         @media (width < 1050px) {
             width: 315px;
         }
-
     }
     button {
         width: 130px;
@@ -115,5 +108,41 @@
     }
     .btn {
         margin-right: 10px;
+    }
+}
+
+/* change min-width when screen drop 950px */
+@media (width < 950px) {
+    .settingModal {
+        /* background-color: red; */
+        width: 100%;
+    }
+}
+@media (width < 400px) {
+    .changeModalInput {
+
+        input {
+            max-width: 230px;
+        }
+    }
+    .change {
+        margin: 2rem 0 2rem 0;
+    }
+    #change-email, #change-password {
+        display: grid;
+        justify-items: center;
+
+        p, label {
+            font-size: 16px;
+        }
+    }
+    #change-email {
+        display: grid;
+        justify-items: center;
+
+        button {
+            margin: 1rem 0 1rem 0;
+            width: 130px;
+        }
     }
 }

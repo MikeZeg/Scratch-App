@@ -295,4 +295,8 @@
         max-width: 60%;
         max-height: 100%;
     }
+    #contentUserCards {
+        width: 90%;
+        
+    }
 }

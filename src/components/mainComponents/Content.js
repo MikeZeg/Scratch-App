@@ -263,7 +263,6 @@ export const Content = () => {
                         .map((card)=>
                         (
                         <section key={card.id} className="added__cards__info">
-                            <br/>
                             <p>{card.name}</p>
                             <p>{card.topPrize == false ? ("!!! Win Top prize !!!")
                             :("All Top Prize Gone.")

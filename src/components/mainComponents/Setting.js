@@ -17,8 +17,8 @@ export const ChangeImage = () => {
 
     const Modal = ({ imageModal }) => {
         return(
-            <div className="changeModal" id="change-email">
-            <section>
+            <div className="changeModal" >
+            <section id="change-email">
                 <p className="change__title">Change Image</p>
                 <label htmlFor="avatar" className="change__subtitle">Choose a profile image: </label>
                 <input 
@@ -91,8 +91,8 @@ export const ChangeEmail = () => {
         }
 
         return (
-            <div className="changeModal changeModalInput" id="change-email">
-                <section>
+            <div className="changeModal changeModalInput" >
+                <section id="change-email">
                     <p className="change__title">Change Email</p>
                     <label htmlFor="email" className="change__subtitle">Please add new email: </label>
                     <input 
@@ -185,8 +185,8 @@ export const ChangePassword = () => {
         }
 
         return (
-            <div className="changeModal changeModalInput" id="change-password">
-                <section>
+            <div className="changeModal changeModalInput" >
+                <section id="change-password">
                     <p className="change__title">Change Password</p>
                     
                     <label htmlFor="password" className="change__subtitle">Password: </label>

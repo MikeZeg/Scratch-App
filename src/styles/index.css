@@ -30,6 +30,7 @@
   --fts-med:1.5rem;
   --fts-smed:1.2rem;
   --fts-small:1rem;
+  --fts-mobile: 0.75rem;
   
   @media (width >= 1440px) {
     --fts-larg: 3rem;
@@ -63,6 +64,9 @@
     --fts-med: 1.2rem;
     --fts-smed: 1rem;
     --fts-small: 0.8rem;
+  }
+  @media (width < 500px) {
+    --fts-small: 0.79rem;
   }
 
 /* font weight */
