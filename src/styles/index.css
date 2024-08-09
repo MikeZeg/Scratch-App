@@ -12,7 +12,7 @@
   --black:hsl(0,0,0);
   --darkBlue: hsl(240, 100%,27%, 1);
   --mycolor:  rgb(204, 171, 5);
-  --extraFont: hsl(261, 78%, 62%);
+  --extraColor: hsl(261, 78%, 62%);
   --win98: hsl(0deg 0% 76.47%);
   
   /* linear-gradient */
@@ -116,6 +116,7 @@ body {
 }
 .btn-mg-bottom {
   margin-bottom: 10px;
+  margin-top: 10px;
 
 }
 .hidden__scratchcard {
