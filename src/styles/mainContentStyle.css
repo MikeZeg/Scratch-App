@@ -23,17 +23,6 @@
     box-shadow: 0px 0px 77px 20px rgba(195,202,229,1);
 
 }
-/* media queries  */
-@media (width < 500px) {
-    #contentScratchcard {
-        display: grid;
-    }
-    .card__info {
-        width: 80%;
-        min-width: 260px;
-    }
-    
-}
 .cards__info {
     height: 75%;
     min-width: 350px;
@@ -117,9 +106,9 @@
     padding: 0;
     
 /* media queries  */
-    @media (min-width: 1500px ) {
+    /* @media (min-width: 1500px ) {
         margin-top: 6%;
-    }
+    } */
 }
 .card__title {
     font-size: var(--fts-lmed);
@@ -292,4 +281,18 @@
 .input-radioText {
     margin: 0;
     padding: 0;
+}
+/* media queries  */
+@media (width < 500px) {
+    #contentScratchcard {
+        display: grid;
+    }
+    .cards__info {
+        min-width: 250px;
+        max-width: 100%;
+    }
+    .cardImage {
+        max-width: 60%;
+        max-height: 100%;
+    }
 }
