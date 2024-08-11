@@ -17,7 +17,7 @@ export const ChangeImage = () => {
 
     const Modal = ({ imageModal }) => {
         return(
-            <div className="changeModal" >
+        <div className="changeModal" >
             <section id="change-email">
                 <p className="change__title">Change Image</p>
                 <label htmlFor="avatar" className="change__subtitle">Choose a profile image: </label>
@@ -29,7 +29,7 @@ export const ChangeImage = () => {
                 <button className="btn btnConfChange">Confirm</button>
                 <button className="btn btnCancel" onClick={()=> imageModal(false)}>Cancel</button>
             </section>
-            </div>
+        </div>
         )
     }
 
