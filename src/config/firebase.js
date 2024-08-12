@@ -2,14 +2,16 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
-// import { REACT_APP_API_KEY_FB } from "./.env"
-
 import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword } from 'firebase/auth';
 
 
+const newKey = async () => {
+  console.log("My issue: ",process.env.react_app_api_key);
+}
+
+
 const firebaseConfig = {
-  apiKey: "AIzaSyD58Z-yazoD6td3Otno1zADsHi_ykibELE",
-  // apiKey: `${process.env.REACT_APP_API_KEY_FB}`,
+  apiKey: process.env.react_app_api_key,
   authDomain: "scratch-app-1eb1b.firebaseapp.com",
   projectId: "scratch-app-1eb1b",
   storageBucket: "scratch-app-1eb1b.appspot.com",
@@ -29,3 +31,4 @@ export const googleProvider = new GoogleAuthProvider();
 //DataBase
 export const db = getFirestore(app);
 
+export const firebaseConfig1 = firebaseConfig.apiKey

@@ -7,6 +7,9 @@ import { getDocs, collection, updateDoc, doc, writeBatch } from "firebase/firest
 import { submit } from "../../config/submit.js"
 import { update } from "firebase/database";
 
+import {firebaseConfig1 } from "../../config/firebase.js"
+console.log(firebaseConfig1)
+
 export const Content = () => {
 // Scratch Data fetch
     const [scratch, setScratch] = useState([]);
