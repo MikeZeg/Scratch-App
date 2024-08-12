@@ -7,9 +7,6 @@ import { getDocs, collection, updateDoc, doc, writeBatch } from "firebase/firest
 import { submit } from "../../config/submit.js"
 import { update } from "firebase/database";
 
-import {firebaseConfig1 } from "../../config/firebase.js"
-console.log(firebaseConfig1)
-
 export const Content = () => {
 // Scratch Data fetch
     const [scratch, setScratch] = useState([]);
@@ -82,7 +79,7 @@ export const Content = () => {
             const addScratch = userScratch.filter(( addCard ) => addCard.name == cards.name)
             const win = addScratch.filter(( addCard ) => addCard.win == true)
 
-        // console.log('win added scratchcards: ',win)
+        // console.log('win added scratchcards: ', win)
             const lose = addScratch.filter(( addCard ) => addCard.win == false)
         // console.log('lose added scratchcards: ',lose)
             const userRatio = parseInt(win.length + lose.length / win.length ) ;
@@ -365,7 +362,7 @@ export const Content = () => {
 
             <div id="contentScratchcard" className="auto__scroll">
                     {scratch.map((card, index)=> (
-                    <div key={card.id.toString()} id={`card${index.toString()}`}>
+                    <div className="content__card" key={card.id.toString()} id={`card${index.toString()}`} style={{background:card.primaryColor}}>
                         <section  className="cards__info">
                             <br/>
                             <img className="cardImage" src={card.img}></img>

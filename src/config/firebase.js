@@ -4,12 +4,6 @@ import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
 import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword } from 'firebase/auth';
 
-
-const newKey = async () => {
-  console.log("My issue: ",process.env.react_app_api_key);
-}
-
-
 const firebaseConfig = {
   apiKey: process.env.react_app_api_key,
   authDomain: "scratch-app-1eb1b.firebaseapp.com",
