@@ -52,10 +52,10 @@ Using the React library and Firebase, I developed an application that allowed me
     [live](https://main--scratchcardapp.netlify.app/LandingPage)
 
 ## Performance
-    ### Deskop
+### Deskop
     ![Preview](./img/performDeskopt.png)
 
-    ### Mobile
+### Mobile
     ![Preview](./img/performMobile.png)
 
 ## Author 
