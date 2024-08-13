@@ -49,14 +49,14 @@ Using the React library and Firebase, I developed an application that allowed me
         set up change image
 
 ## Links
-    [live](https://main--scratchcardapp.netlify.app/LandingPage)
+[live](https://main--scratchcardapp.netlify.app/LandingPage)
 
 ## Performance
 ### Deskop
-    ![Preview](./img/performDeskopt.png)
+![Preview](./img/performDeskopt.png)
 
 ### Mobile
-    ![Preview](./img/performMobile.png)
+![Preview](./img/performMobile.png)
 
 ## Author 
 MikeZeg
