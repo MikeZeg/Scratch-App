@@ -24,5 +24,3 @@ export const googleProvider = new GoogleAuthProvider();
 
 //DataBase
 export const db = getFirestore(app);
-
-export const firebaseConfig1 = firebaseConfig.apiKey
