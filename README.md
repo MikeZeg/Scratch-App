@@ -1,10 +1,10 @@
 # The Scratch application 
 
-Application is a database that contains information about winning scratch cards in the United Kingdom. It allows users to input their scratch card selections and provides predictions on their chances of winning based on the data stored. 
+This application is a database that stores information about winning scratch cards in the United Kingdom. Users can input their scratch card selections, and the application provides predictions on their chances of winning based on the data it has collected.
 
-### However, users should be aware that the predictions may not accurately reflect reality due to the potential for inaccurate or unreliable information entered by other users. 
+### Users should be aware that the predictions may not accurately reflect reality, as the information entered by other users could be inaccurate or unreliable.
 
-The application is built using the React library and Firebase database.
+This application was developed using the React JavaScript library and the Firebase cloud-based database platform.
 
 ## Table of content
 - [Preview](#overview)
@@ -20,7 +20,7 @@ The application is built using the React library and Firebase database.
 
 ## Technology
 
-I used the React library and Firebase to develop the application. This allowed me to save data and provide users with a simple way to log in to the app.
+Using the React library and Firebase, I developed an application that allowed me to save user data and provide a simple login process for users.
 
 
 ![JavaScript](https://img.shields.io/badge/JavaScript%20-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black)
@@ -31,32 +31,32 @@ I used the React library and Firebase to develop the application. This allowed m
 
 
 ## ToDo
-    Create database with more scratchcards - scratchCard DB
-    
-    Main Content: User/s can add scratchCards - scrachcardsUsed DB (name (string), topPrize(bolden), userNo(string)automatic), win(bolden) if(true) add win price(number)
+    Add to database scratchcards.
 
     landing Page:
         add style - buttons, colors, fonts,
-        fix bug : button log out - issue after logout from Main Page - not change info
+        fix bug: log in / log out button LandingPage not change after log off from Main.
 
     Login: 
         add reset password
-        add style
     
     Content:
-        add style
-        add content
+        add colors to database scratchcards
+        
 
     Setting:
-        add style
-        set up change email
-        set up change password
+        add style change - dark mode, bright mode
         set up change image
-    
 
 ## Links
+    [live](https://main--scratchcardapp.netlify.app/LandingPage)
 
 ## Performance
+    ### Deskop
+    ![Preview](./img/performDeskopt.png)
+
+    ### Mobile
+    ![Preview](./img/performMobile.png)
 
 ## Author 
 MikeZeg
