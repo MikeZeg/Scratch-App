@@ -309,6 +309,10 @@
     .breakLine {
         width: 110%;
     }
+    /* Added to change  */
+    .card__details__top {
+        margin-top:0;
+    }
 }
 @media (width < 750px) {
     #hidden-addCards-inputs {

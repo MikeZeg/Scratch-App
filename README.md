@@ -40,6 +40,9 @@ Using the React library and Firebase, I developed an application that allowed me
     Login: 
         add reset password
     
+    Register:
+        add confirm when register to app - confirm send to email
+    
     Content:
         add colors to database scratchcards
         
@@ -47,6 +50,7 @@ Using the React library and Firebase, I developed an application that allowed me
     Setting:
         add style change - dark mode, bright mode
         set up change image
+        
 
 ## Links
 [live](https://main--scratchcardapp.netlify.app)
