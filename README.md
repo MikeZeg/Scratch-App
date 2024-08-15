@@ -15,9 +15,6 @@ This application was developed using the React JavaScript library and the Fireba
     - [Links](#Links)
 - [Author](#author)
 
-
-
-
 ## Technology
 
 Using the React library and Firebase, I developed an application that allowed me to save user data and provide a simple login process for users.
