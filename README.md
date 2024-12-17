@@ -47,6 +47,10 @@ Using the React library and Firebase, I developed an application that allowed me
     Setting:
         add style change - dark mode, bright mode
         set up change image
+    
+    Database:
+        add next scratchcards
+        add color to scratchcards
         
 
 ## Links

@@ -3,7 +3,8 @@
     min-height: 50px;
 
     position:relative;
-    display: flex;
+    /* display: flex; */
+    display: none;
     justify-content: space-around;
     align-items: center;
 
@@ -44,23 +45,33 @@
 
 }
 .container {
-    display: grid;
+    display: flex;
+    align-items: center;
+    height: 86vh;
 
     background: hsl(194, 54%, 65%);
-    
     border: 2px solid hsl(197, 72%, 72%,0.9);
-    border-radius: 40px 15px 40px 15px;
+    border-radius: 20px 20px 20px 20px;
     box-shadow: 0px 15px 17px var(--lg--fifth);
+
+    .login {
+        /* background-color: yellow; */
+        
+        button:not(:last-child) {
+            margin-right: 2rem;
+        }
+
+    }
 
     h1 {
         display: flex;
-        justify-content: center;
-        color: var(--white);
+        justify-content: left;
+        color: var(--black);
     }
     h2 {
         display: flex;
         justify-content: center;
-        text-align: center;
+        text-align: left;
         color: var(--white);
     }
     .list {
@@ -89,18 +100,6 @@
         p:nth-child(2){
             margin-left: 20px;
         }
-
-    }
-    .content {
-        text-align: center;
-        
-        font-size: var(--fts-med);
-        color: var(--white);
-        letter-spacing: 1px;
-        font-weight: 300;
-
-        margin: 10px;
-        padding: 20px;
     }
     #btn-mid {
         display: flex;
@@ -113,6 +112,34 @@
             height: 30px;
         }
     }
+}
+.container__content {
+    margin-left: 4rem;       
+}
+.container__img {
+    min-width: 50%;
+    display: flex;
+    justify-content: center;
+}
+.container__figure {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-left: 3rem;
+    height: 100%;
+    width: 57%;
+}
+.img {
+    background-image: url('../../img/logo_landing_page.webp');
+    min-width: 420px;
+    min-height: 305px;
+
+    margin-right: 10%;
+
+    border-radius: 50%;
+    
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 /* media queries */
 @media (width < 500px) {

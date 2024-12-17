@@ -143,6 +143,16 @@ export const CreateAccount = () => {
                         }}
                     />
                 </div>
+            
+                <div className="terms">
+                    <label className="terms__label"> Terms & Conditions
+                        <div className="terms__label__div">
+                            <input type="checkbox" className="checkBox"></input>
+                            <span className="checkmark">I agree to the <a>terms</a></span>
+                        </div>
+                    </label>
+                </div>
+
                 <button className="btn btn__register" onClick={register}>Register</button>
             </div>
 

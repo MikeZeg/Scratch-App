@@ -41,3 +41,18 @@
 .btn__register {
     margin-top: 10px;
 }
+.terms {
+    display: grid;
+}
+.terms__label {
+
+}
+.checkBox {
+    max-width: 28px;
+    border: 1px solid red;
+}
+.terms__label__div {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
