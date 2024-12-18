@@ -14,6 +14,7 @@ import { ResetLogIn } from './components/login/ResetLogIn.js';
 import { User } from "./components/mainComponents/User.js"
 import { Setting } from "./components/mainComponents/Setting.js"
 import { Main } from "./components/Main.js";
+import { NavBar } from "./components/mainComponents/NavBar.js"
 
 // useNavigation -> to move user after log In or if already login
 
@@ -31,6 +32,7 @@ const App = () => {
           <Route path='Main' element={<Main/>} />
           <Route path='/User' element={<User/>}/>
           <Route path='/Setting' element={<Setting/>}/>
+          <Route path='/NavBar' element={<NavBar/>}/>
       </Routes>
 </div>
     );

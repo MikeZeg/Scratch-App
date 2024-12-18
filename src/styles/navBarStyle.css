@@ -1,0 +1,10 @@
+.navBar__style {
+    width: 20%;
+    margin: 0;
+    width: 150px;
+    border: 1px solid red;
+
+    display: grid;
+    grid-gap: 20px;
+    justify-content: center;
+}

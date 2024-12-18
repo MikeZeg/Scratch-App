@@ -38,7 +38,7 @@
 /* ^-------^------^-------^-------^-------^-------^-------^ */
 
 /* Main Styles */
-.main {
+.main__LandingPage {
     width: 90%;
     margin: 2rem auto 0 auto;
     border-radius: 40px 15px 40px 15px;
@@ -56,11 +56,11 @@
 
     .login {
         /* background-color: yellow; */
-        
+        display: flex;
+
         button:not(:last-child) {
             margin-right: 2rem;
         }
-
     }
 
     h1 {

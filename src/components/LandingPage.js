@@ -46,20 +46,8 @@ const LandingPage = () => {
 
     return (
         <div>
-            {/* <header className="header"> */}
-            {/* logo */}
-                {/* <div className="logo"> */}
-                    {/* <img src="" alt="company logo" className="header__logo__img"/> */}
-                {/* </div> */}
-            {/* navigation -- move to content*/}
-                {/* <div className="nav">
-                    { checklogged !== null ? <LogOut myData = {data => setCheckLogged(data)}/> : <BtnLogin/> }
-                    <button className="btn nav__btn" onClick={()=>{goToSignIn()}}>Sign Up</button>
-                </div> */}
-            {/* </header> */}
-
             {/* Content */}
-            <main className="main">
+            <main className="main__LandingPage">
                 <div className="container">
                     <section className="container__content">
                         <h1 className="title h1">Scratch App</h1>
@@ -72,6 +60,7 @@ const LandingPage = () => {
                         </div> */}
 
                         <div className="login">
+                            { checklogged !== null ? (<button onClick={()=>{goToMain()}}  className="btn nav__btn">Get In</button>) : ''}
                             { checklogged !== null ? <LogOut myData = {data => setCheckLogged(data)}/> : <BtnLogin/> }
                             <button className="btn nav__btn" onClick={()=>{goToSignIn()}}>Sign Up</button>
                         </div>
