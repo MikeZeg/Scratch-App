@@ -12,7 +12,6 @@
     grid-area: gridSetting;
     display: grid;
     justify-items: center;
-    margin-bottom: 1rem;
 
     #welcomeUser {
         width: 90%;
@@ -40,7 +39,8 @@
 }
 .main__middle {
     grid-area: gridContent;
-    max-width: 1400px;
+/* change to display main content - change if media query change*/
+    max-width: 1050px;
     border: 1px solid yellow;
 }
 .main__bottom {

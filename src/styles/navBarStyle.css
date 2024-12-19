@@ -8,3 +8,18 @@
     grid-gap: 20px;
     justify-content: center;
 }
+.navBar__box {
+    border: 1px solid yellow;
+}
+#box-Home {
+    color: grey;
+}
+#box-Stats {
+
+}
+#box-Profile {
+
+}
+#box-scratches {
+
+}
