@@ -200,7 +200,7 @@ export const Content = () => {
         )
     }
 
-    // User add Card to database and received information about what scratchcard he added
+    // Component - User add Card to database and received information about what scratchcard he added
     const UserAddScratchcard = ({ data }) => {
         const userId = auth?.currentUser?.uid;
         const [hidden, setHidden ] = useState(false)
@@ -349,19 +349,12 @@ export const Content = () => {
         )
     }
 
-    useEffect(()=>{
-        getScratchList();
-        getUserScrachcard();
-    },[])
+    // Component - all scratches
+    const ScratchCards = () => {
 
-    return (
-        <div className="main__content">
-            <div className="content__subtitle">
-                <p>Please check ScratchCard in our database</p>
-            </div>
-
-            <div id="contentScratchcard" className="auto__scroll">
-                    {scratch.map((card, index)=> (
+        return (
+            <div>
+                {scratch.map((card, index)=> (
                     <div className="content__card" key={card.id.toString()} id={`card${index.toString()}`} style={{background:card.primaryColor}}>
                         <section  className="cards__info">
                             <br/>
@@ -382,7 +375,25 @@ export const Content = () => {
                             index={index}
                         />
                     </div>
-                    ))}
+                ))}
+                
+            </div>
+        )
+    }
+
+    useEffect(()=>{
+        getScratchList();
+        getUserScrachcard();
+    },[])
+
+    return (
+        <div className="main__content">
+            <div className="content__subtitle">
+                <p>Please check ScratchCard in our database</p>
+            </div>
+
+            <div id="contentScratchcard" className="auto__scroll">
+                <ScratchCards/>
             </div>
 
             <div className="contentUser">

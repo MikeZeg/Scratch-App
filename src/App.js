@@ -20,7 +20,7 @@ import { NavBar } from "./components/mainComponents/NavBar.js"
 
 const App = () => {
   return (
-<div> 
+<div > 
       <Routes>
           <Route path='/' element={<LandingPage/>} />
           <Route path="signIn" element={<SignIn/>} />

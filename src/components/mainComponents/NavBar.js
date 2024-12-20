@@ -5,13 +5,18 @@ import '../../styles/navBarStyle.css'
 
 export const NavBar = () => {
 // working on that component
+    // add icon
+    
 
     return (
         <div className="navBar__style">
-            <section className="navbar__box home" onClick={()=>{console.log('Click to home')}}>Home</section>
-            <section className="navbar__box stats" onClick={()=>{console.log('Click to Stats')}}>Stats</section>
-            <section className="navbar__box profile" onClick={()=>{console.log('Click to Profile')}}>Profile</section>
-            <section className="navbar__box scratches" onClick={()=>{console.log('Click to scratch')}}>Scratches</section>
+            <div className="boxes__height">
+                {/* add links to  */}
+                <div className="navBar__box" id="box-home" onClick={()=>{console.log('Click to home')}}></div>
+                <div className="navBar__box" id="box-stats" onClick={()=>{console.log('Click to Stats')}}></div>
+                <div className="navBar__box" id="box-profile"  onClick={()=>{console.log('Click to Profile')}}></div>
+                <div className="navBar__box" id="box-scratches" onClick={()=>{console.log('Click to scratch')}}></div>
+            </div>
         </div>
     )
 }
