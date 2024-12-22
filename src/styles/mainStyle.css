@@ -6,6 +6,7 @@
 
     width: 95%;
     display: grid;
+    column-gap: 10px;
     grid-template-areas: 
     "gridNavBar . . gridSetting"
     "gridNavBar gridContent gridContent gridSetting"
@@ -45,7 +46,7 @@
 .main__middle {
     grid-area: gridContent;
 /* change to display main content - change if media query change*/
-    max-width: 1050px;
+    max-width: 1000px;
     border: 1px solid yellow;
 }
 .main__bottom {
