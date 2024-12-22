@@ -1,6 +1,10 @@
 .user {
-    font-size: var(--fts-larg);
+    font-size: var(--fts-med);
     font-weight: var(--ft-normal);
+    text-align: center;
+}
+#user-greeting {
+    font-size: var(--fts-med);
 }
 @media (width < 500px) {
     .user{

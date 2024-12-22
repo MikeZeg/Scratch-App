@@ -24,8 +24,8 @@ export const Main = () => {
                 <div id="welcomeUser">
                     <div id="settingUser">
                         <img className="userImage"></img>
+                        <Setting />
                         <LogOut  myData = {data => console.log("Log oFF from main level")} />
-                        <Setting /> 
                     </div>
                 </div>
                     <User/>

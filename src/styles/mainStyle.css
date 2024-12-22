@@ -13,7 +13,9 @@
     "gridNavBar gridContent gridContent gridSetting";
 }
 .main__top {
-    border: 1px solid pink;
+    border: 3px solid var(--win98);
+    box-shadow: 0 0 6px 2px black;
+    max-width: 253px;
 
     grid-area: gridSetting;
     display: grid;
