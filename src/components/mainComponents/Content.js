@@ -252,33 +252,41 @@ export const Content = () => {
         return (
             <div className="contentUserAddScratchcard">
 {/* ---------- I section ----------- */}
-                <div id="userAddedScratchcard__title">
-                    <p>You added: {userScratchcards} cards. Check Below.</p>
-                    <p>Users added total: {totalScratchcards}</p>
+                <div id="user-added-scratchCard__title">
+                    <section id="user-added-scratchCard__info">
+                        <p>You added: {userScratchcards} cards.</p>
+                        <p>Users added total: {totalScratchcards}</p>
+                    </section>
+                    <section id="user-added-scratchCard__actions">
+                        <button className="btn" onClick={()=>{resetCard(data)}}>Show All Cards</button>
+                        <button onClick={()=> showAddCardOption()} className="btn btn-mg-bottom">Press to add cards</button>
+                    </section>
                 </div>
-                <button className="btn" onClick={()=>{resetCard(data)}}>Reset all scratchcards to display ??</button>
-                <div id="lastCards" className="auto__scroll">
-                    {data.filter((card) => card.userNo == userId)
-                        .filter((card) => card.display === "true")
-                        .map((card)=>
-                        (
-                        <section key={card.id} className="added__cards__info">
-                            <p>{card.name}</p>
-                            <p>{card.topPrize == false ? ("!!! Win Top prize !!!")
-                            :("All Top Prize Gone.")
-                            }</p>
-                            
-                            {/* <img></img> add image to card */}
-{/* Add value win price if user win cash */}
-                            <p>{card.win != false ? (<strong>Last Time You Win: {card.winPrize} £</strong>)
-                            :("unLucky You didn't win")
-                            }</p>
-                            <button 
-                                className="btn hidden__scratchcard"
-                                onClick={()=> hideCard(card.id)}
-                            >Press to hidden</button>
-                        </section>
-                    ))}        
+
+                <div className="saparate">
+                    <div id="lastCards" className="auto__scroll">
+                        {data.filter((card) => card.userNo == userId)
+                            .filter((card) => card.display === "true")
+                            .map((card)=>
+                            (
+                            <section key={card.id} className="added__cards__info">
+                                <p>{card.name}</p>
+                                <p>{card.topPrize == false ? ("!!! Win Top prize !!!")
+                                :("All Top Prize Gone.")
+                                }</p>
+                                
+                                {/* <img></img> add image to card */}
+    {/* Add value win price if user win cash */}
+                                <p>{card.win != false ? (<strong>Last Time You Win: {card.winPrize} £</strong>)
+                                :("unLucky You didn't win")
+                                }</p>
+                                <button 
+                                    className="btn hidden__scratchcard"
+                                    onClick={()=> hideCard(card.id)}
+                                >Press to hidden</button>
+                            </section>
+                        ))}        
+                    </div>
                 </div>
 {/*  ----------- II section ---------------- */}
                 <div id="addCards" className="hidden hidden-addCards">
@@ -344,7 +352,7 @@ export const Content = () => {
                     </div>
 
                 </div>
-                <button onClick={()=> showAddCardOption()} className="btn btn-mg-bottom">Press to add cards</button>
+                {/* <button onClick={()=> showAddCardOption()} className="btn btn-mg-bottom">Press to add cards</button> */}
             </div>
         )
     }
@@ -391,15 +399,19 @@ export const Content = () => {
             <div className="content__subtitle">
                 <p>Please check ScratchCard in our database</p>
             </div>
-
-            <div id="contentScratchcard" className="auto__scroll">
-                <ScratchCards/>
+            <div className="content__scratchCards">
+                <div id="display-scratchcard" className="auto__scroll">
+                    <ScratchCards/>
+                </div>
+                <section id="goTo-scratchCards">
+                    <button className="btn">View All Scratch Cards</button>
+                </section>
             </div>
 
             <div className="contentUser">
                 <p className="content__subtitle">Your info</p>
                 
-                <div id="contentUserCards" className="">
+                <div id="content-userCards" className="">
                     <UserAddScratchcard data = {userScratch}/>
                 </div>
             </div>

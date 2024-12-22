@@ -4,30 +4,33 @@
 .content__subtitle {
     margin-left: 5%;
 
-    color: var(--white);
+    color: var(--black);
     font-weight: 600;
 }
 .content__card {
     margin: 0.5rem;
     border-radius: 5px;
 }
-#contentScratchcard {
+.content__scratchCards {
+    border: 3px solid var(--white);
+    box-shadow: 0px 0px 15px 3px var(--white);
+    padding-top: 10px;
+}
+#display-scratchcard {
     display: flex;
-/* change width to dispaly window */
-    /* width: 90%; */
     width: 60%;
     height: 290px;
-    
-    /* margin-left: auto; */
-    /* margin-right: auto; */
     margin-left: 2rem;
 
-    background-color: var(--white);
-    border: 7px solid var(--lg--fifth);
+    /* background-color: var(--white); */
+    background-color: inear-gradient(45deg, var(--lg-first),var(--lg--third),var(--lg--second));
     border-radius: 10px;
-    /* -webkit-box-shadow: 0px 0px 77px 20px rgba(195,202,229,1);
-    -moz-box-shadow: 0px 0px 77px 20px rgba(195,202,229,1);
-    box-shadow: 0px 0px 77px 20px rgba(195,202,229,1); */
+}
+#goTo-scratchCards {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 10px;
 }
 .cards__info {
     height: 75%;
@@ -50,7 +53,10 @@
 .contentUser {
     color: var(--black);
 /* width change to display windwo */
-    width: 55%;
+    width: 100%;
+    margin-top: 1.5rem;
+    border: 3px solid var(--white);
+    box-shadow: 0px 0px 15px 3px var(--white);
 }
 .details-btn {
     margin-left: 1rem;
@@ -64,12 +70,11 @@
 .cardWinLeft {
     margin-right: 2rem;
 }
-#contentUserCards {
+#content-userCards {
     color: var(--black);
-    border: 7px solid var(--lg--fifth);
+    /* border: 7px solid var(--lg--fifth); */
     background-color: var(--white);
-    width: 100%;
-    margin-left: 5%;
+    width: 60%;
 }
 /* ----------- Components inside ----------------- */
 /* ------ Details Component------*/
@@ -144,8 +149,10 @@
 }
 /* Content User Add Scratchcard Compmponent */
 .contentUserAddScratchcard {
-    margin: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
     padding-top: 5px;
+    padding: 0;
 }
 .added__cards__info {
     height: 100%;
@@ -161,12 +168,19 @@
     justify-content: center;
     text-align: center;
 }
-#userAddedScratchcard__title {
+#user-added-scratchCard__title {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 /* I section */
+.saparate {
+    background-color: white;
+    border: 1px solid red
+}
+#user-added-scratchCard__actions {
+    display: contents;
+}
 #lastCards {
         color: black;
         display: flex;
