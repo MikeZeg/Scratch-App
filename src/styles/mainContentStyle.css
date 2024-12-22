@@ -2,8 +2,6 @@
     
 }
 .content__subtitle {
-    margin-left: 5%;
-
     color: var(--black);
     font-weight: 600;
 }
@@ -12,8 +10,8 @@
     border-radius: 5px;
 }
 .content__scratchCards {
-    border: 3px solid var(--white);
-    box-shadow: 0px 0px 15px 3px var(--white);
+    border: 3px solid var(--win98);
+    box-shadow: 0px 0px 15px 1px var(--white);
     padding-top: 10px;
 }
 #display-scratchcard {
@@ -21,7 +19,6 @@
     width: 60%;
     height: 290px;
     margin-left: 2rem;
-
     /* background-color: var(--white); */
     background-color: inear-gradient(45deg, var(--lg-first),var(--lg--third),var(--lg--second));
     border-radius: 10px;
@@ -50,13 +47,16 @@
     max-width: 200px;
     max-height: 200px;
 }
-.contentUser {
+.content__user {
     color: var(--black);
-/* width change to display windwo */
-    width: 100%;
+/* width change to display window */
+    width: 99%;
     margin-top: 1.5rem;
     border: 3px solid var(--white);
-    box-shadow: 0px 0px 15px 3px var(--white);
+    box-shadow: 0px 0px 15px 3px var(--win98);
+}
+.content__user p{
+    margin-left: 2%;
 }
 .details-btn {
     margin-left: 1rem;
@@ -72,9 +72,7 @@
 }
 #content-userCards {
     color: var(--black);
-    /* border: 7px solid var(--lg--fifth); */
-    background-color: var(--white);
-    width: 60%;
+    width: 80%;
 }
 /* ----------- Components inside ----------------- */
 /* ------ Details Component------*/
@@ -172,11 +170,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-top: 2px solid var(--win98);
 }
 /* I section */
 .saparate {
     background-color: white;
-    border: 1px solid red
+    border: 3px solid var(--win98);
+    margin-bottom: 0.9rem;
 }
 #user-added-scratchCard__actions {
     display: contents;
@@ -185,6 +185,7 @@
         color: black;
         display: flex;
         width: 100%;
+        margin-bottom: 1rem;
         /* border: 1px solid red; */
 }
 

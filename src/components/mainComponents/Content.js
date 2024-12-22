@@ -408,7 +408,7 @@ export const Content = () => {
                 </section>
             </div>
 
-            <div className="contentUser">
+            <div className="content__user">
                 <p className="content__subtitle">Your info</p>
                 
                 <div id="content-userCards" className="">

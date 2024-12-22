@@ -47,7 +47,6 @@
     grid-area: gridContent;
 /* change to display main content - change if media query change*/
     max-width: 1000px;
-    border: 1px solid yellow;
 }
 .main__bottom {
     

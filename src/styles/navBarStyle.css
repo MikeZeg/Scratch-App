@@ -3,7 +3,7 @@
     /* height: 50%; */
     margin: 0;
     width: 150px;
-    border: 1px solid red;
+    border: 3px solid var(--win98);
 
     display: grid;
     grid-gap: 20px;
@@ -18,10 +18,13 @@
     max-width: 40px;
     max-height: 40px;
     margin-top: 40px;
+    
+    border-bottom: 2px solid var(--white);
 }
 .navBar__box:hover {
     color: blue;
     font-weight: bold;
+    border-bottom: 2px solid blue;
 }
 #box-home {
     color: grey;
