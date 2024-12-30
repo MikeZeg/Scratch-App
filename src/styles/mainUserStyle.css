@@ -6,6 +6,10 @@
 #user-greeting {
     font-size: var(--fts-med);
 }
+#user-greeting > p{
+    font-size: 2rem;
+    max-width: 99%;
+}
 @media (width < 500px) {
     .user{
         margin-top: 2rem 0 1rem 0;

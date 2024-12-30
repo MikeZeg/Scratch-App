@@ -254,8 +254,8 @@ export const Content = () => {
 {/* ---------- I section ----------- */}
                 <div id="user-added-scratchCard__title">
                     <section id="user-added-scratchCard__info">
-                        <p>You added: {userScratchcards} cards.</p>
-                        <p>Users added total: {totalScratchcards}</p>
+                        <p>You added: <span>{userScratchcards} cards. </span></p>
+                        <p>Users added total: <span>{totalScratchcards}.</span></p>
                     </section>
                     <section id="user-added-scratchCard__actions">
                         <button className="btn" onClick={()=>{resetCard(data)}}>Show All Cards</button>

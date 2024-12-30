@@ -166,6 +166,12 @@
     justify-content: center;
     text-align: center;
 }
+#user-added-scratchCard__info {
+    width: 50%;
+}
+#user-added-scratchCard__info > p > span {
+    font-weight: bold;
+}
 #user-added-scratchCard__title {
     display: flex;
     align-items: center;
