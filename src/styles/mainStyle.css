@@ -84,5 +84,9 @@
             }
         }
     }
-    
+}
+@media (max-height: 800px) {
+    .main__top {
+        max-height: 720px;
+    }
 }

@@ -71,3 +71,9 @@
 #box-scratches:hover {
     scale:1.2;
 }
+
+@media (height < 800px) {
+    .navBar__style {
+        max-height: 720px;
+    }
+}

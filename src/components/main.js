@@ -10,9 +10,6 @@ import { Content } from "./mainComponents/Content.js";
 import { Setting } from "./mainComponents/Setting.js";
 import { NavBar } from "./mainComponents/NavBar.js";
 
-
-//main look done check components
-
 export const Main = () => {
     return (
         <div className="main">

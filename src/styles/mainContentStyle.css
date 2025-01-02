@@ -400,6 +400,9 @@
         margin-top: 3rem;
         height: 70%;
     }
+    #display-scratchcard {
+        height: 260px;
+    }
 }
 
 /* ------ KEY Frames ----------- */
