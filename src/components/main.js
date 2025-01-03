@@ -11,6 +11,9 @@ import { Setting } from "./mainComponents/Setting.js";
 import { NavBar } from "./mainComponents/NavBar.js";
 
 export const Main = () => {
+
+    const goTo = useNavigate();
+
     return (
         <div className="main">
             <section className="navBar">
@@ -21,7 +24,8 @@ export const Main = () => {
                 <div id="welcomeUser">
                     <div id="settingUser">
                         <img className="userImage"></img>
-                        <Setting />
+                        <button className="btn rounded" onClick={()=>{goTo('/Setting')}}>Setting</button>
+                        {/* <Setting /> */}
                         <LogOut  myData = {data => console.log("Log oFF from main level")} />
                     </div>
                 </div>

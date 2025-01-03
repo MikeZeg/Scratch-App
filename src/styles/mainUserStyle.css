@@ -10,6 +10,12 @@
     font-size: 2rem;
     max-width: 99%;
 }
+@media (height < 800px) {
+    #user-greeting > p {
+        font-size: 1rem;
+    }
+    
+}
 @media (width < 500px) {
     .user{
         margin-top: 2rem 0 1rem 0;

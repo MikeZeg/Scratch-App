@@ -240,10 +240,13 @@ export const ChangePassword = () => {
 
 // --------------- Component Modals --------------
 export const ModalSetting = ( {closeModal} ) => {
+    
+    const goTo = useNavigate();
+
     return (
         <div className="settingModal">
             <div id="setting-btnClose">
-                <button className="btn" onClick={()=> closeModal(false)}>X</button>
+                <button className="btn" onClick={()=>{goTo('/Main')}}>X</button>
             </div>
             <br/>
             <ChangeImage/>
@@ -262,9 +265,7 @@ export const Setting = () => {
 
     return (
         <div className="setting">
-    {/* open A Modal */}
-            <button className="btn btnModalOpen" onClick={()=> {setOpenModal(true)}}>Setting</button>
-            { openModal && <ModalSetting closeModal={setOpenModal}/>}
+            <ModalSetting/>
         </div>
     )
 }

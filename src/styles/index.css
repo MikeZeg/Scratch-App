@@ -119,6 +119,9 @@ body {
   margin-top: 10px;
 
 }
+.rounded {
+  border-radius: 10px;
+}
 .hidden__scratchcard {
   margin: 0.5rem;
 }

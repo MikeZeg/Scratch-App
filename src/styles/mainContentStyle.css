@@ -395,13 +395,23 @@
     }
 }
 
-@media (height < 900px ) {
+@media (height < 800px ) {
     .card-details {
         margin-top: 3rem;
         height: 70%;
     }
     #display-scratchcard {
         height: 260px;
+    }
+    .main__content {
+        max-height: 720px;
+        /* background-color: white; */
+    }
+    .added__cards__info {
+        max-height: 160px;
+    }
+    .content__user {
+        margin-top: 5px;
     }
 }
 

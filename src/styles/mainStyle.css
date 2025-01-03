@@ -61,7 +61,7 @@
     overflow-y: hidden;
 }
 
-/* media queries  */
+/* --------- media queries ----------- */
 @media (width < 500px) {
     
     .main__top {
@@ -85,8 +85,11 @@
         }
     }
 }
-@media (max-height: 800px) {
+@media (height < 800px) {
     .main__top {
         max-height: 720px;
+    }
+    .main__top {
+        width: 200px;
     }
 }

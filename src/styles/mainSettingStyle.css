@@ -49,14 +49,14 @@
     }
 }
 .change {
-    margin: 2rem 0 2rem 2rem;
+    margin: 1rem 0 1rem 1rem;
 }
 .change__title {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 700;
 }
 .change__subtitle {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 500;
 }
 .btnConfChange {
