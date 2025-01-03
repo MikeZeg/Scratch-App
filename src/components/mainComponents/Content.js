@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react"
-import { ReactDom } from "react-dom";
-import { Link, Route, Router, Routes, useNavigate} from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import "../../styles/mainContentStyle.css";
-import { db, auth, app } from "../../config/firebase.js";
-import { getDocs, collection, updateDoc, doc, writeBatch } from "firebase/firestore";
+import { db, auth} from "../../config/firebase.js";
+import { getDocs, collection, updateDoc, doc } from "firebase/firestore";
 import { submit } from "../../config/submit.js"
-import { update } from "firebase/database";
+// import { ReactDom } from "react-dom";
+// import { update } from "firebase/database";
 
 export const Content = () => {
 // Scratch Data fetch
@@ -19,6 +19,8 @@ export const Content = () => {
 // User ID
     // const userUid = auth?.currentUser?.uid
     // console.log("ID", userUid)
+// Use navigation
+    const goTo = useNavigate();
 
 // Functions
         const getScratchList = async() => {
@@ -57,7 +59,7 @@ export const Content = () => {
 
 //---------  Component -----------
     const Details = ({cards, usedCards, cardNo,index}) => {
-        const [hidden, setHidden] = useState(false);
+        // const [hidden, setHidden] = useState(false);
         const [totalWinRatio, setTotalWinRatio] = useState("");
         const [userWinRatio, setUserWinRatio] = useState("");
         const [userBuyScratchTime , setUserBuyScratchTime] = useState("");
@@ -71,18 +73,18 @@ export const Content = () => {
         }
     // chance to win any Prize
         const chanceToWinAny = (cards) => {
-            const scratchcardInfo = scratch.filter((card) => card.name == cards.name)
+            const scratchcardInfo = scratch.filter((card) => card.name === cards.name)
         //basic win by scratchcard
             const basicWinChance = scratchcardInfo[0].FirstChanceToWin;
             console.log("Basic chance to win: ", basicWinChance)
         // user added scratchcards ratio
-            const addScratch = userScratch.filter(( addCard ) => addCard.name == cards.name)
-            const win = addScratch.filter(( addCard ) => addCard.win == true)
+            const addScratch = userScratch.filter(( addCard ) => addCard.name === cards.name)
+            const win = addScratch.filter(( addCard ) => addCard.win === true)
 
         // console.log('win added scratchcards: ', win)
-            const lose = addScratch.filter(( addCard ) => addCard.win == false)
+            const lose = addScratch.filter(( addCard ) => addCard.win === false)
         // console.log('lose added scratchcards: ',lose)
-            const userRatio = parseInt(win.length + lose.length / win.length ) ;
+            // const userRatio = parseInt(win.length + lose.length / win.length ) ;
 
         // compare win chance
             // console.log("check ratio total", ( ((win.length + lose.length) / win.length ) + basicWinChance)/2 )
@@ -91,7 +93,7 @@ export const Content = () => {
         }
 // chance to win top prize 
         const winTopPrize = (cards) => {
-            const scratchInfo = scratch.filter((card) => card.name == cards.name)
+            const scratchInfo = scratch.filter((card) => card.name === cards.name)
         
         // pressed scratchcard top prize left
             const scratchTopPrizeLeft = scratchInfo[0].topPrizeLeft
@@ -102,8 +104,8 @@ export const Content = () => {
             console.log('Printed scrachcard: ', scratchPrinted)
 
         // scratchcards added by users
-            const usersCards = userScratch.filter((addCards) => addCards.name == cards.name )
-                                        .filter((addCards)=> addCards.topPrize != true )
+            const usersCards = userScratch.filter((addCards) => addCards.name === cards.name )
+                                        .filter((addCards)=> addCards.topPrize !== true )
             console.log('cards added by users: ', usersCards)
 
             const result = (parseInt(scratchTopPrizeLeft) / (parseInt(scratchPrinted) - usersCards.length)) * 100
@@ -115,10 +117,10 @@ export const Content = () => {
         const userRatio = (cards) => {
             const userUid = auth?.currentUser?.uid
             
-            const myArr = userScratch.filter((card) => card.userNo == userUid)
-                        .filter((card) => card.name == cards.name)
+            const myArr = userScratch.filter((card) => card.userNo === userUid)
+                        .filter((card) => card.name === cards.name)
 
-            const winArr = myArr.filter((card) => card.win == true)
+            const winArr = myArr.filter((card) => card.win === true)
 
             setUserBuyScratchTime(myArr.length)
             setUserWinRatio( (winArr.length / myArr.length)*100)
@@ -209,7 +211,7 @@ export const Content = () => {
 
         useEffect(() => {
             const userUid = auth?.currentUser?.uid
-            const lookig = data.filter((card)=> card.userNo == userUid)
+            const lookig = data.filter((card)=> card.userNo === userUid)
             setUserScratchcards(lookig.length)
         },[])
         
@@ -220,12 +222,12 @@ export const Content = () => {
                         
             setHidden(!hidden)
 
-            if(hidden == false){
+            if(hidden === false){
                 console.log(hidden);
                 grab.classList.remove("hidden-addCards");
                 grabMain.classList.add("stopScroll");
 
-            }if(hidden == true){
+            }if(hidden === true){
                 console.log(hidden);
                 grab.classList.add("hidden-addCards");
                 grabMain.classList.remove("stopScroll");
@@ -239,8 +241,8 @@ export const Content = () => {
         }
 // Reset display value and change value in firestore - change all scratchcards {display: true}
         const resetCard = async (data) => {
-            const cardReset = data.filter((card) => card.userNo == auth?.currentUser?.uid)
-                            .filter((card) => card.display == "false")
+            const cardReset = data.filter((card) => card.userNo === auth?.currentUser?.uid)
+                            .filter((card) => card.display === "false")
             // console.log("check filter", cardReset)
             for await (const res of cardReset ){
                 let card = res.id
@@ -265,19 +267,19 @@ export const Content = () => {
 
                 <div className="saparate">
                     <div id="lastCards" className="auto__scroll">
-                        {data.filter((card) => card.userNo == userId)
+                        {data.filter((card) => card.userNo === userId)
                             .filter((card) => card.display === "true")
                             .map((card)=>
                             (
                             <section key={card.id} className="added__cards__info">
                                 <p>{card.name}</p>
-                                <p>{card.topPrize == false ? ("!!! Win Top prize !!!")
+                                <p>{card.topPrize === false ? ("!!! Win Top prize !!!")
                                 :("All Top Prize Gone.")
                                 }</p>
                                 
                                 {/* <img></img> add image to card */}
     {/* Add value win price if user win cash */}
-                                <p>{card.win != false ? (<strong>Last Time You Win: {card.winPrize} £</strong>)
+                                <p>{card.win !== false ? (<strong>Last Time You Win: {card.winPrize} £</strong>)
                                 :("unLucky You didn't win")
                                 }</p>
                                 <button 
@@ -366,7 +368,7 @@ export const Content = () => {
                     <div className="content__card" key={card.id.toString()} id={`card${index.toString()}`} style={{background:card.primaryColor}}>
                         <section  className="cards__info">
                             <br/>
-                            <img className="cardImage" src={card.img}></img>
+                            <img className="cardImage" src={card.img} alt="card.name"></img>
                             <div>
                                 <p className="cardName" ><strong>ScratchCard:</strong> {card.name}</p>
                                 <p className="cardPrice" ><strong>Price:</strong> {card.price}</p>
@@ -404,7 +406,7 @@ export const Content = () => {
                     <ScratchCards/>
                 </div>
                 <section id="goTo-scratchCards">
-                    <button className="btn">View All Scratch Cards</button>
+                    <button className="btn" onClick={()=>{goTo('/ScratchStats')}}>View All Scratch Cards</button>
                 </section>
             </div>
 

@@ -1,13 +1,9 @@
 import React from "react"
-import { ReactDom } from "react-dom";
-import { useState } from "react";
-import { Link, Route, Router, Routes, useNavigate} from "react-router-dom";
-import { auth, getDocs, getDoc } from "../config/firebase";
+import { useNavigate} from "react-router-dom";
 import "../styles/mainStyle.css";
 import { LogOut } from "./login/LogOut";
 import { User } from "./mainComponents/User.js";
 import { Content } from "./mainComponents/Content.js";
-import { Setting } from "./mainComponents/Setting.js";
 import { NavBar } from "./mainComponents/NavBar.js";
 
 export const Main = () => {

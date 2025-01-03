@@ -1,15 +1,9 @@
-import React, { useState, useEffect } from "react";
-import ReactDom from "react-dom/client";
+import React, { useState } from "react";
 import "../styles/landingPageStyle.css"
-
 import { auth } from "../config/firebase.js";
 import { onAuthStateChanged } from "firebase/auth";
-
 import { useNavigate } from "react-router-dom";
-
-import { SignIn } from "./login/SignIn.js";
 import { LogOut } from "./login/LogOut.js";
-import { Main } from "./Main.js";
 
 //  ------ MAIN APP ------
 const LandingPage = () => {
@@ -24,23 +18,11 @@ const LandingPage = () => {
         }else {
             // console.log("not login")
         }
-    })
-
-// Location 
-    const goToSignIn = () => {
-        signIn('/CreateAccount')
-    }
-    const goToLogIn = () => {
-        signIn('/SignIn')
-    }
-    const goToMain = () => {
-        signIn('/Main')
-    }
-    
+    })    
 // Login Button
     const BtnLogin = () => {        
         return (
-            <button className="btn nav__btn" onClick={()=>{goToLogIn()}}>Log In</button>
+            <button className="btn nav__btn" onClick={()=>{signIn('/SignIn')}}>Log In</button>
         )
     }
 
@@ -52,23 +34,17 @@ const LandingPage = () => {
                     <section className="container__content">
                         <h1 className="title h1">Scratch App</h1>
                         <h2 className="subtitle h2">Discover the Thrill of Instant Winnings with the Scratch App</h2>
-                        
-                        {/* <div className="list">
-                            <p className="p">Instantly see your chances of winning big prizes in UK scratch games</p>
-                            <p className="p">Comprehensive database of scratch card details and odds</p>
-                            <p className="p">Personalized recommendations to maximize your winnings</p>
-                        </div> */}
 
                         <div className="login">
-                            { checklogged !== null ? (<button onClick={()=>{goToMain()}}  className="btn nav__btn">Get In</button>) : ''}
+                            { checklogged !== null ? (<button onClick={()=>{signIn('/Main')}}  className="btn nav__btn">Get In</button>) : ''}
                             { checklogged !== null ? <LogOut myData = {data => setCheckLogged(data)}/> : <BtnLogin/> }
-                            <button className="btn nav__btn" onClick={()=>{goToSignIn()}}>Sign Up</button>
+                            <button className="btn nav__btn" onClick={()=>{signIn('/CreateAccount')}}>Sign Up</button>
                         </div>
                     </section>
 
                     <section className="container__img">
                         <figure className="container__figure">
-                            <img className="img"></img>
+                            <img className="img" alt="figure"></img>
                         </figure>
                     </section>
                 </div>
@@ -76,7 +52,7 @@ const LandingPage = () => {
             
             {/* Footer */}
                 <footer className="footer">
-                    <p className="p footer__p">Handcraf By <a href="https://www.github.com/MikeZeg" target="_blank" className="handcraft a-link">MikeZeg</a> ©2024</p>
+                    <p className="p footer__p">Handcraf By <a href="https://www.github.com/MikeZeg" target="_blank" rel="author" className="handcraft a-link">MikeZeg</a> ©2024</p>
                 </footer>
         </div>
     );

@@ -1,6 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link, Outlet, BrowserRouter, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react"
+import { Route, Routes } from "react-router-dom";
+// import { useEffect, useState } from "react"
 import './styles/App.css';
 
 import LandingPage from "./components/LandingPage.js";
@@ -13,8 +13,10 @@ import { SignInByGoogle } from './components/login/SignInByGoogle.js';
 import { ResetLogIn } from './components/login/ResetLogIn.js';
 import { User } from "./components/mainComponents/User.js"
 import { Setting } from "./components/mainComponents/Setting.js"
+import { ScratchStats } from './components/mainComponents/ScratchStats.js';
+import { NavBar } from "./components/mainComponents/NavBar.js";
 import { Main } from "./components/Main.js";
-import { NavBar } from "./components/mainComponents/NavBar.js"
+
 
 // useNavigation -> to move user after log In or if already login
 
@@ -32,6 +34,7 @@ const App = () => {
           <Route path='Main' element={<Main/>} />
           <Route path='/User' element={<User/>}/>
           <Route path='/Setting' element={<Setting/>}/>
+          <Route path='/ScratchStats' element={<ScratchStats/>}/>
           <Route path='/NavBar' element={<NavBar/>}/>
       </Routes>
 </div>

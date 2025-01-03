@@ -1,14 +1,14 @@
-
 import React from "react"
-import { ReactDom } from "react-dom";
+// import { ReactDom } from "react-dom";
 import { useState } from "react";
-import { Link, Route, Router, Routes, useNavigate} from "react-router-dom";
+import { useNavigate} from "react-router-dom";
+import { NavBar } from "./NavBar.js";
 import "../../styles/mainSettingStyle.css";
 
-import { userData } from "./User.js"
+// import { userData } from "./User.js"
 import  {auth } from "../../config/firebase.js";
 import { EmailAuthProvider } from "firebase/auth/web-extension";
-import { updateEmail, reauthenticateWithCredential, sendEmailVerification, updatePassword } from "firebase/auth";
+import { updateEmail, reauthenticateWithCredential, updatePassword } from "firebase/auth";
 
 // Components
 // ------------  Change Image -------------
@@ -64,7 +64,7 @@ export const ChangeEmail = () => {
             }
             if(!newEmail1.match(easyMailFormat)) {
                 return alert('Please check email format')
-            }if(newEmail1 != newEmail2){
+            }if(newEmail1 !== newEmail2){
                 emailInput.forEach((input)=> {
                     input.style.backgroundColor  = "red"
                 })
@@ -244,6 +244,8 @@ export const ModalSetting = ( {closeModal} ) => {
     const goTo = useNavigate();
 
     return (
+    <div>
+        <NavBar/>
         <div className="settingModal">
             <div id="setting-btnClose">
                 <button className="btn" onClick={()=>{goTo('/Main')}}>X</button>
@@ -256,13 +258,11 @@ export const ModalSetting = ( {closeModal} ) => {
             <ChangePassword/>
             {/* <button className="btn change" onClick={()=> closeModal(false)}> Cancel</button> */}
         </div>
+    </div>
     )
 }
 
 export const Setting = () => {
-
-    const [openModal, setOpenModal] = useState(false)
-
     return (
         <div className="setting">
             <ModalSetting/>

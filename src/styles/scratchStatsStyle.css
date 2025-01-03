@@ -1,0 +1,13 @@
+.scratchStats {
+    position: absolute;
+    width: auto;
+    min-width: 40%;
+    height: auto;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+    background-color: var(--win98);
+    border: 2px solid white;
+}
