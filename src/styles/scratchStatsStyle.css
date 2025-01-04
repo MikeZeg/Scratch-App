@@ -1,5 +1,21 @@
 .scratchStats {
     position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 95%;
+    /* display:grid;
+    column-gap: 10px;
+    grid-template-areas:
+        "gridNavBar . . gridSetting"
+        "gridNavBar gridContent gridContent gridSetting"
+        "gridNavBar gridContent gridContent gridSetting"; */
+}
+
+
+
+.scratchStats__content {
+    position: absolute;
     width: 60%;
     min-width: 30%;
     height: 600px;
