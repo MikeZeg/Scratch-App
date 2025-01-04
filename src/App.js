@@ -17,7 +17,6 @@ import { ScratchStats } from './components/mainComponents/ScratchStats.js';
 import { NavBar } from "./components/mainComponents/NavBar.js";
 import { Main } from "./components/Main.js";
 
-
 // useNavigation -> to move user after log In or if already login
 
 const App = () => {

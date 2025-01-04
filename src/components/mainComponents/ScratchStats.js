@@ -8,9 +8,14 @@ export const ScratchStats = () => {
     const goTo = useNavigate();
 
     return (
-        <div className='scratchStats'>  
+        <>
             <NavBar/>
-            <button className='btn rounded' onClick={()=>{goTo('/Main')}}> Go To Main</button>
-        </div>
+            <div className='scratchStats'>  
+                <section > Check scratch Cards </section>
+                <section > Give diagram winning ratio - all users</section>
+                <section > Give user diagram winning ration - select data? </section>
+                <button className='btn rounded' onClick={()=>{goTo('/Main')}}> Go To Main</button>
+            </div>
+        </>
     )
 }
