@@ -1,5 +1,4 @@
-import React from "react"
-// import { ReactDom } from "react-dom";
+import React, { createContext, useContext, useEffect } from "react"
 import { useState } from "react";
 import { useNavigate} from "react-router-dom";
 import { NavBar } from "./NavBar.js";
@@ -10,8 +9,8 @@ import  {auth } from "../../config/firebase.js";
 import { EmailAuthProvider } from "firebase/auth/web-extension";
 import { updateEmail, reauthenticateWithCredential, updatePassword } from "firebase/auth";
 
-// Components
-// ------------  Change Image -------------
+// ------ Components
+    // ------------  Change Image -------------
 export const ChangeImage = () => {
     const [open, setOpen] = useState(false)
 
@@ -41,7 +40,7 @@ export const ChangeImage = () => {
         </div>
     )
 }
-// --------   Change email -------------
+    // --------   Change email -------------
 export const ChangeEmail = () => {
     const [open, setOpen] = useState(false)
 
@@ -138,7 +137,7 @@ export const ChangeEmail = () => {
         </div>
     )
 }
-// ------------ Change Password -----------------
+    // ------------ Change Password -----------------
 export const ChangePassword = () => {
     const [open, setOpen] = useState(false)
 
@@ -239,24 +238,23 @@ export const ChangePassword = () => {
 
 
 // --------------- Component Modals --------------
-export const ModalSetting = ( {closeModal} ) => {
-    
+export const ModalSetting = ( ) => {
     const goTo = useNavigate();
 
     return (
     <div>
         <NavBar/>
         <div className="settingModal">
-            <div id="setting-btnClose">
+            {/* <div id="setting-btnClose">
                 <button className="btn" onClick={()=>{goTo('/Main')}}>X</button>
-            </div>
+            </div> */}
             <br/>
-            <ChangeImage/>
-            <br/>
-            <ChangeEmail/>
-            <br/>
-            <ChangePassword/>
-            {/* <button className="btn change" onClick={()=> closeModal(false)}> Cancel</button> */}
+                <ChangeImage/>
+                <br/>
+                <ChangeEmail/>
+                <br/>
+                <ChangePassword/>
+                {/* <button className="btn change" onClick={()=> closeModal(false)}> Cancel</button> */}
         </div>
     </div>
     )
