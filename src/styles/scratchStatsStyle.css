@@ -11,9 +11,6 @@
         "gridNavBar gridContent gridContent gridSetting"
         "gridNavBar gridContent gridContent gridSetting"; */
 }
-
-
-
 .scratchStats__content {
     position: absolute;
     width: 60%;
@@ -27,4 +24,27 @@
     
     background-color: var(--win98);
     border: 2px solid white;
+}
+.scratchStats__displayCards {
+    margin-left: 2rem;
+    background-color: var(--secondary);
+    
+}
+.scratchCards {
+    display: flex;
+    width: 80%;
+    height: 400px;
+    margin: 0 auto 0 auto;
+
+    background-color: blue;
+}
+.display__card {
+    margin: 1rem;
+    max-width: 400px;
+    max-height: 400px;
+
+    img {
+        max-width: 250px;
+        max-height: 300px;
+    }
 }

@@ -91,7 +91,7 @@ export const Content = () => {
             setPrimaryWin( ((((win.length + lose.length) / win.length ) + basicWinChance)/2)*100)
 
         }
-// chance to win top prize 
+    // chance to win top prize 
         const winTopPrize = (cards) => {
             const scratchInfo = scratch.filter((card) => card.name === cards.name)
         
@@ -113,7 +113,7 @@ export const Content = () => {
             // console.log("Chance to win top: ", parseInt(scratchTopPrizeLeft) / (parseInt(scratchPrinted) - usersCards.length) )
             setWiningTopPrize(result)
         }
-// User ratio - compare winning cards added by user
+    // User ratio - compare winning cards added by user
         const userRatio = (cards) => {
             const userUid = auth?.currentUser?.uid
             
@@ -125,7 +125,7 @@ export const Content = () => {
             setUserBuyScratchTime(myArr.length)
             setUserWinRatio( (winArr.length / myArr.length)*100)
         }
-// wining ratio by scratch by all users
+    // wining ratio by scratch by all users
         const winingRatio = (cards) => {
             let result = 0;
             let numberOfWinScratch = 0;
@@ -202,7 +202,7 @@ export const Content = () => {
         )
     }
 
-    // Component - User add Card to database and received information about what scratchcard he added
+// Component - User add Card to database and received information about what scratchcard he added
     const UserAddScratchcard = ({ data }) => {
         const userId = auth?.currentUser?.uid;
         const [hidden, setHidden ] = useState(false)
