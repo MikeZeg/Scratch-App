@@ -24,7 +24,6 @@ export const ScratchStats = () => {
                 ...doc.data(),
                 id: doc.id
             }))
-            console.log('data from scrach stats')
             setScratchCard(filterData)
         } catch(err){console.log(err)}
     }
@@ -41,7 +40,7 @@ export const ScratchStats = () => {
 
 // Refresh data
     useEffect(()=>{
-        console.log('Refresh data - ScratchStats');
+        // console.log('Refresh data - ScratchStats');
         getScratchList();
         getUserScratchCards();
     },[])
@@ -50,10 +49,10 @@ export const ScratchStats = () => {
 
     // --------- Display scratch Cards in dataBase ---------
     const DisplayCards = ({scratch, usersScratch}) => {
-        const [ratio, setRatio ] = useState('')
+        const [ ratio, setRatio ] = useState('')
         const [ cashWin , setCashWin ] = useState('')
         const [ cashSpend, setCashSpend ] = useState('')
-        // console.log(scratch, usersScratch)
+        console.log(scratch, usersScratch)
 
         const totalCards = scratch.length;
 
@@ -67,10 +66,9 @@ export const ScratchStats = () => {
 
                 let checkPrice = card.name
             // check card price in scratch card db
-                scratch.map((card) => {
-                    if(card === checkPrice){
+                scratch.forEach((card)=>{
+                    if(card.name === checkPrice){
                         cashTotalSpend += card.price
-                        console.log('check price', card)
                     }
                 })
 
@@ -92,9 +90,9 @@ export const ScratchStats = () => {
             <div className='scratchStats__displayCards'>
                 <div className='displayCards__info'>
                     <h2 >All Scratch Cards: <p> {totalCards} </p> </h2>
-                    <h2> Winning Ratio: <p>{ratio}</p></h2>
+                    <h2> Winning Ratio: <p>{ratio} %</p></h2>
                     <h2>Total Cash Win: <p>{cashWin}</p></h2>
-                    <h2>{cashSpend}</h2>
+                    <h2>Tota cach Spend: <p>{cashSpend}</p></h2>
                 </div>
 
                 <div className='scratchCards auto__scroll'>
