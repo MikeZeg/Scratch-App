@@ -17,6 +17,7 @@ export const ScratchStats = () => {
     const userScratchCollection = collection(db, "scratchcardUsed")
   
 // Functions
+    // All scratch Cards
     const getScratchList = async () => {
         try {
             const data = await getDocs(scratchCollection);
@@ -27,6 +28,7 @@ export const ScratchStats = () => {
             setScratchCard(filterData)
         } catch(err){console.log(err)}
     }
+    // All users scratch cards
     const getUserScratchCards = async () => {
         try {
             const data = await getDocs(userScratchCollection);
@@ -47,7 +49,7 @@ export const ScratchStats = () => {
 
 // --------- Components --------- Components --------- 
 
-    // --------- Display scratch Cards in dataBase ---------
+    // --------- Display scratch Cards in dataBase --------- take put from main Component
     const DisplayCards = ({scratch, usersScratch}) => {
         const [ ratio, setRatio ] = useState('')
         const [ cashWin , setCashWin ] = useState('')
@@ -91,8 +93,8 @@ export const ScratchStats = () => {
                 <div className='displayCards__info'>
                     <h2 >All Scratch Cards: <p> {totalCards} </p> </h2>
                     <h2> Winning Ratio: <p>{ratio} %</p></h2>
-                    <h2>Total Cash Win: <p>{cashWin}</p></h2>
-                    <h2>Tota cach Spend: <p>{cashSpend}</p></h2>
+                    <h2>Users win: <p>{cashWin}</p></h2>
+                    <h2>Users spend total: <p>{cashSpend}</p></h2>
                 </div>
 
                 <div className='scratchCards auto__scroll'>
@@ -105,14 +107,25 @@ export const ScratchStats = () => {
                                 <p>Price: {card.price}</p>
                                 <p>Top Prize: {card.topPrize}</p>
                                 <p>Top Prize Left to Win: {card.topPrizeLeft}</p>
-                            
+                {/* press button to see stats included all Users 
+                    add window like in Contnet 193 line - handleSubmit()
+                */}
+                                <Details
+
+                                />
                         </section>
                     ))}
                 </div>
             </div>
         )
     }
-// ------ Display stats for all scratch
+
+    const Details = () => {
+        return (
+            <button>Press to check stats</button>
+        )
+    }
+
 
     return (
         <div className='scratchStats'>

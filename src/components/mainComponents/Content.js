@@ -71,7 +71,7 @@ export const Content = () => {
             document.getElementById(`card${index}Details`).classList.toggle('details__hidden');
             document.querySelector("body").classList.toggle('stopScroll')
         }
-    // chance to win any Prize
+        // chance to win any Prize
         const chanceToWinAny = (cards) => {
             const scratchcardInfo = scratch.filter((card) => card.name === cards.name)
         //basic win by scratchcard
@@ -91,7 +91,7 @@ export const Content = () => {
             setPrimaryWin( ((((win.length + lose.length) / win.length ) + basicWinChance)/2)*100)
 
         }
-    // chance to win top prize 
+        // chance to win top prize 
         const winTopPrize = (cards) => {
             const scratchInfo = scratch.filter((card) => card.name === cards.name)
         
@@ -370,7 +370,7 @@ export const Content = () => {
                             <br/>
                             <img className="cardImage" src={card.img} alt="card.name"></img>
                             <div>
-                                <p className="cardName" ><strong>ScratchCard:</strong> {card.name}</p>
+                                <p className="cardName" ><strong>Scratch Card:</strong> {card.name}</p>
                                 <p className="cardPrice" ><strong>Price:</strong> {card.price}</p>
                                 <p className="cardTopWin" ><strong>Top Prize to win:</strong> {card.topPrize}</p>
                                 <p className="cardWinLeft" >{card.topPrizeLeft > 0 ?
