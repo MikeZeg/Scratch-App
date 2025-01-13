@@ -66,7 +66,7 @@ export const Content = () => {
         const [ winingTopPrize , setWiningTopPrize] = useState("");
         const [ primaryWin, setPrimaryWin] = useState("");
         
-        const handleSubmit = (card,index, event) => {
+        const handleSubmit = (card,index) => {
             // document.querySelector(`#card${index}Details`).classList.toggle('details__hidden');
             document.getElementById(`card${index}Details`).classList.toggle('details__hidden');
             document.querySelector("body").classList.toggle('stopScroll')

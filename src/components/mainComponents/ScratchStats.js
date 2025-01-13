@@ -49,16 +49,16 @@ export const ScratchStats = () => {
 
 // --------- Components --------- Components --------- 
 
-    // --------- Display scratch Cards in dataBase --------- take put from main Component
+    // --------- Display scratch Cards in dataBase ---------
     const DisplayCards = ({scratch, usersScratch}) => {
         const [ ratio, setRatio ] = useState('')
         const [ cashWin , setCashWin ] = useState('')
         const [ cashSpend, setCashSpend ] = useState('')
-        console.log(scratch, usersScratch)
+        // console.log(scratch, usersScratch)
 
         const totalCards = scratch.length;
 
-    //winnig ratio - users scratch cards add to.
+        //winnig ratio - users scratch cards add to.
         const winRatio = () => {
             let winScratch = 0;
             let cashTotal = 0;
@@ -91,10 +91,10 @@ export const ScratchStats = () => {
         return (
             <div className='scratchStats__displayCards'>
                 <div className='displayCards__info'>
-                    <h2 >All Scratch Cards: <p> {totalCards} </p> </h2>
-                    <h2> Winning Ratio: <p>{ratio} %</p></h2>
-                    <h2>Users win: <p>{cashWin}</p></h2>
-                    <h2>Users spend total: <p>{cashSpend}</p></h2>
+                    <h2 className='stats__info'>All Scratch Cards<p>{totalCards} </p> </h2>
+                    <h2 className='stats__info'> Winning Ratio<p>{ratio} %</p></h2>
+                    <h2 className='stats__info'>Users win<p>{cashWin} £</p></h2>
+                    <h2 className='stats__info'>Users spend total<p>{cashSpend} £</p></h2>
                 </div>
 
                 <div className='scratchCards auto__scroll'>
@@ -111,7 +111,10 @@ export const ScratchStats = () => {
                     add window like in Contnet 193 line - handleSubmit()
                 */}
                                 <Details
-
+                                    card = {card}
+                                    index = {index}
+                                    cardId = {card.id}
+                                    userCards = {usersScratch}
                                 />
                         </section>
                     ))}
@@ -119,13 +122,64 @@ export const ScratchStats = () => {
             </div>
         )
     }
+// ------- Details component ------
+    const Details = ({card, index, cardId, userCards}) => {
+        // function
+        const handleSubmit = ({card, index, cardId}) => {
+            // console.log('pressed', "card: "+card.name, "index: "+index,"cardId"+cardId)
+            document.getElementById(`card${index}Stats`).classList.toggle('showStats')
+            document.getElementById(`card${index}Stats`).classList.toggle('card__stats__showStats')
+            // document.querySelector('body').classList.toggle('stopScroll')
+            console.log('pressed card: '+index,'. Cards name: '+card.name)
+        }
+        //Refresh Data
+        const refreshData = () => {
+            console.log('data refresh data')
+        }
+        //Check card stats
+        const cardStats = (card, userCards) => {
+            console.log('check card pressed'+card.name)
 
-    const Details = () => {
+            userCards.forEach((card)=> {
+
+            })
+        }
+
         return (
-            <button>Press to check stats</button>
+            // add card name before - toggle change status on existing card in parent
+            <div className='card__stats'>
+                <div className='card__stats__showStats' id={`card${index}Stats`}>
+                    <button 
+                        onClick = {()=>{
+                            handleSubmit({card, index, cardId});}
+                        }
+                    > X </button>
+                    <button>Refresh Data</button>
+                    {/* Mian info about scratch Card */}
+                    <section className='stats__info'>
+                        <h1 className='stats__info__cardName'>Stats for {card.name}</h1>
+                        <div className='stas__info__flex'>
+                            <h2 className=''>Total scratched cards: {}<p></p></h2>
+                            <h2>Total Wins<p>{}</p></h2>
+                            <h2>Win Precentage <p>{} %</p></h2>
+                        </div>
+                    </section>
+                    {/* diagram for winning chance */}
+                    <section className='stats__diagram'>
+                        <div className='char'>
+
+                        </div>
+                    </section>
+                </div>
+
+                <button
+                    onClick = {()=>{
+                        handleSubmit({card, index, cardId});}
+                    }
+                >Press to check stats!!!</button>
+            </div>
         )
     }
-
 
     return (
         <div className='scratchStats'>
@@ -135,15 +189,13 @@ export const ScratchStats = () => {
             </div>
 
             <div className='scratchStats__content'>
+                <button className='btn rounded' id='stats-btn' onClick={()=>{goTo('/Main')}}> Go To Main</button>
                 <DisplayCards 
                     scratch = {scrachCard}
                     usersScratch = {userCards}
                     />
-                <section > Give diagram winning ratio - all users</section>
-                <section > Give user diagram winning ration - select data? </section>
-                <button className='btn rounded' onClick={()=>{goTo('/Main')}}> Go To Main</button>
+                {/* <section > Give diagram winning ratio - all users</section> */}
             </div>
-
         </div>
     )
 }

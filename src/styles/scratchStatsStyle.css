@@ -13,22 +13,54 @@
 }
 .scratchStats__content {
     position: absolute;
-    width: 60%;
+    width: 75%;
     min-width: 30%;
-    height: 600px;
-    max-height: 80%;
+    height: 950px;
+    max-height: 95%;
     /* z-index: 999; */
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     
     background-color: var(--win98);
-    border: 2px solid white;
+    border: 0px 2px 0px 2px solid white;
+}
+.stats__info {
+    display: flow;
+    text-align: center;
+    /* margin-left: 1rem; */
+    padding: 10px;
+    border: 1px solid white;
+    font-size: 1rem;
+    font-weight: var(--ft-normal);
+    width: 140px;
+    height: 100px;
+}
+.stats__info:not(:first-child){
+    margin-left: 1rem;
+}
+.stats__info > p {
+    font-size: 1.5rem;
+    font-weight: var(--ft--bold);
 }
 .scratchStats__displayCards {
-    margin-left: 2rem;
-    background-color: var(--secondary);
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
     
+    width: 95%;
+    height: 90%;
+    max-height: 659px;
+    padding: 0;
+    margin: 0;
+    background-color: var(--secondary);
+}
+.displayCards__info{
+    display: flex;
+    margin: 0.5rem 0 2rem 1rem;
 }
 .scratchCards {
     display: flex;
@@ -47,4 +79,31 @@
         max-width: 250px;
         max-height: 300px;
     }
+}
+.card__stats__showStats {
+    display: none;
+}
+.showStats {
+    position: absolute;
+    background-color: lightblue;
+    width: 95%;
+    height: 80%;
+    border: 8px solid var(--primary);
+    margin: 0;
+    padding: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9;
+}
+.stats__info__flex{
+    display: flex;
+}
+.stats__info__cardName {
+    font-size: var(--fts-lmed);
+}
+#stats-btn {
+    position: absolute;
+    right: 5px;
+    margin-top: 2px;
 }
