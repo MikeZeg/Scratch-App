@@ -101,15 +101,15 @@ export const ScratchStats = () => {
                     
                     {scratch.map((card, index) => (
                         <section className='display__card' key={card.id.toString()} id={`card${index.toString()}`}>
-                            <img src={card.img}/>
-                            
+                            <figcaption className='display__card__img'>
+                                <img src={card.img}/>
+                            </figcaption>
+                            <div className='display__card__info'>
                                 <p>{card.name}</p>
                                 <p>Price: {card.price}</p>
                                 <p>Top Prize: {card.topPrize}</p>
                                 <p>Top Prize Left to Win: {card.topPrizeLeft}</p>
-                {/* press button to see stats included all Users 
-                    add window like in Contnet 193 line - handleSubmit()
-                */}
+                            </div>
                                 <Details
                                     card = {card}
                                     index = {index}

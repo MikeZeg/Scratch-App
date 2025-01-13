@@ -22,15 +22,17 @@
     left: 50%;
     transform: translate(-50%,-50%);
     
-    background-color: var(--win98);
-    border: 0px 2px 0px 2px solid white;
+    /* background-color: var(--win98); */
+    border: 2px solid white;
+    box-shadow: 0px 0px 10px 1px var(--white);
 }
 .stats__info {
     display: flow;
     text-align: center;
     /* margin-left: 1rem; */
     padding: 10px;
-    border: 1px solid white;
+    border: 2px solid var(--white);
+    box-shadow: 0px 0px 9px 1px var(--white);
     font-size: 1rem;
     font-weight: var(--ft-normal);
     width: 140px;
@@ -56,7 +58,7 @@
     max-height: 659px;
     padding: 0;
     margin: 0;
-    background-color: var(--secondary);
+    /* background-color: var(--secondary); */
 }
 .displayCards__info{
     display: flex;
@@ -64,24 +66,33 @@
 }
 .scratchCards {
     display: flex;
-    width: 80%;
-    height: 400px;
+    width: 95%;
+    height: 430px;
     margin: 0 auto 0 auto;
-
-    background-color: blue;
+    background-color: lightblue;
+    border: 5px solid var(--white);
+    box-shadow: 0px 0px 9px 1px var(--white);
 }
 .display__card {
     margin: 1rem;
-    max-width: 400px;
-    max-height: 400px;
+    width: 400px;
+    height: 400px;
+}
+.display__card__img {
+    height: 200px;
+    width: 150px;
 
     img {
-        max-width: 250px;
-        max-height: 300px;
+        width: 100%;
+        height: 100%;
     }
 }
 .card__stats__showStats {
     display: none;
+}
+.display__card__info {
+    height: 160px;
+    /* display: grid; */
 }
 .showStats {
     position: absolute;
