@@ -139,7 +139,6 @@ export const ScratchStats = () => {
         //Check card stats
         const cardStats = (card, userCards) => {
             console.log('check card pressed'+card.name)
-
             userCards.forEach((card)=> {
 
             })
@@ -149,19 +148,23 @@ export const ScratchStats = () => {
             // add card name before - toggle change status on existing card in parent
             <div className='card__stats'>
                 <div className='card__stats__showStats' id={`card${index}Stats`}>
-                    <button 
+                    <button
+                        className='btn'
+                        id='btn-closeCardStats'
                         onClick = {()=>{
                             handleSubmit({card, index, cardId});}
                         }
-                    > X </button>
-                    <button>Refresh Data</button>
+                    >X</button>
                     {/* Mian info about scratch Card */}
-                    <section className='stats__info'>
-                        <h1 className='stats__info__cardName'>Stats for {card.name}</h1>
-                        <div className='stas__info__flex'>
-                            <h2 className=''>Total scratched cards: {}<p></p></h2>
-                            <h2>Total Wins<p>{}</p></h2>
-                            <h2>Win Precentage <p>{} %</p></h2>
+                    <section className='stats__info__card'>
+                        <button onClick={()=>{refreshData()}} className='btn' id='btn-refreshStats'>Refresh Data</button>
+                        <div className='stats__info__card__details'>
+                            <h1 className='stats__info__cardName'>Stats for {card.name}</h1>
+                            <div className='stas__info__flex'>
+                                <h2 className=''>Total scratched cards: <p>420000000</p></h2>
+                                <h2>Total Wins<p>32000{}</p></h2>
+                                <h2>Win Precentage <p>{}60 %</p></h2>
+                            </div>
                         </div>
                     </section>
                     {/* diagram for winning chance */}
