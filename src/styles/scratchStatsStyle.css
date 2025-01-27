@@ -43,7 +43,19 @@
 }
 .stats__info > p {
     font-size: 1.5rem;
-    font-weight: var(--ft--bold);
+    font-weight: var(--ft-bold);
+}
+.stas__info__flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    font-size: 16px;
+    font-weight: var(--ft-normal);
+}
+.stas__info__flex > p {
+    font-size: 16px;
+    font-weight: var(--ft-normal);
 }
 .scratchStats__displayCards {
     display: flex;
@@ -92,7 +104,11 @@
 }
 .display__card__info {
     height: 160px;
-    /* display: grid; */
+    font-size: var(--fts-small);
+}
+.display__card__info > p > span {
+    /* font-size: var(--fts-small); */
+    font-weight: var(--ft-bold);
 }
 .showStats {
     position: absolute;
@@ -111,13 +127,25 @@
 
 }
 .stats__info__details {
-    
+    display: grid;
+    align-content: center;
 }
 .stats__info__flex{
     display: flex;
+    justify-content: space-around;
+
 }
 .stats__info__cardName {
+    display: flex;
+    margin-left: 4rem;
     font-size: var(--fts-lmed);
+    font-weight: var(--ft-normal);
+    margin-bottom: 0;
+    color: var(--darkBlue);
+}
+.stats__info__cardName > p {
+    font-size: var(--ft-lmed);
+    /* font-weight: var(--ft-bold); */
 }
 
 #stats-btn {

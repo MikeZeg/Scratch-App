@@ -23,13 +23,18 @@
   --lg--fifth: hsl(228, 39%, 83%);
 
 /* font-size */
-  --fts-larg:3rem;
-  --fts-lmed:2rem;
-  --fts-med:1.5rem;
-  --fts-smed:1.2rem;
-  --fts-small:1rem;
-  --fts-mobile: 0.75rem;
-  
+--fts-larg:3rem;
+--fts-lmed:2rem;
+--fts-med:1.5rem;
+--fts-smed:1.2rem;
+--fts-small:1rem;
+--fts-mobile: 0.75rem;
+
+/* font weight */
+--ft-bold: 700;
+--ft-normal: 500;
+--ft-fit: 300;
+
   @media (width >= 1440px) {
     --fts-larg: 3rem;
     --fts-lmed: 2.8rem;
@@ -67,10 +72,6 @@
     --fts-small: 0.79rem;
   }
 
-/* font weight */
---ft-bold: 700;
---ft-normal: 500;
---ft-fit: 300;
 
 }
 body {

@@ -105,10 +105,10 @@ export const ScratchStats = () => {
                                 <img src={card.img}/>
                             </figcaption>
                             <div className='display__card__info'>
-                                <p>{card.name}</p>
-                                <p>Price: {card.price}</p>
-                                <p>Top Prize: {card.topPrize}</p>
-                                <p>Top Prize Left to Win: {card.topPrizeLeft}</p>
+                                <p><span>{card.name}</span></p>
+                                <p>Price: <span>{card.price}</span></p>
+                                <p>Top Prize: <span>{card.topPrize}</span></p>
+                                <p>Top Prize Left to Win: <span>{card.topPrizeLeft}</span></p>
                             </div>
                                 <Details
                                     card = {card}
@@ -159,11 +159,11 @@ export const ScratchStats = () => {
                     <section className='stats__info__card'>
                         <button onClick={()=>{refreshData()}} className='btn' id='btn-refreshStats'>Refresh Data</button>
                         <div className='stats__info__card__details'>
-                            <h1 className='stats__info__cardName'>Stats for {card.name}</h1>
-                            <div className='stas__info__flex'>
-                                <h2 className=''>Total scratched cards: <p>420000000</p></h2>
+                            <h1 className='stats__info__cardName'>Stats for <p>{card.name}</p></h1>
+                            <div className='stats__info__flex'>
+                                <h2 className=''>Total scratched cards<p>420000000</p></h2>
                                 <h2>Total Wins<p>32000{}</p></h2>
-                                <h2>Win Precentage <p>{}60 %</p></h2>
+                                <h2>Win Precentage <p>{}60%</p></h2>
                             </div>
                         </div>
                     </section>
