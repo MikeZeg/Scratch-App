@@ -85,7 +85,7 @@ export const ScratchStats = () => {
         }
         
         useEffect(()=>{
-            winRatio();
+            winRatio()
         },[])
         
         return (
@@ -124,25 +124,50 @@ export const ScratchStats = () => {
     }
 // ------- Details component ------
     const Details = ({card, index, cardId, userCards}) => {
+        const [printed, setPrinted] = useState('')
+        const [totalWin, setTotalWin] = useState('')
+        const [expense, setExpense] = useState('')
+        const [userBuy, setUserBuy] = useState('')
+        const [ratio, setRatio] = useState('')
+
         // function
         const handleSubmit = ({card, index, cardId}) => {
-            // console.log('pressed', "card: "+card.name, "index: "+index,"cardId"+cardId)
             document.getElementById(`card${index}Stats`).classList.toggle('showStats')
             document.getElementById(`card${index}Stats`).classList.toggle('card__stats__showStats')
-            // document.querySelector('body').classList.toggle('stopScroll')
-            console.log('pressed card: '+index,'. Cards name: '+card.name)
+            let cardPrice = card['price']
+    
+            cardStats(card.name, cardPrice)
         }
         //Refresh Data
         const refreshData = () => {
             console.log('data refresh data')
         }
-        //Check card stats
-        const cardStats = (card, userCards) => {
-            console.log('check card pressed'+card.name)
-            userCards.forEach((card)=> {
+    
+    //  Check card stats
+        const cardStats = (chooseCard, cardPrice) => {
+        //  total card
+            const totalAdd = userCards.filter((add)=> add.name === chooseCard)
+        //  total spend
+            let totalSpend = (cardPrice * totalAdd.length)
+            totalSpend <= 0 ? setExpense('No buy yet') : setExpense(totalSpend)
+                
+        // total win
+            const checkWin = totalAdd.filter((total) => total.win === true)
+                                .map((add) => parseInt(add.winPrize))
+                                .reduce((acc, curr)=> acc + curr, 0)
+            checkWin > 0 ? setTotalWin(checkWin+'£') : setTotalWin('Not Win Yet')
 
-            })
+        // Wining Ratio
+            const wininigCards = totalAdd.filter((win) => win.win == true)
+            let cardRatio = parseInt((wininigCards.length / totalAdd.length)*100)
+            cardRatio > 0 ? setRatio(cardRatio+'%') : setRatio('No Win')
         }
+        
+        // total cards refresh onClick - 179           
+        useEffect(()=>{
+            // console.log('refresh data - cards printedAmount value')
+            setPrinted(card.printedAmount)
+        },[handleSubmit])
 
         return (
             // add card name before - toggle change status on existing card in parent
@@ -161,9 +186,9 @@ export const ScratchStats = () => {
                         <div className='stats__info__card__details'>
                             <h1 className='stats__info__cardName'>Stats for <p>{card.name}</p></h1>
                             <div className='stats__info__flex'>
-                                <h2 className=''>Total scratched cards<p>420000000</p></h2>
-                                <h2>Total Wins<p>32000{}</p></h2>
-                                <h2>Win Precentage <p>{}60%</p></h2>
+                                <h2 className=''>Total scratched cards<p>{printed}</p></h2>
+                                <h2>Total Wins<p>{totalWin}</p></h2>
+                                <h2>Win Precentage <p>{ratio}</p></h2>
                             </div>
                         </div>
                     </section>
