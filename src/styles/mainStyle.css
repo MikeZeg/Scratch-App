@@ -62,7 +62,7 @@
 }
 
 /* --------- media queries ----------- */
-@media (width < 500px) {
+@media (width < 550px) {
     .main__LandingPage {
         width: 100%;
     }
@@ -84,7 +84,7 @@
     }
     .main__top {
         justify-content: center;
-        width: 100%;
+        width: 170px;
 
         #welcomeUser {
             width: 100%;
@@ -93,7 +93,7 @@
 
         }
         #settingUser {
-            display: flex;
+            display: grid;
             align-items: baseline;
             justify-content: space-around;
 
@@ -110,13 +110,79 @@
         min-width: 250px;
         min-height: 185px;
     }
+    .main {
+        grid-template-columns: 
+        "gridSetting gridContent"
+        "gridSetting gridContent"
+        "gridNavBar gridContent"
+        "gridNavBar gridContent";
+
+    }
+    
+}
+@media (width > 550px) {
+    .container {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+
+    }
+    .container__figure {
+        height: auto;
+        width: auto;
+    }
+    .container__figure > img {
+        border-radius: 30%;
+    }
+    .container__content {
+        margin: 0;
+    }
+    .container__content > h1 {
+        justify-content: center;
+        
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1rem;
+    }
+    .container__content > h2 {
+        text-align: center;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .login {
+        justify-content: center;
+        margin-top: 2rem;
+    }
 }
 @media (height < 800px) {
     .main__top {
         max-height: 720px;
     }
     .main__top {
-        width: 200px;
+        width: 100%;
+    }
+    .main__middle {
+        max-width: 400px;
+    }
+}
+@media (width > 1023px) {
+    .container {
+        flex-direction: row;
+    }
+    .container__content {
+        width: 40%;
+    }
+    .container__img {
+        justify-content: start;
+    }
+    .container__figure {
+        margin: 0;
+    }
+    .container__figure > img {
+        margin: 0;
     }
 }
 @media (width < 1366px) {

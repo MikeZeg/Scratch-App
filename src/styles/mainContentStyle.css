@@ -344,6 +344,9 @@
     .card__details__top {
         margin-top:0;
     }
+    .main__content {
+        width: 100%;
+    }
 }
 @media (width < 750px) {
     #hidden-addCards-inputs {
@@ -401,6 +404,28 @@
     .card__details__info {
         width: 70%;
         text-align: center;
+    }
+    #display-scratchcard {
+        margin: 0;
+        width: 95%;
+    }
+}
+@media (width < 550px) {
+    .content__scratchCards {
+        width: 380px;
+    }
+    .content__user {
+        width: 380px;
+    }
+    .contentUserAddScratchcard {
+        margin: 0.5rem;
+        width: 100%;
+    }
+    .main__top {
+        width: 70px;
+    }
+    #settingUser {
+        display: grid;
     }
 }
 

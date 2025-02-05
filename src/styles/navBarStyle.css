@@ -71,6 +71,13 @@
 #box-scratches:hover {
     scale:1.2;
 }
+@media (width < 550px ){
+    .navBar__style {
+        width: 50px;
+        max-height: 380px;
+        min-height: 370px;
+    }
+}
 
 @media (height < 800px) {
     .navBar__style {
