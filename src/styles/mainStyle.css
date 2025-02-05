@@ -63,7 +63,25 @@
 
 /* --------- media queries ----------- */
 @media (width < 500px) {
-    
+    .main__LandingPage {
+        width: 100%;
+    }
+    .container {
+        display: grid;
+        align-content: space-evenly;
+        justify-items: center;
+        margin: 0;
+    }
+    .container__content > h2 {
+        text-align: center;
+    }
+    .container__content {
+        display: contents;
+        margin: 0;
+        margin-left: auto;
+        margin-right: 0;
+        justify-items: center;
+    }
     .main__top {
         justify-content: center;
         width: 100%;
@@ -84,6 +102,14 @@
             }
         }
     }
+    .container__figure {
+        height: auto;
+        width: auto;
+    }
+    .img {
+        min-width: 250px;
+        min-height: 185px;
+    }
 }
 @media (height < 800px) {
     .main__top {
@@ -92,4 +118,7 @@
     .main__top {
         width: 200px;
     }
+}
+@media (width < 1366px) {
+    
 }

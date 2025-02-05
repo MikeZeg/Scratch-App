@@ -309,6 +309,9 @@
 }
 /* media queries  */
 @media (width < 1330px) {
+    .main__content {
+        width: 800px;
+    }
     .card-details {
         width: 70%;
         height: 80%;
@@ -316,6 +319,12 @@
     .breakLine {
         width: 120%;
     }
+}
+@media (width < 1250px) {
+    .main__content {
+        width: 600px;
+    }
+    
 }
 @media (width < 930px) {
     #hidden-addCards-inputs {
