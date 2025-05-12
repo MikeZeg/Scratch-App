@@ -16,7 +16,6 @@
     border: 3px solid var(--win98);
     box-shadow: 0 0 6px 2px black;
     max-width: 253px;
-
     grid-area: gridSetting;
     display: grid;
     justify-items: center;
@@ -62,7 +61,70 @@
 }
 
 /* --------- media queries ----------- */
-@media (width < 550px) {
+@media (width < 1480){
+    .main__middle {
+        max-width: 800px;
+    }
+}
+@media (width < 1366px) {
+    
+}
+@media (width < 1023px) {
+    .main {
+        grid-template-areas: 
+            "gridNavBar . . gridSetting"
+            "gridNavBar gridContent gridContent gridSetting"
+            "gridNavBar gridContent gridContent gridSetting";
+    }
+    .container {
+        flex-direction: row;
+    }
+    .container__content {
+        width: 40%;
+    }
+    .container__img {
+        justify-content: start;
+    }
+    .container__figure {
+        margin: 0;
+    }
+    .container__figure > img {
+        margin: 0;
+    }
+}
+@media (width < 1000px) {
+    .main {
+        gap: 15px;
+        grid-template-areas:
+        "gridNavBar gridContent gridContent"
+        "gridSetting gridContent gridContent"
+        "gridSetting gridContent gridContent";
+    }
+    .main__top {
+        max-height: 720px;
+    }
+    .main__top {
+        width: 96%;
+        max-width: 150px;
+    }
+    .main__middle {
+        max-width: 99%;
+        min-width: 0;
+        width: 100%;
+    }
+}
+@media (width < 900px) {
+    
+}
+@media (width < 549px) {
+    .main {
+        height: 100vh;
+        grid-template-areas:
+        "gridSetting gridSetting gridSetting"
+        "gridContent gridContent gridContent"
+        "gridContent gridContent gridContent"
+        "gridNavBar gridNavBar gridNavBar";
+    }
     .main__LandingPage {
         width: 100%;
     }
@@ -93,7 +155,8 @@
 
         }
         #settingUser {
-            display: grid;
+            display: flex;
+            width: 200px;
             align-items: baseline;
             justify-content: space-around;
 
@@ -110,81 +173,15 @@
         min-width: 250px;
         min-height: 185px;
     }
-    .main {
-        grid-template-columns: 
-        "gridSetting gridContent"
-        "gridSetting gridContent"
-        "gridNavBar gridContent"
-        "gridNavBar gridContent";
-
-    }
-    
-}
-@media (width > 550px) {
-    .container {
+    .navBar {
         display: flex;
-        flex-direction: column-reverse;
-        align-items: center;
-        justify-content: center;
-
-    }
-    .container__figure {
-        height: auto;
-        width: auto;
-    }
-    .container__figure > img {
-        border-radius: 30%;
-    }
-    .container__content {
-        margin: 0;
-    }
-    .container__content > h1 {
-        justify-content: center;
-        
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 1rem;
-    }
-    .container__content > h2 {
-        text-align: center;
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .login {
-        justify-content: center;
-        margin-top: 2rem;
-    }
-}
-@media (height < 800px) {
-    .main__top {
-        max-height: 720px;
-    }
-    .main__top {
         width: 100%;
+        max-width: 99%;
+        min-width: 0;
+        height: 100px;
+        max-height: 99px;
+        min-height: 0;
+
+        margin-bottom: 15px;
     }
-    .main__middle {
-        max-width: 400px;
-    }
-}
-@media (width > 1023px) {
-    .container {
-        flex-direction: row;
-    }
-    .container__content {
-        width: 40%;
-    }
-    .container__img {
-        justify-content: start;
-    }
-    .container__figure {
-        margin: 0;
-    }
-    .container__figure > img {
-        margin: 0;
-    }
-}
-@media (width < 1366px) {
-    
 }

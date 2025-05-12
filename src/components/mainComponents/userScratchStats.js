@@ -28,8 +28,6 @@ const UserScratchStats = () => {
         } catch(err){console.error(err)}
     }
 
-
-
     return (
         <div className='userScratchStats'>
 

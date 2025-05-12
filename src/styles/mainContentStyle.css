@@ -326,12 +326,12 @@
     }
     
 }
-@media (width < 930px) {
+@media (width < 1000px) {
     #hidden-addCards-inputs {
         width: 60%;
         display: grid;
         justify-items: center;
-        margin: 0;
+        margin: auto;
     }
     .card-details {
         width: 85%;
@@ -346,6 +346,23 @@
     }
     .main__content {
         width: 100%;
+    }
+    #display-scratchcard {
+        width: 99%;
+        max-width: 99%;
+        min-width: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .saparate {
+        width: 120%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media (width < 900px) {
+    #display-scratchcard {
+        width: 90%;
     }
 }
 @media (width < 750px) {
@@ -412,21 +429,37 @@
 }
 @media (width < 550px) {
     .content__scratchCards {
-        width: 380px;
+        width: 100%;
     }
     .content__user {
-        width: 380px;
+        width: 100%;
     }
     .contentUserAddScratchcard {
         margin: 0.5rem;
         width: 100%;
     }
     .main__top {
-        width: 70px;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+
+        height: 50px;
+        max-height: 80px;
+        min-height: 0;
+
+        display: flex;
+        margin-top: 10px;
     }
     #settingUser {
         display: grid;
     }
+    .main__middle {
+        margin-bottom: 15px;
+    }
+    #addCards {
+        height: 60%;
+    }
+
 }
 
 @media (height < 800px ) {

@@ -17,7 +17,11 @@ export const User = () => {
 
     return (
         <div className="user">
-            <section id="user-greeting"><p>Welcome {user?.currentUser?.email}</p></section>
+            <section id="user-greeting">
+                <p>
+                    Welcome 
+                    {/* {user?.currentUser?.email} */}
+                </p></section>
             <section></section>
         </div>
     )
