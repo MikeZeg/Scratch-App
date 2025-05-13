@@ -454,7 +454,7 @@
         display: grid;
     }
     .main__middle {
-        margin-bottom: 15px;
+        margin-bottom: 50px;
     }
     #addCards {
         height: 60%;
